@@ -1,40 +1,41 @@
-maquinas = {
-    "m1": {
+import itertools
 
-        "embalagem": 3,
-        "produto": 1
+Maquinas = {
+    "m1": {
+        "nome": "maquina 1",
+        "embalagem": [3, 4],
+        "produto": [1, 2]
     },
 
     "m2": {
-
-        "embalagem": 2,
-        "produto": 2
+        "nome": "maquina 2",
+        "embalagem": [2, 1],
+        "produto": [2, 3]
     },
 
     "m3": {
-
-        "embalagem": 4,
-        "produto": 3
+        "nome": "maquina 3",
+        "embalagem": [4, 5],
+        "produto": [1, 3]
     },
 
     "m4": {
-
-        "embalagem": 1,
-        "produto": 2
+        "nome": "maquina 4",
+        "embalagem": [4, 1],
+        "produto": [4, 2]
     }
 }
 
-escolha_embalagem = 1
-escolha_produto = 2
+escolha_emb = 3
+escolha_prod = 2
+result = []
 
-
-def filtro_m(unit_num):
-    if maquinas[unit_num]["embalagem"] == escolha_embalagem and maquinas[unit_num]["produto"] == escolha_produto:
-        return True
+for x in Maquinas:
+    if escolha_emb in Maquinas[x]["embalagem"] and escolha_prod in Maquinas[x]["produto"]:
+        result.append(Maquinas[x]["nome"])
     else:
-        return False
+        pass
+
+print(result)
 
 
-x = list(filter(filtro_m, maquinas))
-
-print(x)
