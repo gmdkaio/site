@@ -1,5 +1,3 @@
-import itertools
-
 Maquinas = {
     "m1": {
         "nome": "maquina 1",
