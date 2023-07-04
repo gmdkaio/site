@@ -1,30 +1,101 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Filter</title>
+    <title>Filter Maquinas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1>Filter</h1>
-
-    <form action="/" method="POST">
-        <h2>Embalagens</h2>
-        <button type="submit" name="embalagem" value="1">Emgalagem 1</button>
-        <button type="submit" name="embalagem" value="2">Embalagem 2</button>
-        <button type="submit" name="embalagem" value="3">Embalagem 3</button>
+    <h1>Filter Maquinas</h1>
+    <form id="filter-form">
+        <label for="embalagem">Embalagem:</label>
+        <br>
+        <div class="flex-container">
+            <div class="embalagens">
+                <div class='embBtns'>
+                    <button type="button" class="embalagem-btn" value="1">Embalagem 1</button>
+                    <button type="button" class="embalagem-btn" value="2">Embalagem 2</button>
+                    <button type="button" class="embalagem-btn" value="3">Embalagem 3</button>
+                    <button type="button" class="embalagem-btn" value="4">Embalagem 4</button>
+                </div>
+                <div class='embBtns'>
+                    <button type="button" class="embalagem-btn" value="5">Embalagem 5</button>
+                    <button type="button" class="embalagem-btn" value="6">Embalagem 6</button>
+                    <button type="button" class="embalagem-btn" value="7">Embalagem 7</button>
+                    <button type="button" class="embalagem-btn" value="8">Embalagem 8</button>
+                </div>
+            </div>
+            <label for="produto">Produto:</label>
+            <br>
+            <div class="produtos">
+                <div class='prodBtn'>
+                    <button type="button" class="produto-btn" value="1">Produto 1</button>
+                    <button type="button" class="produto-btn" value="2">Produto 2</button>
+                    <button type="button" class="produto-btn" value="3">Produto 3</button>
+                </div>
+                <div class='prodBtn'>
+                    <button type="button" class="produto-btn" value="4">Produto 4</button>
+                    <button type="button" class="produto-btn" value="5">Produto 5</button>
+                    <button type="button" class="produto-btn" value="6">Produto 6</button>
+                </div>
+            </div>
+        </div>
         <br>
         <br>
-        <h2>Produtos</h2>
-        <button type="submit" name="produto" value="1">Produto 1</button>
-        <button type="submit" name="produto" value="2">Produto 2</button>
-        <button type="submit" name="produto" value="3">Produto 3</button>
+        <button type="submit">Filter</button>
     </form>
-    <br>
-    <br>
-    <h2>Resultado:</h2>
-    <p>{{ result }}</p>
-    
-</div>
+    <h2>Results:</h2>
+    <ul id="result-list"></ul>
 
+    <script>
+        var embalagem = 0;
+        var produto = 0;
+
+        $('.embalagem-btn').click(function() {
+            embalagem = parseInt($(this).val());
+            setFilterValues();
+        });
+
+        $('.produto-btn').click(function() {
+            produto = parseInt($(this).val());
+            setFilterValues();
+        });
+
+        $('#filter-form').submit(function(event) {
+            event.preventDefault();
+
+            var formData = {
+                embalagem: embalagem,
+                produto: produto
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/filter',
+                data: formData,
+                success: function(response) {
+                    var result = response.result;
+                    var resultHtml = '';
+
+                    if (result.length === 0) {
+                        resultHtml = '<li>Nenhum resultado encontrado</li>';
+                    } else {
+                        for (var i = 0; i < result.length; i++) {
+                            resultHtml += '<li>' + result[i] + '</li>';
+                        }
+                    }
+
+                    $('#result-list').html(resultHtml);
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+
+        function setFilterValues() {
+            $('#embalagem').val(embalagem);
+            $('#produto').val(produto);
+        }
+    </script>
 {% endblock %}
