@@ -110,17 +110,30 @@
 
         embButtons.forEach(button => {
         button.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
             embButtons.forEach(btn => btn.classList.remove('active'));
+            if (!isActive) {
             this.classList.add('active');
-        });
-        });
+            embalagem = parseInt(this.value);
+            } else {
+            embalagem = 0;
+            }
+            setFilterValues();
+  });
+});
 
         prodButtons.forEach(button => {
         button.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
             prodButtons.forEach(btn => btn.classList.remove('active'));
+            if (!isActive) {
             this.classList.add('active');
-
-     });
+            produto = parseInt(this.value);
+            } else {
+            produto = 0;
+            }
+            setFilterValues();
+    });
 });
     </script>
 {% endblock %}
