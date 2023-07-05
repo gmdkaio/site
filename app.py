@@ -7,21 +7,25 @@ Maquinas = {
         "nome": "maquina 1",
         "embalagem": [3, 4],
         "produto": [1, 2],
+        "producao": 1000
     },
     "m2": {
         "nome": "maquina 2",
         "embalagem": [2, 1],
-        "produto": [2, 3]
+        "produto": [2, 3],
+        "producao": 2000
     },
     "m3": {
         "nome": "maquina 3",
         "embalagem": [4, 5],
-        "produto": [1, 3]
+        "produto": [1, 3], 
+        "producao": 3000
     },
     "m4": {
         "nome": "maquina 4",
         "embalagem": [4, 1],
-        "produto": [4, 2]
+        "produto": [4, 2],
+        "producao": 4000
     }
 }
 

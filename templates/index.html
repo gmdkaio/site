@@ -8,35 +8,34 @@
 {% block body %}
     <h1>Filter Maquinas</h1>
     <form id="filter-form">
-        <label for="embalagem">Embalagem:</label>
-        <br>
         <div class="flex-container">
+            <div class="text">Embalagens</div>
+
             <div class="embalagens">
                 <div class='embBtns'>
-                    <button type="button" class="embalagem-btn" value="1">Embalagem 1</button>
-                    <button type="button" class="embalagem-btn" value="2">Embalagem 2</button>
-                    <button type="button" class="embalagem-btn" value="3">Embalagem 3</button>
-                    <button type="button" class="embalagem-btn" value="4">Embalagem 4</button>
+                    <button type="button" class="embalagem-btn" value="1"><img src="../static/images/embalagens/gabletop.png" alt="Gable Top"></button>
+                    <button type="button" class="embalagem-btn" value="2"><img src="../static/images/embalagens/pouch.png" alt="Stand-Up Pouch"></button>
+                    <button type="button" class="embalagem-btn" value="3"><img src="../static/images/embalagens/especiais.png" alt="Especiais"></button>
+                    <button type="button" class="embalagem-btn" value="4"><img src="../static/images/embalagens/sache.png" alt="Sachê"></button>
                 </div>
                 <div class='embBtns'>
-                    <button type="button" class="embalagem-btn" value="5">Embalagem 5</button>
-                    <button type="button" class="embalagem-btn" value="6">Embalagem 6</button>
-                    <button type="button" class="embalagem-btn" value="7">Embalagem 7</button>
-                    <button type="button" class="embalagem-btn" value="8">Embalagem 8</button>
+                    <button type="button" class="embalagem-btn" value="5"><img src="../static/images/embalagens/garrafa.png" alt="Garrafa"></button>
+                    <button type="button" class="embalagem-btn" value="6"><img src="../static/images/embalagens/frasco.png" alt="Frasco"></button>
+                    <button type="button" class="embalagem-btn" value="7"><img src="../static/images/embalagens/fardo.png" alt="Fardo"></button>
+                    <button type="button" class="embalagem-btn" value="8"><img src="../static/images/embalagens/pote.png" alt="Pote"></button>
                 </div>
             </div>
-            <label for="produto">Produto:</label>
-            <br>
+
             <div class="produtos">
-                <div class='prodBtn'>
-                    <button type="button" class="produto-btn" value="1">Produto 1</button>
-                    <button type="button" class="produto-btn" value="2">Produto 2</button>
-                    <button type="button" class="produto-btn" value="3">Produto 3</button>
+                <div class='prodBtns'>
+                    <button type="button" class="produto-btn" value="1"><img src="../static/images/produtos/liquido-fino.png" alt="Líquido fino"></button>
+                    <button type="button" class="produto-btn" value="2"><img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio"></button>
+                    <button type="button" class="produto-btn" value="3"><img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso"></button>
                 </div>
-                <div class='prodBtn'>
-                    <button type="button" class="produto-btn" value="4">Produto 4</button>
-                    <button type="button" class="produto-btn" value="5">Produto 5</button>
-                    <button type="button" class="produto-btn" value="6">Produto 6</button>
+                <div class='prodBtns'>
+                    <button type="button" class="produto-btn" value="4"><img src="../static/images/produtos/pos.png" alt="Pó"></button>
+                    <button type="button" class="produto-btn" value="5"><img src="../static/images/produtos/granular.png" alt="Granular"></button>
+                    <button type="button" class="produto-btn" value="6"><img src="../static/images/produtos/solidos.png" alt="Sólido"></button>
                 </div>
             </div>
         </div>
@@ -47,6 +46,14 @@
     <h2>Results:</h2>
     <ul id="result-list"></ul>
 
+    <label for="producao" id="producao">Velocidade de produção</label>
+    <br>
+    <select>
+        <option value=1000>Producao 1</option>
+        <option value=2000>Producao 2</option>
+        <option value=3000>Producao 3</option>
+        <option value=4000>Producao 4</option>
+    </select>
     <script>
         var embalagem = 0;
         var produto = 0;
@@ -97,5 +104,23 @@
             $('#embalagem').val(embalagem);
             $('#produto').val(produto);
         }
+
+        const embButtons = document.querySelectorAll('.embalagem-btn');
+        const prodButtons = document.querySelectorAll('.produto-btn');
+
+        embButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            embButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+        });
+
+        prodButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            prodButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+     });
+});
     </script>
 {% endblock %}

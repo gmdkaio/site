@@ -1,0 +1,78 @@
+.flex-container {
+    display: flex; 
+  }
+  
+  .embalagens,
+  .produtos {
+    flex: 1; 
+    margin-right: 10px;
+    background: #DADBDF;
+    padding: 10px;
+  }
+
+.embalagem-btn {
+    padding: 0;
+    border: none;
+    background: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+
+.embalagem-btn img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.embalagem-btn.active {
+    transform: scale(1.25);
+}
+
+
+.text {
+    background: #DADBDF;
+    color: white;
+    padding: 5px;
+    text-align: left;
+  }
+
+.embBtns{
+    background-color: white;
+
+}
+
+.produtos {
+  flex: 1; 
+  margin-right: 10px;
+  background: #DADBDF;
+  padding: 10px;
+}
+
+.produto-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.produto-btn img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.produto-btn.active {
+  transform: scale(1.25);
+}
+
+.prodBtns {
+  background-color: white;
+}
