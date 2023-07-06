@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
+
+body{
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  text-align: left;
+  margin-left:7%;
+}
+
+h1{
+  color:#002d72;
+}
+
+
 /* Animação dos botões */
 
 .embalagem-btn {
@@ -18,7 +32,7 @@
     transition: border-color 0.3s ease;
 }
 
-.embalagem-btn.active {
+.embalagem-btn.active, .produto-btn.active {
     transform: scale(1.25);
 }
 
@@ -41,45 +55,65 @@
 
 .produto-btn.active {
   transform: scale(1.25);
+  border-color: transparent;
+  box-shadow: transparent;
 }
 
 /* Fim da animação dos botões */
 
 /* Container de opções */
-
-.grid {
-	display: grid;
-}
-
 .main-grid{
-    grid-template-columns: 350px 270px;
-    column-gap: 50px;
-    justify-content: center;
+    grid-template-columns: 400px 400px;
+    gap: 20px;
 }
 
 .grid-embalagens, .grid-produtos {
 	grid-template:
-		"nav nav" 27px
-		"content content" 200px
+		"nav nav" 30px
+		"content content" 200px;
+}
+
+.grid-embalagens {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-produtos{
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .nav {
 	grid-area: nav;
-  background-color: grey;
+  background-color: #002d72;
 }
 
 .content {
 	grid-area: content;
-  border: 5px solid grey
+  border: 1px solid #DADBDF;
 }
 
-/* Grid Item */
-.item {
-	font-size: 1.5em;
-  text-align: center;
+.grid-embalagens .content{
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+.grid-produtos .content{
+  padding-top: 5px;
+  padding-left: 6px;
 }
 
 .grid {
 	max-width: 400px;
-  margin: auto;
+  display: grid;
 }
+
+.texto{
+  padding-top: 7px;
+  padding-left: 12px;
+  font-size: 11px;
+  text-align: left;
+  color:white;
+  font-weight: 300;
+}
+
+/* Fim do container de opções */
+

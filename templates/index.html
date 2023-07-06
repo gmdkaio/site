@@ -6,49 +6,48 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Filter Maquinas</h1>
+    <h1>Monte sua Máquina</h1>
+    <h3>Utilize nosso site e descubra qual a máquina ideal para o seu produto</h3>
     <form id="filter-form">
-        <div>
-            <section class="grid main-grid">
-                <section class="grid grid-embalagens">
-                    <div class="item nav">Embalagens</div>
-                    <div class="item content">
-                        <button type="button" class="embalagem-btn" value="1"><img src="../static/images/embalagens/gabletop.png" alt="Gable Top"></button>
-                        <button type="button" class="embalagem-btn" value="2"><img src="../static/images/embalagens/pouch.png" alt="Stand-Up Pouch"></button>
-                        <button type="button" class="embalagem-btn" value="3"><img src="../static/images/embalagens/especiais.png" alt="Especiais"></button>
-                        <button type="button" class="embalagem-btn" value="4"><img src="../static/images/embalagens/sache.png" alt="Sachê"></button>
-                        <button type="button" class="embalagem-btn" value="5"><img src="../static/images/embalagens/garrafa.png" alt="Garrafa"></button>
-                        <button type="button" class="embalagem-btn" value="6"><img src="../static/images/embalagens/frasco.png" alt="Frasco"></button>
-                        <button type="button" class="embalagem-btn" value="7"><img src="../static/images/embalagens/fardo.png" alt="Fardo"></button>
-                        <button type="button" class="embalagem-btn" value="8"><img src="../static/images/embalagens/pote.png" alt="Pote"></button>
-                    </div>
-                </section>
-                <section class="grid grid-produtos">
-                    <div class="item nav">Produtos</div>
-                    <div class="item content">
-                        <button type="button" class="produto-btn" value="1"><img src="../static/images/produtos/liquido-fino.png" alt="Líquido fino"></button>
-                        <button type="button" class="produto-btn" value="2"><img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio"></button>
-                        <button type="button" class="produto-btn" value="3"><img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso"></button>
-                        <button type="button" class="produto-btn" value="4"><img src="../static/images/produtos/pos.png" alt="Pó"></button>
-                        <button type="button" class="produto-btn" value="5"><img src="../static/images/produtos/granular.png" alt="Granular"></button>
-                        <button type="button" class="produto-btn" value="6"><img src="../static/images/produtos/solidos.png" alt="Sólido"></button>   
-                    </div>
-                </section>
+        <section class="grid main-grid">
+            <section class="grid grid-embalagens">
+                <div class="item nav"><div class='texto'>Selecione uma embalagem</div></div>
+                <div class="item content">
+                    <button type="button" class="embalagem-btn" value="1"><img src="../static/images/embalagens/gabletop.png" alt="Gable Top"></button>
+                    <button type="button" class="embalagem-btn" value="2"><img src="../static/images/embalagens/pouch.png" alt="Stand-Up Pouch"></button>
+                    <button type="button" class="embalagem-btn" value="3"><img src="../static/images/embalagens/especiais.png" alt="Especiais"></button>
+                    <button type="button" class="embalagem-btn" value="4"><img src="../static/images/embalagens/sache.png" alt="Sachê"></button>
+                    <button type="button" class="embalagem-btn" value="5"><img src="../static/images/embalagens/garrafa.png" alt="Garrafa"></button>
+                    <button type="button" class="embalagem-btn" value="6"><img src="../static/images/embalagens/frasco.png" alt="Frasco"></button>                        <button type="button" class="embalagem-btn" value="7"><img src="../static/images/embalagens/fardo.png" alt="Fardo"></button>
+                    <button type="button" class="embalagem-btn" value="8"><img src="../static/images/embalagens/pote.png" alt="Pote"></button>
+                </div>
             </section>
-            </div>
+            <section class="grid grid-produtos">
+                <div class="item nav"><div class='texto'>Selecione um tipo de produto</div></div>
+                <div class="item content">
+                    <button type="button" class="produto-btn" value="1"><img src="../static/images/produtos/liquido-fino.png" alt="Líquido fino"></button>
+                    <button type="button" class="produto-btn" value="2"><img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio"></button>
+                    <button type="button" class="produto-btn" value="3"><img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso"></button>
+                    <button type="button" class="produto-btn" value="4"><img src="../static/images/produtos/pos.png" alt="Pó"></button>
+                    <button type="button" class="produto-btn" value="5"><img src="../static/images/produtos/granular.png" alt="Granular"></button>
+                    <button type="button" class="produto-btn" value="6"><img src="../static/images/produtos/solidos.png" alt="Sólido"></button>   
+                </div>
+            </section>
+        </section>
+        <br>
         <button type="submit">Filter</button>
     </form>
     <h2>Results:</h2>
     <ul id="result-list"></ul>
 
-    <label for="producao" id="producao">Velocidade de produção</label>
+    <!-- <label for="producao" id="producao">Velocidade de produção</label>
     <br>
     <select>
         <option value=1000>Producao 1</option>
         <option value=2000>Producao 2</option>
         <option value=3000>Producao 3</option>
         <option value=4000>Producao 4</option>
-    </select>
+    </select> -->
     <script>
         var embalagem = 0;
         var produto = 0;
