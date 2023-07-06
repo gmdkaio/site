@@ -1,14 +1,4 @@
-.flex-container {
-    display: flex; 
-  }
-  
-  .embalagens,
-  .produtos {
-    flex: 1; 
-    margin-right: 10px;
-    background: #DADBDF;
-    padding: 10px;
-  }
+/* Animação dos botões */
 
 .embalagem-btn {
     padding: 0;
@@ -32,26 +22,6 @@
     transform: scale(1.25);
 }
 
-
-.text {
-    background: #DADBDF;
-    color: white;
-    padding: 5px;
-    text-align: left;
-  }
-
-.embBtns{
-    background-color: white;
-
-}
-
-.produtos {
-  flex: 1; 
-  margin-right: 10px;
-  background: #DADBDF;
-  padding: 10px;
-}
-
 .produto-btn {
   padding: 0;
   border: none;
@@ -73,6 +43,43 @@
   transform: scale(1.25);
 }
 
-.prodBtns {
-  background-color: white;
+/* Fim da animação dos botões */
+
+/* Container de opções */
+
+.grid {
+	display: grid;
+}
+
+.main-grid{
+    grid-template-columns: 350px 270px;
+    column-gap: 50px;
+    justify-content: center;
+}
+
+.grid-embalagens, .grid-produtos {
+	grid-template:
+		"nav nav" 27px
+		"content content" 200px
+}
+
+.nav {
+	grid-area: nav;
+  background-color: grey;
+}
+
+.content {
+	grid-area: content;
+  border: 5px solid grey
+}
+
+/* Grid Item */
+.item {
+	font-size: 1.5em;
+  text-align: center;
+}
+
+.grid {
+	max-width: 400px;
+  margin: auto;
 }
