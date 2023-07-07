@@ -58,10 +58,13 @@ def index():
 
 @app.route('/filter', methods=['POST'])
 def filter_maquinas():
+
+    #Pega o valor dos botôes
     escolha_emb = int(request.form.get('embalagem', 0))
     escolha_prod = int(request.form.get('produto', 0))
     result = []
 
+    #Filtragem
     for x in Maquinas:
         embalagem_match = escolha_emb in Maquinas[x]["embalagem"]
         produto_match = escolha_prod in Maquinas[x]["produto"]

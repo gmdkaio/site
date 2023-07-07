@@ -1,51 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
 
-body{
+body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   text-align: left;
-  margin-left:7%;
+  margin-left: 7%;
 }
 
-h1{
-  color:#002d72;
+h1 {
+  color: #002d72;
 }
 
-
-/* Animação dos botões */
-
-.embalagem-btn {
-    padding: 0;
-    border: none;
-    background: none;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+.button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-
-.embalagem-btn img {
-    width: 75px;
-    height: 75px;
-    object-fit: cover;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
+.button-content img {
+  margin-bottom: 5px;
 }
 
-.embalagem-btn.active, .produto-btn.active {
-    transform: scale(1.25);
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.produto-btn {
+.button-row-inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  width: 100%;
+}
+
+.embalagem-btn, .produto-btn {
   padding: 0;
   border: none;
   background: none;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.produto-btn img {
+.embalagem-btn img, .produto-btn img{
   width: 75px;
   height: 75px;
   object-fit: cover;
@@ -53,67 +59,43 @@ h1{
   transition: border-color 0.3s ease;
 }
 
-.produto-btn.active {
-  transform: scale(1.25);
-  border-color: transparent;
-  box-shadow: transparent;
+.embalagem-btn.active, .produto-btn.active {
+  transform: scale(1.4);
 }
 
-/* Fim da animação dos botões */
-
-/* Container de opções */
-.main-grid{
-    grid-template-columns: 400px 400px;
-    gap: 20px;
+.main-grid {
+  display: flex;
+  gap: 20px;
 }
 
-.grid-embalagens, .grid-produtos {
-	grid-template:
-		"nav nav" 30px
-		"content content" 200px;
+.grid-embalagens,
+.grid-produtos {
+  flex-basis: 50%;
+  max-width: 450px;
 }
 
-.grid-embalagens {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-produtos{
-  grid-template-columns: repeat(3, 1fr);
+.grid-produtos .content {
+  padding-right: 6px;
 }
 
 .nav {
-	grid-area: nav;
+  grid-column: 1 / span 4;
+  grid-row: 1;
   background-color: #002d72;
+  height: 30px;
 }
 
 .content {
-	grid-area: content;
-  border: 1px solid #DADBDF;
+  grid-column: 1 / span 4;
+  grid-row: 2;
+  border: 1px solid #dadbdf;
 }
 
-.grid-embalagens .content{
-  padding-top: 10px;
-  padding-left: 30px;
-}
-
-.grid-produtos .content{
-  padding-top: 5px;
-  padding-left: 6px;
-}
-
-.grid {
-	max-width: 400px;
-  display: grid;
-}
-
-.texto{
+.texto {
   padding-top: 7px;
   padding-left: 12px;
   font-size: 11px;
   text-align: left;
-  color:white;
+  color: white;
   font-weight: 300;
 }
-
-/* Fim do container de opções */
-
