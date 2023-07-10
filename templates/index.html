@@ -93,7 +93,7 @@
         <button type="submit">Filter</button>
     </form>
     <h2>Results:</h2>
-    <ul id="result-list"></ul>
+    <ul id="result-list" class="grid card grid"></ul>
 
     <!-- <label for="producao" id="producao">Velocidade de produção</label>
     <br>
@@ -103,85 +103,85 @@
         <option value=3000>Producao 3</option>
         <option value=4000>Producao 4</option>
     </select> -->
-    <script>
-        var embalagem = 0;
-        var produto = 0;
+<script>
+    var embalagem = 0;
+    var produto = 0;
 
-        $('.embalagem-btn').click(function() {
-            embalagem = parseInt($(this).val());
-            setFilterValues();
-        });
+    $('.embalagem-btn').click(function() {
+        embalagem = parseInt($(this).val());
+        setFilterValues();
+    });
 
-        $('.produto-btn').click(function() {
-            produto = parseInt($(this).val());
-            setFilterValues();
-        });
+    $('.produto-btn').click(function() {
+        produto = parseInt($(this).val());
+        setFilterValues();
+    });
 
-        $('#filter-form').submit(function(event) {
-            event.preventDefault();
+    $('#filter-form').submit(function(event) {
+        event.preventDefault();
 
-            var formData = {
-                embalagem: embalagem,
-                produto: produto
-            };
+        var formData = {
+            embalagem: embalagem,
+            produto: produto
+        };
 
-            $.ajax({
-                type: 'POST',
-                url: '/filter',
-                data: formData,
-                success: function(response) {
-                    var result = response.result;
-                    var resultHtml = '';
+        $.ajax({
+            type: 'POST',
+            url: '/filter',
+            data: formData,
+            success: function(response) {
+                var result = response.result;
+                var resultHtml = '';
 
-                    if (result.length === 0) {
-                        resultHtml = '<li>Nenhum resultado encontrado</li>';
-                    } else {
-                        for (var i = 0; i < result.length; i++) {
+                if (result.length === 0) {
+                    resultHtml = '<li>Nenhum resultado encontrado</li>';
+                } else {
+                    for (var i = 0; i < result.length; i++) {
                             resultHtml += '<li>' + result[i] + '</li>';
-                        }
                     }
-
-                    $('#result-list').html(resultHtml);
-                },
-                error: function(error) {
-                    console.log('Error:', error);
                 }
-            });
-        });
 
-        function setFilterValues() {
-            $('#embalagem').val(embalagem);
-            $('#produto').val(produto);
-        }
-
-        const embButtons = document.querySelectorAll('.embalagem-btn');
-        const prodButtons = document.querySelectorAll('.produto-btn');
-
-        embButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const isActive = this.classList.contains('active');
-            embButtons.forEach(btn => btn.classList.remove('active'));
-            if (!isActive) {
-            this.classList.add('active');
-            embalagem = parseInt(this.value);
-            } else {
-            embalagem = 0;
+                $('#result-list').html(resultHtml);
+            },
+            error: function(error) {
+                console.log('Error:', error);
             }
-            setFilterValues();
+        });
+    });
+
+    function setFilterValues() {
+        $('#embalagem').val(embalagem);
+        $('#produto').val(produto);
+    }
+
+    const embButtons = document.querySelectorAll('.embalagem-btn');
+    const prodButtons = document.querySelectorAll('.produto-btn');
+
+    embButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const isActive = this.classList.contains('active');
+        embButtons.forEach(btn => btn.classList.remove('active'));
+        if (!isActive) {
+        this.classList.add('active');
+        embalagem = parseInt(this.value);
+        } else {
+        embalagem = 0;
+        }
+        setFilterValues();
   });
 });
 
-        prodButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const isActive = this.classList.contains('active');
-            prodButtons.forEach(btn => btn.classList.remove('active'));
-            if (!isActive) {
-            this.classList.add('active');
-            produto = parseInt(this.value);
-            } else {
-            produto = 0;
-            }
-            setFilterValues();
+    prodButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const isActive = this.classList.contains('active');
+        prodButtons.forEach(btn => btn.classList.remove('active'));
+        if (!isActive) {
+        this.classList.add('active');
+        produto = parseInt(this.value);
+        } else {
+        produto = 0;
+        }
+        setFilterValues();
     });
 });
     </script>
