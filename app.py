@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from info.maquinas import Maquinas
 
 app = Flask(__name__)
 
@@ -23,34 +24,6 @@ app = Flask(__name__)
 # 4 - PÓ
 # 5 - GRANULAR
 # 6 - SÓLIDO
-
-
-Maquinas = {
-    "m1": {
-        "nome": "maquina 1",
-        "embalagem": [3, 4],
-        "produto": [1, 2],
-        "producao": 1000
-    },
-    "m2": {
-        "nome": "maquina 2",
-        "embalagem": [2, 1],
-        "produto": [2, 3],
-        "producao": 2000
-    },
-    "m3": {
-        "nome": "maquina 3",
-        "embalagem": [4, 5],
-        "produto": [1, 3], 
-        "producao": 3000
-    },
-    "m4": {
-        "nome": "maquina 4",
-        "embalagem": [4, 1],
-        "produto": [4, 2],
-        "producao": 4000
-    }
-}
 
 @app.route('/', methods=['GET'])
 def index():
