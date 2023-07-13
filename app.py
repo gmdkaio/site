@@ -3,6 +3,28 @@ from info.maquinas import Maquinas
 
 app = Flask(__name__)
 
+# SISTEMA DE FILTROS               
+
+# EMBALAGENS:
+
+# 1 - GABLE TOP
+# 2 - STAND-UP POUCH
+# 3 - ESPECIAL
+# 4 - SACHÊ
+# 5 - GARRAFA
+# 6 - FRASCO
+# 7 - FARDO
+# 8 - POTE
+
+# PRODUTOS: 
+
+# 1 - LÍQUIDO FINO
+# 2 - LÍQUIDO MÉDIO
+# 3 - LÍQUIDO GROSSO
+# 4 - PÓ
+# 5 - GRANULAR
+# 6 - SÓLIDO
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
