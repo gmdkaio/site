@@ -98,38 +98,29 @@
 </form>
 <h2>Results:</h2>
 <div id="card-container" class="flexbox">
-    </ul>
+</div>
+<script>
+    var Maquinas = JSON.parse('{{ maquinas|safe }}');
+    var embalagem = 0;
+    var produto = 0;
 
-    <!-- <label for="producao" id="producao">Velocidade de produção</label>
-    <br>
-    <select>
-        <option value=1000>Producao 1</option>
-        <option value=2000>Producao 2</option>
-        <option value=3000>Producao 3</option>
-        <option value=4000>Producao 4</option>
-    </select> -->
-    <script>
-        var Maquinas = JSON.parse('{{ maquinas|safe }}');
-        var embalagem = 0;
-        var produto = 0;
+    function setFilterValues() {
+        $('#embalagem').val(embalagem);
+        $('#produto').val(produto);
+    }
 
-        function setFilterValues() {
-            $('#embalagem').val(embalagem);
-            $('#produto').val(produto);
-        }
+    $('.embalagem-btn').click(function () {
+        embalagem = parseInt($(this).val());
+        setFilterValues();
+    });
 
-        $('.embalagem-btn').click(function () {
-            embalagem = parseInt($(this).val());
-            setFilterValues();
-        });
+    $('.produto-btn').click(function () {
+        produto = parseInt($(this).val());
+        setFilterValues();
+    });
 
-        $('.produto-btn').click(function () {
-            produto = parseInt($(this).val());
-            setFilterValues();
-        });
-
-        function generateCardHtml(machine) {
-            return `
+    function generateCardHtml(machine) {
+        return `
             <div class='card'>
                 <div class='card-name'>
                     <div class='texto-card' alt='${machine.nome}'>${machine.linha}</div>
@@ -142,82 +133,82 @@
                 </div>
             </div>
             `;
-        }
+    }
 
-        function animateCards() {
-            const cards = $('.card');
-            cards.each(function (index) {
-                const card = $(this);
-                setTimeout(function () {
-                    card.addClass('animate');
-                }, index * 50);
-            });
-        }
+    function animateCards() {
+        const cards = $('.card');
+        cards.each(function (index) {
+            const card = $(this);
+            setTimeout(function () {
+                card.addClass('animate');
+            }, index * 50);
+        });
+    }
 
-        $('#filter-form').submit(function (event) {
-            event.preventDefault();
+    $('#filter-form').submit(function (event) {
+        event.preventDefault();
 
-            var formData = {
-                embalagem: embalagem,
-                produto: produto
-            };
+        var formData = {
+            embalagem: embalagem,
+            produto: produto
+        };
 
-            $.ajax({
-                type: 'POST',
-                url: '/filter',
-                data: formData,
-                success: function (response) {
-                    var result = response.result;
-                    var cardContainer = $('#card-container');
+        $.ajax({
+            type: 'POST',
+            url: '/filter',
+            data: formData,
+            success: function (response) {
+                var result = response.result;
+                var cardContainer = $('#card-container');
 
-                    if (result.length === 0) {
-                        cardContainer.html('<p>Nenhum resultado encontrado</p>');
-                    } else {
-                        var cardsHtml = '';
-                        for (var i = 0; i < result.length; i++) {
-                            var machine = Maquinas[result[i]];
-                            cardsHtml += generateCardHtml(machine);
-                        }
-                        cardContainer.html(cardsHtml);
-                        animateCards()
+                if (result.length === 0) {
+                    cardContainer.html('<p>Nenhum resultado encontrado</p>');
+                } else {
+                    var cardsHtml = '';
+                    for (var i = 0; i < result.length; i++) {
+                        var machine = Maquinas[result[i]];
+                        cardsHtml += generateCardHtml(machine);
                     }
-                },
-                error: function (error) {
-                    console.log('Error:', error);
+                    cardContainer.html(cardsHtml);
+                    animateCards()
                 }
-            });
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
         });
+    });
 
-        const embButtons = document.querySelectorAll('.embalagem-btn');
-        const prodButtons = document.querySelectorAll('.produto-btn');
+    const embButtons = document.querySelectorAll('.embalagem-btn');
+    const prodButtons = document.querySelectorAll('.produto-btn');
 
-        embButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const isActive = this.classList.contains('active');
-                embButtons.forEach(btn => btn.classList.remove('active'));
-                if (!isActive) {
-                    this.classList.add('active');
-                    embalagem = parseInt(this.value);
-                } else {
-                    embalagem = 0;
-                }
-                setFilterValues();
-            });
+    embButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const isActive = this.classList.contains('active');
+            embButtons.forEach(btn => btn.classList.remove('active'));
+            if (!isActive) {
+                this.classList.add('active');
+                embalagem = parseInt(this.value);
+            } else {
+                embalagem = 0;
+            }
+            setFilterValues();
         });
+    });
 
-        prodButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const isActive = this.classList.contains('active');
-                prodButtons.forEach(btn => btn.classList.remove('active'));
-                if (!isActive) {
-                    this.classList.add('active');
-                    produto = parseInt(this.value);
-                } else {
-                    produto = 0;
-                }
-                setFilterValues();
-            });
+    prodButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const isActive = this.classList.contains('active');
+            prodButtons.forEach(btn => btn.classList.remove('active'));
+            if (!isActive) {
+                this.classList.add('active');
+                produto = parseInt(this.value);
+            } else {
+                produto = 0;
+            }
+            setFilterValues();
         });
+    });
 
-    </script>
-    {% endblock %}
+</script>
+{% endblock %}
