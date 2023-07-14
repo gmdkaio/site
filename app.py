@@ -35,5 +35,20 @@ def filter_maquinas():
 
     return jsonify(result=result)
 
+@app.route('/maquinas/<maquina_pagina>', methods=['GET'])
+def maquina_page(maquina_pagina):
+    maquina_details = None
+    for key, value in Maquinas.items():
+        if value.get('pagina') == maquina_pagina:
+            maquina_details = value
+            break
+    
+    if maquina_details:
+        return render_template(f'maquinas/{maquina_pagina}.html', maquina=maquina_details)
+
+    else:
+        return render_template('404.html'), 404
+
+
 if __name__ == '__main__':
     app.run()

@@ -2,7 +2,6 @@
 
 {% block head %}
 <title>Filter Maquinas</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -96,7 +95,7 @@
     <br>
     <button type="submit">Filter</button>
 </form>
-<h2>Results:</h2>
+<br><br>
 <div id="card-container" class="flexbox">
 </div>
 <script>
@@ -121,19 +120,24 @@
 
     function generateCardHtml(machine) {
         return `
-            <div class='card'>
-                <div class='card-name'>
-                    <div class='texto-card' alt='${machine.nome}'>${machine.linha}</div>
-                </div>
-                <img src='${machine.imagem}' class='center'>
-                <hr>
-                <div class='container'>
-                    <h4>${machine.nome}</h4>
-                    <p>${machine.descricao}</p>
-                </div>
+        <div class='card' onclick="redirectToMachinePage('${machine.pagina}')">
+            <div class='card-name'>
+                <div class='texto-card' alt='${machine.nome}'>${machine.linha}</div>
             </div>
-            `;
+            <img src='${machine.imagem}' class='center'>
+            <hr>
+            <div class='container'>
+                <h4>${machine.nome}</h4>
+                <p>${machine.descricao}</p>
+            </div>
+        </div>
+    `;
     }
+
+    function redirectToMachinePage(pagina) {
+        window.location.href = `/maquinas/${pagina}`;
+    }
+
 
     function animateCards() {
         const cards = $('.card');
