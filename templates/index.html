@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Filter Maquinas</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<title>Filter Maquinas</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {% endblock %}
 
 {% block body %}
-    <h1>Monte sua Máquina</h1>
-    <h3>Utilize nosso site e descubra qual a máquina ideal para o seu produto</h3>
-    <form id="filter-form">
-        <section class="grid main-grid">
-            <section class="grid grid-embalagens">
-                <div class="item nav"><div class="texto">Selecione uma embalagem</div></div>
-                <div class="item content">
+<h1>Monte sua Máquina</h1>
+<h3>Utilize nosso site e descubra qual a máquina ideal para o seu produto</h3>
+<form id="filter-form">
+    <section class="grid main-grid">
+        <section class="grid grid-embalagens">
+            <div class="item nav">
+                <div class="texto">Selecione uma embalagem</div>
+            </div>
+            <div class="item content">
                 <div class="button-row">
-                  <div class="button-row-inner">
+                    <div class="button-row-inner">
                         <button type="button" class="embalagem-btn" value="1">
                             <img src="../static/images/embalagens/gabletop.png" alt="Gable Top">
                             <span>Cartonada</span>
@@ -51,49 +53,52 @@
                         </button>
                     </div>
                 </div>
-                </div>
-            </section>
-            <section class="grid grid-produtos">
-                <div class="item nav"><div class="texto">Selecione um tipo de produto</div></div>
-                <div class="item content">
-                  <div class="button-row">
-                    <div class="button-row-inner">
-                      <button type="button" class="produto-btn" value="1">
-                        <img src="../static/images/produtos/liquido-fino.png" alt="Líquido fino">
-                        <span>Líquido</span>
-                      </button>
-                      <button type="button" class="produto-btn" value="2">
-                        <img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio">
-                        <span>Viscoso</span>
-                      </button>
-                      <button type="button" class="produto-btn" value="3">
-                        <img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso">
-                        <span>Pastoso</span>
-                      </button>
-                    </div>
-                    <div class="button-row-inner">
-                      <button type="button" class="produto-btn" value="4">
-                        <img src="../static/images/produtos/pos.png" alt="Pó">
-                        <span>Pó</span>
-                      </button>
-                      <button type="button" class="produto-btn" value="5">
-                        <img src="../static/images/produtos/granular.png" alt="Granular">
-                        <span>Granular</span>
-                      </button>
-                      <button type="button" class="produto-btn" value="6">
-                        <img src="../static/images/produtos/solidos.png" alt="Sólido">
-                        <span>Sólido</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </section>    
+            </div>
         </section>
-        <br>
-        <button type="submit">Filter</button>
-    </form>
-    <h2>Results:</h2>
-    <ul id="result-list"></ul>
+        <section class="grid grid-produtos">
+            <div class="item nav">
+                <div class="texto">Selecione um tipo de produto</div>
+            </div>
+            <div class="item content">
+                <div class="button-row">
+                    <div class="button-row-inner">
+                        <button type="button" class="produto-btn" value="1">
+                            <img src="../static/images/produtos/liquido-fino.png" alt="Líquido fino">
+                            <span>Líquido</span>
+                        </button>
+                        <button type="button" class="produto-btn" value="2">
+                            <img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio">
+                            <span>Viscoso</span>
+                        </button>
+                        <button type="button" class="produto-btn" value="3">
+                            <img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso">
+                            <span>Pastoso</span>
+                        </button>
+                    </div>
+                    <div class="button-row-inner">
+                        <button type="button" class="produto-btn" value="4">
+                            <img src="../static/images/produtos/pos.png" alt="Pó">
+                            <span>Pó</span>
+                        </button>
+                        <button type="button" class="produto-btn" value="5">
+                            <img src="../static/images/produtos/granular.png" alt="Granular">
+                            <span>Granular</span>
+                        </button>
+                        <button type="button" class="produto-btn" value="6">
+                            <img src="../static/images/produtos/solidos.png" alt="Sólido">
+                            <span>Sólido</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <br>
+    <button type="submit">Filter</button>
+</form>
+<h2>Results:</h2>
+<div id="card-container" class="card-container">
+    </ul>
 
     <!-- <label for="producao" id="producao">Velocidade de produção</label>
     <br>
@@ -104,20 +109,42 @@
         <option value=4000>Producao 4</option>
     </select> -->
     <script>
+        var Maquinas = JSON.parse('{{ maquinas|safe }}');
         var embalagem = 0;
         var produto = 0;
 
-        $('.embalagem-btn').click(function() {
+        function setFilterValues() {
+            $('#embalagem').val(embalagem);
+            $('#produto').val(produto);
+        }
+
+        $('.embalagem-btn').click(function () {
             embalagem = parseInt($(this).val());
             setFilterValues();
         });
 
-        $('.produto-btn').click(function() {
+        $('.produto-btn').click(function () {
             produto = parseInt($(this).val());
             setFilterValues();
         });
 
-        $('#filter-form').submit(function(event) {
+        function generateCardHtml(machine) {
+            return `
+            <div class='card'>
+                <div class='card-name'>
+                    <div class='texto-card' alt='${machine.nome}'>${machine.nome}</div>
+                </div>
+                <img src='${machine.imagem}' class='center'>
+                <hr>
+                <div class='container'>
+                    <h4>${machine.nome}</h4>
+                    <p>${machine.descricao}</p>
+                </div>
+            </div>
+            `;
+        }
+
+        $('#filter-form').submit(function (event) {
             event.preventDefault();
 
             var formData = {
@@ -129,60 +156,57 @@
                 type: 'POST',
                 url: '/filter',
                 data: formData,
-                success: function(response) {
+                success: function (response) {
                     var result = response.result;
-                    var resultHtml = '';
+                    var cardContainer = $('#card-container');
 
                     if (result.length === 0) {
-                        resultHtml = '<li>Nenhum resultado encontrado</li>';
+                        cardContainer.html('<p>Nenhum resultado encontrado</p>');
                     } else {
+                        var cardsHtml = '';
                         for (var i = 0; i < result.length; i++) {
-                            resultHtml += '<li>' + result[i] + '</li>';
+                            var machine = Maquinas[result[i]];
+                            cardsHtml += generateCardHtml(machine);
                         }
+                        cardContainer.html(cardsHtml);
                     }
-
-                    $('#result-list').html(resultHtml);
                 },
-                error: function(error) {
+                error: function (error) {
                     console.log('Error:', error);
                 }
             });
         });
 
-        function setFilterValues() {
-            $('#embalagem').val(embalagem);
-            $('#produto').val(produto);
-        }
-
         const embButtons = document.querySelectorAll('.embalagem-btn');
         const prodButtons = document.querySelectorAll('.produto-btn');
 
         embButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const isActive = this.classList.contains('active');
-            embButtons.forEach(btn => btn.classList.remove('active'));
-            if (!isActive) {
-            this.classList.add('active');
-            embalagem = parseInt(this.value);
-            } else {
-            embalagem = 0;
-            }
-            setFilterValues();
-  });
-});
+            button.addEventListener('click', function () {
+                const isActive = this.classList.contains('active');
+                embButtons.forEach(btn => btn.classList.remove('active'));
+                if (!isActive) {
+                    this.classList.add('active');
+                    embalagem = parseInt(this.value);
+                } else {
+                    embalagem = 0;
+                }
+                setFilterValues();
+            });
+        });
 
         prodButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const isActive = this.classList.contains('active');
-            prodButtons.forEach(btn => btn.classList.remove('active'));
-            if (!isActive) {
-            this.classList.add('active');
-            produto = parseInt(this.value);
-            } else {
-            produto = 0;
-            }
-            setFilterValues();
-    });
-});
+            button.addEventListener('click', function () {
+                const isActive = this.classList.contains('active');
+                prodButtons.forEach(btn => btn.classList.remove('active'));
+                if (!isActive) {
+                    this.classList.add('active');
+                    produto = parseInt(this.value);
+                } else {
+                    produto = 0;
+                }
+                setFilterValues();
+            });
+        });
+
     </script>
-{% endblock %}
+    {% endblock %}
