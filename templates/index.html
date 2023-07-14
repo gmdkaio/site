@@ -144,6 +144,16 @@
             `;
         }
 
+        function animateCards() {
+            const cards = $('.card');
+            cards.each(function (index) {
+                const card = $(this);
+                setTimeout(function () {
+                    card.addClass('animate');
+                }, index * 50);
+            });
+        }
+
         $('#filter-form').submit(function (event) {
             event.preventDefault();
 
@@ -169,6 +179,7 @@
                             cardsHtml += generateCardHtml(machine);
                         }
                         cardContainer.html(cardsHtml);
+                        animateCards()
                     }
                 },
                 error: function (error) {
