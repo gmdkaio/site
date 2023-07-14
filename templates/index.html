@@ -97,7 +97,7 @@
     <button type="submit">Filter</button>
 </form>
 <h2>Results:</h2>
-<div id="card-container" class="card-container">
+<div id="card-container" class="flexbox">
     </ul>
 
     <!-- <label for="producao" id="producao">Velocidade de produção</label>
@@ -132,7 +132,7 @@
             return `
             <div class='card'>
                 <div class='card-name'>
-                    <div class='texto-card' alt='${machine.nome}'>${machine.nome}</div>
+                    <div class='texto-card' alt='${machine.nome}'>${machine.linha}</div>
                 </div>
                 <img src='${machine.imagem}' class='center'>
                 <hr>

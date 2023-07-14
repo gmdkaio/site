@@ -1,5 +1,6 @@
 Maquinas = {
     'TP': {
+        'linha': 'Linha TP',
         'nome': 'Linha TP',
         'embalagem': [3, 4],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -8,6 +9,7 @@ Maquinas = {
     },
 
     'TC 4S': {
+        'linha': 'Linha TC 4S',
         'nome': 'Linha TC 4S',
         'embalagem': [3, 4],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -16,6 +18,7 @@ Maquinas = {
     },
 
     'TC 3SC PÓ E SÓLIDOS': {
+        'linha': 'Linha TC 3SC',
         'nome': 'Linha 3SC Pó e sólidos',
         'embalagem': [3, 4],
         'produto': [4, 5, 6],
@@ -24,6 +27,7 @@ Maquinas = {
     },
 
     'TC 3SC LÍQUIDOS E SECOS': {
+        'linha': 'Linha TC 3SC',
         'nome': 'Linha 3SC Líquidos e secos',
         'embalagem': [3, 4],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -32,6 +36,7 @@ Maquinas = {
     },
 
     'TC 3SC STICK': {
+        'linha': 'Linha TC 3SC',
         'nome': 'Linha TC 3SC Stick',
         'embalagem': [3, 4],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -40,6 +45,7 @@ Maquinas = {
     },
 
     'TC-3SL': {
+        'linha': 'Linha TC-3SL',
         'nome': 'Linha TC-3SL',
         'embalagem': [3, 4],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -48,6 +54,7 @@ Maquinas = {
     },
 
     'FRASCOS LINEAR': {
+        'linha': 'Linha de frascos',
         'nome': 'Linha de frascos linear',
         'embalagem': [5, 6],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -56,6 +63,7 @@ Maquinas = {
     },
 
     'FRASCOS TRIBLOCK': {
+        'linha': 'Linha de frascos',
         'nome': 'Linha de frascos triblock',
         'embalagem': [5, 6],
         'produto': [1, 2, 3],
@@ -64,6 +72,7 @@ Maquinas = {
     },
 
     'FRASCOS ROTATIVA': {
+        'linha': 'Linha de frascos',
         'nome': 'Linha de frascos rotativa',
         'embalagem': [5, 6],
         'produto': [1, 2, 3],
@@ -72,6 +81,7 @@ Maquinas = {
     },
 
     'FRASCOS SPEED': {
+        'linha': 'Linha de frascos',
         'nome': 'Linha de frascos rotativa speed',
         'embalagem': [5, 6],
         'produto': [1, 2, 3],
@@ -80,6 +90,7 @@ Maquinas = {
     },
 
     'POTES': {
+        'linha': 'Linha de potes',
         'nome': 'Linha de potes',
         'embalagem': [8],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -88,6 +99,7 @@ Maquinas = {
     },
 
     'TC 4BC': {
+        'linha': 'Linha TC 4B',
         'nome': 'Linha TC 4B',
         'embalagem': [2, 3],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -96,6 +108,7 @@ Maquinas = {
     },
 
     'POUCH': {
+        'linha': 'Linha Pouch',
         'nome': 'Linha Pouch pronto',
         'embalagem': [2, 3],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -104,6 +117,7 @@ Maquinas = {
     },
 
     'TC SUP': {
+        'linha': 'Linha TC SUP',
         'nome': 'Linha TC SUP',
         'embalagem': [2, 3],
         'produto': [1, 2],
@@ -112,6 +126,7 @@ Maquinas = {
     },
 
     'TC 4U': {
+        'linha': 'Linha TC 4U',
         'nome': 'Linha TC 4U',
         'embalagem': [7],
         'produto': [6],
@@ -120,6 +135,7 @@ Maquinas = {
     }, 
 
     'PTC': {
+        'linha': 'Linha PTC',
         'nome': 'Linha PTC',
         'embalagem': [3, 4],
         'produto': [4, 5, 6],
@@ -128,6 +144,7 @@ Maquinas = {
     },
 
     'TC 3SC BAG': {
+        'linha': 'Linha TC 3SC BAG',
         'nome': 'Linha TC 3SC BAG',
         'embalagem': [3, 4],
         'produto': [1, 2],
@@ -136,6 +153,7 @@ Maquinas = {
     },
 
     'FLOWPACK': {
+        'linha': 'Linha Flowpack',
         'nome': 'Linha Flowpack',
         'embalagem': [3, 4],
         'produto': [6],
@@ -144,6 +162,7 @@ Maquinas = {
     },
 
     'BISNAGAS': {
+        'linha': 'Linha bisnagas',
         'nome': 'Linha bisnagas',
         'embalagem': [6],
         'produto': [1, 2],
@@ -152,6 +171,7 @@ Maquinas = {
     },
 
     'CARTONADAS': {
+        'linha': 'Linha cartonadas',
         'nome': 'Linha embalagens cartonadas',
         'embalagem': [1],
         'produto': [1, 2, 3, 4, 5, 6],
@@ -160,6 +180,7 @@ Maquinas = {
     },
 
     'GALOES': {
+        'linha': 'Linha de galões',
         'nome': 'Linha de galões',
         'embalagem': [5],
         'produto': [1],
@@ -168,6 +189,7 @@ Maquinas = {
     },
 
     'PET': {
+        'linha': 'Linha PET',
         'nome': 'Pet com túnel',
         'embalagem': [5],
         'produto': [6],
