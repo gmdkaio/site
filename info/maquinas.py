@@ -66,7 +66,7 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/linha-frascos-1.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos linear',
-        'pagina': 'maquina-frascol'
+        'pagina': 'maquina-frascoln'
     },
 
     'FRASCOS TRIBLOCK': {
@@ -76,7 +76,7 @@ Maquinas = {
         'produto': [1, 2, 3],
         'imagem': '../static/images/maquinas/linha-frascos-2.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos triblock',
-        'pagina': 'maquina-frascot'
+        'pagina': 'maquina-frascotr'
     },
 
     'FRASCOS ROTATIVA': {
@@ -86,7 +86,7 @@ Maquinas = {
         'produto': [1, 2, 3],
         'imagem': '../static/images/maquinas/linha-frascos-3.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos rotativa',
-        'pagina': 'maquina-frascor'
+        'pagina': 'maquina-frascortv'
     },
 
     'FRASCOS SPEED': {
@@ -96,7 +96,7 @@ Maquinas = {
         'produto': [1, 2, 3],
         'imagem': '../static/images/maquinas/linha-frascos-4.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos rotativa speed',
-        'pagina': 'maquina-frascorsp'
+        'pagina': 'maquina-frascorts'
     },
 
     'POTES': {
