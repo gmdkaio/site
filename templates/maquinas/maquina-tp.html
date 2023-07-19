@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/static/css/maquinas.css">
+  <link rel="icon" type="image/x-icon" href="/static/images/icones/favicon.ico">
   <title>Profills - Linha TP</title>
 </head>
 
@@ -19,28 +20,28 @@
       <div><img src="/static/images/maquinas_cortado/tp.jpg" alt="Máquina da linha TP" class="imagemMaquina"></div>
       <div class="content">
         <div class="versoes">
-          <button class="version" role="button">TP 85</button>
-          <button class="version" role="button">TP 100</button>
-          <button class="version" role="button">TP 120</button>
-          <button class="version" role="button">TP 140</button>
-          <button class="version" role="button">TP 180</button>
-          <button class="version" role="button">TP 300</button>
+          <button class="version active" role="button" onclick="updateInfo('TP 85')">TP 85</button>
+          <button class="version" role="button" onclick="updateInfo('TP 100')">TP 100</button>
+          <button class="version" role="button" onclick="updateInfo('TP 120')">TP 120</button>
+          <button class="version" role="button" onclick="updateInfo('TP 140')">TP 140</button>
+          <button class="version" role="button" onclick="updateInfo('TP 180')">TP 180</button>
+          <button class="version" role="button" onclick="updateInfo('TP 300')">TP 300</button>
         </div>
       </div>
       <div class="info">
-        <div class="info-container">
+        <div class="info-container" id="producao">
           <div class="info-azul">
             <div class="textoinfoA">Capacidade de produção</div>
           </div>
           <div class="info-cinza">
             <div class="textoinfoB">
-              Até 3 mil unidades/hora
+              Até 850 unidades por hora
               <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
             </div>
           </div>
         </div>
 
-        <div class="info-container">
+        <div class="info-container" id="dosagem">
           <div class="info-azul">
             <div class="textoinfoA">Sistema de dosagem</div>
           </div>
@@ -51,7 +52,7 @@
           </div>
         </div>
 
-        <div class="info-container">
+        <div class="info-container" id="operacao">
           <div class="info-azul">
             <div class="textoinfoA">Área de operação</div>
           </div>
@@ -62,7 +63,7 @@
           </div>
         </div>
 
-        <div class="info-container">
+        <div class="info-container" id="fabricacao">
           <div class="info-azul">
             <div class="textoinfoA">Material de fabricação</div>
           </div>
@@ -73,7 +74,7 @@
           </div>
         </div>
 
-        <div class="info-container">
+        <div class="info-container" id="produtos">
           <div class="info-azul">
             <div class="textoinfoA">Produtos de envase</div>
           </div>
@@ -83,8 +84,62 @@
             </div>
           </div>
         </div>
+
+        <div class="info-container" id="embalagens">
+          <div class="info-azul">
+            <div class="textoinfoA">Embalagens compatíveis</div>
+          </div>
+          <div class="info-cinza">
+            <div class="textoinfoB">
+              PEBD e PEAD
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <script>
+    function updateInfo(version) {
+      var infoContainers = document.querySelectorAll('.info-container');
+      infoContainers.forEach(function (container) {
+        if (container.id === 'producao') {
+          var textoinfoB = container.querySelector('.textoinfoB');
+          var subtexto = textoinfoB.querySelector('.subtexto');
+          var existingSubtext = subtexto.innerHTML;
+
+          if (version === 'TP 85') {
+            textoinfoB.innerHTML = 'Até 850 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+          }
+          else if (version === 'TP 100') {
+            textoinfoB.innerHTML = 'Até 1000 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+          }
+          else if (version === 'TP 120') {
+            textoinfoB.innerHTML = 'Até 1200 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+          }
+          else if (version === 'TP 140') {
+            textoinfoB.innerHTML = 'Até 1400 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+          }
+          else if (version === 'TP 180') {
+            textoinfoB.innerHTML = 'Até 1800 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+          }
+          else if (version === 'TP 300') {
+            textoinfoB.innerHTML = 'Até 3000 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+          }
+        }
+      });
+    }
+    
+    var buttons = document.querySelectorAll('.version');
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        buttons.forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+
+        button.classList.add('active');
+      });
+    });
+  </script>
 </body>
+
 </html>

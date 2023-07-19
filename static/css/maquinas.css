@@ -41,6 +41,10 @@ body {
   background-color: #002d72;
 }
 
+.version.active {
+  background-color: #002d72;
+}
+
 .version:focus {
   box-shadow: none;
   outline: 2px solid transparent;
@@ -85,6 +89,7 @@ body {
   height: auto;
   float: right;
   margin-right: 40px;
+  margin-top: 70px;
 }
 
 .info-container {
@@ -129,4 +134,45 @@ body {
   color: #002d72;
   font-weight: 300;
   padding: 2px;
+}
+
+.acessorios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.acessorio-btn {
+  padding: 0;
+  border: 2px solid #6B7280;
+  background: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%; /* Add border radius to make it circular */
+  cursor: pointer;
+  outline: none;
+}
+
+.acessorio-btn img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border: none;
+  transition: border-color 0.3s ease;
+  border-radius: 50%; /* Add border radius to make the image circular */
+}
+
+.acessorio-btn:focus {
+  border-color: #002d72; /* Change the border color on focus */
+}
+
+.acessorio-btn.active {
+  transform: scale(1.1);
+  background-color: #002d72; /* Change the background color when active */
 }

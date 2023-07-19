@@ -6,7 +6,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/tp.jpg',
         'descricao': 'Máquinas envasadoras da linha TP',
-        'pagina': 'maquina-tp'
+        'pagina': 'maquina-tp',
+        'acessorios': []
     },
 
     'TC 4S': {
@@ -16,7 +17,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/tc4S-1.jpg',
         'descricao': 'Máquinas envasadoras da linha TC 4S',
-        'pagina': 'maquina-tc4s'
+        'pagina': 'maquina-tc4s',
+        'acessorios': []
     },
 
     'TC 3SC PÓ E SÓLIDOS': {
@@ -26,7 +28,8 @@ Maquinas = {
         'produto': [4, 5, 6],
         'imagem': '../static/images/maquinas/tC3S_po_solidos.jpg',
         'descricao': 'Máquinas envasadoras da linha TC3SC Pós e sólidos',
-        'pagina': 'maquina-tc3scps'
+        'pagina': 'maquina-tc3scps',
+        'acessorios': []
     },
 
     'TC 3SC LÍQUIDOS E SECOS': {
@@ -36,7 +39,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/tc-3SC_liquidos_secos.jpg',
         'descricao': 'Máquinas envasadoras da linha TC3SC Líquidos e secos',
-        'pagina': 'maquina-tc3scls'
+        'pagina': 'maquina-tc3scls',
+        'acessorios': []
     },
 
     'TC 3SC STICK': {
@@ -46,7 +50,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/tc-3SC-stick.jpg',
         'descricao': 'Máquinas envasadoras da linha TC3SC Stick',
-        'pagina': 'maquina-tc3s'
+        'pagina': 'maquina-tc3s',
+        'acessorios': []
     },
 
     'TC-3SL': {
@@ -56,7 +61,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/tc-3SL.jpg',
         'descricao': 'Máquinas envasadoras da linha TC-3SL',
-        'pagina': 'maquina-tc3sl'
+        'pagina': 'maquina-tc3sl',
+        'acessorios': []
     },
 
     'FRASCOS LINEAR': {
@@ -66,7 +72,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/linha-frascos-1.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos linear',
-        'pagina': 'maquina-frascoln'
+        'pagina': 'maquina-frascoln',
+        'acessorios': []
     },
 
     'FRASCOS TRIBLOCK': {
@@ -76,7 +83,8 @@ Maquinas = {
         'produto': [1, 2, 3],
         'imagem': '../static/images/maquinas/linha-frascos-2.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos triblock',
-        'pagina': 'maquina-frascotr'
+        'pagina': 'maquina-frascotr',
+        'acessorios': []
     },
 
     'FRASCOS ROTATIVA': {
@@ -86,7 +94,8 @@ Maquinas = {
         'produto': [1, 2, 3],
         'imagem': '../static/images/maquinas/linha-frascos-3.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos rotativa',
-        'pagina': 'maquina-frascortv'
+        'pagina': 'maquina-frascortv',
+        'acessorios': []
     },
 
     'FRASCOS SPEED': {
@@ -96,7 +105,8 @@ Maquinas = {
         'produto': [1, 2, 3],
         'imagem': '../static/images/maquinas/linha-frascos-4.jpg',
         'descricao': 'Máquinas envasadoras da linha de frascos rotativa speed',
-        'pagina': 'maquina-frascorts'
+        'pagina': 'maquina-frascorts',
+        'acessorios': []
     },
 
     'POTES': {
@@ -106,7 +116,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/linha-potes.jpg',
         'descricao': 'Máquinas envasadoras da linha de potes',
-        'pagina': 'maquina-potes'
+        'pagina': 'maquina-potes',
+        'acessorios': []
     },
 
     'TC 4BC': {
@@ -116,7 +127,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/stand-up-pouch-1.jpg',
         'descricao': 'Máquinas envasadoras da linha TC 4BC',
-        'pagina': 'maquina-tc4bc'
+        'pagina': 'maquina-tc4bc',
+        'acessorios': []
     },
 
     'POUCH': {
@@ -126,7 +138,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/pouch-pronto.jpg',
         'descricao': 'Máquinas envasadoras da linha pouch pronto',
-        'pagina': 'maquina-pouch'
+        'pagina': 'maquina-pouch',
+        'acessorios': []
     },
 
     'TC SUP': {
@@ -136,7 +149,8 @@ Maquinas = {
         'produto': [1, 2],
         'imagem': '../static/images/maquinas/mini-pouch.jpg',
         'descricao': 'Máquinas envasadoras da linha TC SUP',
-        'pagina': 'maquina-tcsup'
+        'pagina': 'maquina-tcsup',
+        'acessorios': []
     },
 
     'TC 4U': {
@@ -146,7 +160,8 @@ Maquinas = {
         'produto': [6],
         'imagem': '../static/images/maquinas/tc-4u.jpg',
         'descricao': 'Máquinas enfardadeiras da linha TC 4U',
-        'pagina': 'maquina-tc4u'
+        'pagina': 'maquina-tc4u',
+        'acessorios': []
     }, 
 
     'PTC': {
@@ -156,7 +171,8 @@ Maquinas = {
         'produto': [4, 5, 6],
         'imagem': '../static/images/maquinas/ptc.jpg',
         'descricao': 'Máquinas embaladoras da linha PTC',
-        'pagina': 'maquina-ptc'
+        'pagina': 'maquina-ptc',
+        'acessorios': []
     },
 
     'TC 3SC BAG': {
@@ -166,7 +182,8 @@ Maquinas = {
         'produto': [1, 2],
         'imagem': '../static/images/maquinas/tc3SC.jpg',
         'descricao': 'Máquinas envasadoras da linha TC 3SC BAG',
-        'pagina': 'maquina-tc3scb'
+        'pagina': 'maquina-tc3scb',
+        'acessorios': []
     },
 
     'FLOWPACK': {
@@ -176,7 +193,8 @@ Maquinas = {
         'produto': [6],
         'imagem': '../static/images/maquinas/flowpack.jpg',
         'descricao': 'Máquinas envasadoras da linha flowpack',
-        'pagina': 'maquina-flowpack'
+        'pagina': 'maquina-flowpack',
+        'acessorios': []
     },
 
     'BISNAGAS': {
@@ -186,7 +204,8 @@ Maquinas = {
         'produto': [1, 2],
         'imagem': '../static/images/maquinas/linha-bisnagas.jpg',
         'descricao': 'Máquinas envasadoras da linha bisnagas',
-        'pagina': 'maquina-bisnaga'
+        'pagina': 'maquina-bisnaga',
+        'acessorios': []
     },
 
     'CARTONADAS': {
@@ -196,7 +215,8 @@ Maquinas = {
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/linha-embalagem-cartonada.jpg',
         'descricao': 'Máquinas envasadoras da linha cartonada',
-        'pagina': 'maquina-cartonada'
+        'pagina': 'maquina-cartonada',
+        'acessorios': []
     },
 
     'GALOES': {
@@ -206,7 +226,8 @@ Maquinas = {
         'produto': [1],
         'imagem': '../static/images/maquinas/linha-galoes.jpg',
         'descricao': 'Máquinas da linha de galões',
-        'pagina': 'maquina-galao'
+        'pagina': 'maquina-galao',
+        'acessorios': []
     },
 
     'PET': {
@@ -216,6 +237,7 @@ Maquinas = {
         'produto': [6],
         'imagem': '../static/images/maquinas/pet-com-tunel.jpg',
         'descricao': 'Máquinas envolvedoras da linha PET com túnel',
-        'pagina': 'maquina-pet'
+        'pagina': 'maquina-pet',
+        'acessorios': []
     }
 }
