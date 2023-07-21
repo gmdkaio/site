@@ -4,6 +4,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   text-align: left;
+  margin: 7%;
 }
 
 h1 {
@@ -82,6 +83,31 @@ h1 {
   grid-row: 1;
   background-color: #002d72;
   height: 30px;
+}
+
+.navtop{
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 0;
+}
+
+.navtop a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.icnSocial{
+  color: grey;
+  height: 15px;
+  width: auto;
 }
 
 .content {

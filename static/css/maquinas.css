@@ -138,13 +138,13 @@ body {
 
 .acessorios {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
 }
 
 .acessorio-btn {
   padding: 0;
-  border: 2px solid #6B7280;
+  border: 5px solid #6B7280;
   background: none;
   position: relative;
   overflow: hidden;
@@ -154,7 +154,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-radius: 50%; /* Add border radius to make it circular */
+  border-radius: 50%; 
   cursor: pointer;
   outline: none;
 }
@@ -165,14 +165,11 @@ body {
   object-fit: cover;
   border: none;
   transition: border-color 0.3s ease;
-  border-radius: 50%; /* Add border radius to make the image circular */
-}
-
-.acessorio-btn:focus {
-  border-color: #002d72; /* Change the border color on focus */
+  border-radius: 50%;
 }
 
 .acessorio-btn.active {
-  transform: scale(1.1);
-  background-color: #002d72; /* Change the background color when active */
+  border-color: #002d72; 
 }
+
+
