@@ -118,7 +118,7 @@
     </div>
   </div>
   <script>
-    var buttons = document.querySelectorAll('.version');
+        var buttons = document.querySelectorAll('.version');
     buttons.forEach(function (button) {
       button.addEventListener('click', function () {
         buttons.forEach(function (btn) {
@@ -126,12 +126,16 @@
         });
 
         button.classList.add('active');
+
+        var version = button.textContent.trim(); // Get the selected machine version text
+        updateInfo(version); // Call the updateInfo function with the selected version
       });
     });
 
     var selectedMachine = {
       'version': "",
-      'acessories': []
+      'acessories': [],
+      'producao': 0 // Initialize producao value to 0
     }
 
     function updateInfo(version) {
@@ -143,19 +147,27 @@
           var subtexto = textoinfoB.querySelector('.subtexto');
           var existingSubtext = subtexto.innerHTML;
 
+          var producaoValue = 0; // Initialize producao value to 0
+
           if (version === 'TP 85') {
-            textoinfoB.innerHTML = 'Até 850 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+            producaoValue = 850;
           } else if (version === 'TP 100') {
-            textoinfoB.innerHTML = 'Até 1000 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+            producaoValue = 1000;
           } else if (version === 'TP 120') {
-            textoinfoB.innerHTML = 'Até 1200 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+            producaoValue = 1200;
           } else if (version === 'TP 140') {
-            textoinfoB.innerHTML = 'Até 1400 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+            producaoValue = 1400;
           } else if (version === 'TP 180') {
-            textoinfoB.innerHTML = 'Até 1800 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+            producaoValue = 1800;
           } else if (version === 'TP 300') {
-            textoinfoB.innerHTML = 'Até 3000 máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+            producaoValue = 3000;
           }
+
+          // Set the selectedMachine producao value
+          selectedMachine.producao = producaoValue;
+
+          // Update the text in the info container
+          textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
         }
       });
     }
