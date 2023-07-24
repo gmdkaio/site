@@ -6,7 +6,7 @@ body {
   margin-left: 19%;
 }
 
-.grid{
+.grid {
   display: grid;
 }
 
@@ -18,7 +18,7 @@ body {
   color: #FFFFFF;
   cursor: pointer;
   flex: 0 0 auto;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 12px;
   font-weight: 600;
   line-height: 24px;
@@ -27,13 +27,13 @@ body {
   text-decoration: none #6B7280 solid;
   text-decoration-thickness: auto;
   transition-duration: .2s;
-  transition-property: background-color,border-color,color,fill,stroke;
+  transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   width: auto;
-  margin-top:10px;
+  margin-top: 10px;
   margin-left: 3px;
 }
 
@@ -60,7 +60,7 @@ body {
 .versoes {
   margin-top: 5px;
   padding-bottom: 30px;
-  margin-left:10px;
+  margin-left: 10px;
 }
 
 .nome {
@@ -84,7 +84,7 @@ body {
   width: 798px;
 }
 
-.imagemMaquina{
+.imagemMaquina {
   width: 200px;
   height: auto;
   float: right;
@@ -100,13 +100,13 @@ body {
   margin-top: 12px;
 }
 
-.info-azul{
+.info-azul {
   width: 110px;
   height: 52px;
   background-color: #002d72;
 }
 
-.info-cinza{
+.info-cinza {
   width: 250px;
   height: 52px;
   background-color: #ededed;
@@ -128,7 +128,7 @@ body {
   padding: 3px;
 }
 
-.subtexto{
+.subtexto {
   font-size: 10px;
   text-align: left;
   color: #002d72;
@@ -154,7 +154,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-radius: 50%; 
+  border-radius: 50%;
   cursor: pointer;
   outline: none;
 }
@@ -169,7 +169,5 @@ body {
 }
 
 .acessorio-btn.active {
-  border-color: #002d72; 
+  border-color: #002d72;
 }
-
-

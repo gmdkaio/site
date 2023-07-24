@@ -162,7 +162,7 @@ Maquinas = {
         'descricao': 'Máquinas enfardadeiras da linha TC 4U',
         'pagina': 'maquina-tc4u',
         'acessorios': []
-    }, 
+    },
 
     'PTC': {
         'linha': 'Linha PTC',

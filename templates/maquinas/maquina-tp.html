@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/static/css/maquinas.css">
   <link rel="icon" type="image/x-icon" href="/static/images/icones/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Profills - Linha TP</title>
 </head>
 
@@ -115,10 +116,16 @@
           </button>
         </div>
       </div>
+      <hr>
+      <form id="proposta-form" action="{{ url_for('proposta') }}" method="POST">
+        <input type="hidden" name="version" id="selected-version">
+        <input type="hidden" name="accessories" id="selected-accessories">
+        <button type="submit">Generate proposta</button>
+      </form>
     </div>
   </div>
   <script>
-        var buttons = document.querySelectorAll('.version');
+    var buttons = document.querySelectorAll('.version');
     buttons.forEach(function (button) {
       button.addEventListener('click', function () {
         buttons.forEach(function (btn) {
@@ -127,15 +134,15 @@
 
         button.classList.add('active');
 
-        var version = button.textContent.trim(); // Get the selected machine version text
-        updateInfo(version); // Call the updateInfo function with the selected version
+        var version = button.textContent.trim();
+        updateInfo(version);
       });
     });
 
     var selectedMachine = {
       'version': "",
       'acessories': [],
-      'producao': 0 // Initialize producao value to 0
+      'producao': 0
     }
 
     function updateInfo(version) {
@@ -147,7 +154,7 @@
           var subtexto = textoinfoB.querySelector('.subtexto');
           var existingSubtext = subtexto.innerHTML;
 
-          var producaoValue = 0; // Initialize producao value to 0
+          var producaoValue = 0;
 
           if (version === 'TP 85') {
             producaoValue = 850;
@@ -163,10 +170,8 @@
             producaoValue = 3000;
           }
 
-          // Set the selectedMachine producao value
           selectedMachine.producao = producaoValue;
 
-          // Update the text in the info container
           textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
         }
       });
@@ -189,6 +194,17 @@
 
         console.log(selectedMachine);
       });
+    });
+
+    function updateHiddenFields() {
+      const selectedVersion = document.querySelector('.version.active').textContent.trim();
+      document.getElementById('selected-version').value = selectedVersion;
+      document.getElementById('selected-accessories').value = selectedMachine.acessories.join(',');
+    }
+
+    $('#proposta-form').submit(function (event) {
+      updateHiddenFields();
+      return true;
     });
   </script>
 </body>
