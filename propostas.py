@@ -1,6 +1,6 @@
 import sqlite3
 
-def create_table(app):
+def create_table_proposta(app):
     with app.app_context():
         connection = sqlite3.connect('propostas.db')
         cursor = connection.cursor()
@@ -27,5 +27,4 @@ def get_propostas(app):
 
 def close_connection(app):
     with app.app_context():
-        # Closing the connection is not necessary when using app.app_context()
         pass

@@ -1,13 +1,19 @@
 from flask import Flask, render_template, request, jsonify
 import json
 from info.maquinas import Maquinas
-from database import create_table, insert_proposta, close_connection
+from propostas import create_table_proposta, insert_proposta
+from user_info import create_table_user, insert_info
+import uuid
+import hashlib
 
 app = Flask(__name__)
 DATABASE = 'propostas.db'
+DATABASE_USERS = 'user_info.db'
 
 with app.app_context():
-    create_table(app)
+    create_table_proposta(app)
+    create_table_user(app)
+    
 
 @app.route('/', methods=['GET'])
 def index():
@@ -65,6 +71,22 @@ def proposta():
 
     return render_template('proposta.html')
 
+@app.route('/user-info', methods=['POST'])
+def user_info():
+    nome = request.form.get('nome')
+    endereco = request.form.get('endereco')
+    celular = request.form.get('celular')
+    email = request.form.get('email')
+    empresa = request.form.get('empresa')
+    cnpj = request.form.get('cnpj', '')  
+
+    uuid_hash = hashlib.sha1(str(uuid.uuid4()).encode()).hexdigest()[:5]
+    user_id = f'USER_{uuid_hash}'
+
+    insert_info(app, user_id, nome, endereco, celular, email, empresa, cnpj)
+
+    return jsonify(message='User information submitted successfully.')
+
 if __name__ == '__main__':
-    create_table(app)
+    create_table_user(app)
     app.run()
