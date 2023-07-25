@@ -1,14 +1,16 @@
-from flask import Flask, render_template, request, jsonify
-import json
+from flask import Flask, render_template, request, jsonify, session
+import uuid, hashlib, secrets, json
 from info.maquinas import Maquinas
 from propostas import create_table_proposta, insert_proposta
 from user_info import create_table_user, insert_info
-import uuid
-import hashlib
+
+secret_key = secrets.token_hex(16)
 
 app = Flask(__name__)
 DATABASE = 'propostas.db'
 DATABASE_USERS = 'user_info.db'
+app.secret_key = secret_key
+
 
 with app.app_context():
     create_table_proposta(app)
@@ -65,7 +67,9 @@ def proposta():
         version = request.form.get('version')
         accessories = request.form.get('accessories')
 
-        insert_proposta(app, version, accessories)
+        user_id = session.get('user_id', None)
+
+        insert_proposta(app, user_id, version, accessories)
 
         return render_template('proposta.html', version=version, accessories=accessories)
 
@@ -81,12 +85,15 @@ def user_info():
     cnpj = request.form.get('cnpj', '')  
 
     uuid_hash = hashlib.sha1(str(uuid.uuid4()).encode()).hexdigest()[:5]
-    user_id = f'USER_{uuid_hash}'
+    user_id = uuid_hash
 
     insert_info(app, user_id, nome, endereco, celular, email, empresa, cnpj)
+
+    session['user_id'] = user_id
 
     return jsonify(message='User information submitted successfully.')
 
 if __name__ == '__main__':
     create_table_user(app)
+    create_table_proposta(app)
     app.run()
