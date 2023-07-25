@@ -6,36 +6,70 @@
 {% endblock %}
 
 {% block body %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img class="logo" src="../static/images/pagina/logo.png" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="navbar navbar-expand-sm bg-light">
+  
+        <ul class="navbar-nav ml-auto">
+          <div class="dropdown">
+            <button type="button" class="btn btn-default dropdown-toggle shadow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+              Informações do usuário
+            </button>
+            <form class="dropdown-menu p-4" id="user-info-form">
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
+              </div>
+              <div class="mb-3">
+                <label for="empresa" class="form-label">Nome da empresa</label>
+                <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Nome da empresa" required>
+              </div>
+              <div class="mb-3">
+                <label for="celular" class="form-label">Celular</label>
+                <input type="tel" class="form-control" name="celular" id="celular" placeholder="(XX) XXXX-XXXX" required>
+              </div>
+              <div class="mb-3">
+                <label for="endereco" class="form-label">Endereço</label>
+                <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Endereço" required>
+              </div>
+              <div class="mb-3">
+                <label for="cnpj" class="form-label">CNPJ(opcional)</label>
+                <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="XX.XXX.XXX/YYYY-ZZ">
+              </div>
+              <button type="submit" class="btn btn-default shadow-none">Enviar</button>
+            </form>
+          </div>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Contato
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Monte sua máquina
+                </a>
+            </li>
+        </ul>
+    </nav>
+      </div>
+    </div>
+  </nav>
+<br><br>
 <h1>Monte sua Máquina</h1>
 <h3>Utilize nosso site e descubra qual a máquina ideal para o seu produto</h3>
-
-<form id="user-info-form">
-    <div>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-    </div><br>
-    <div>
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" required>
-    </div><br>
-    <div>
-        <label for="celular">Número de Celular:</label>
-        <input type="text" id="celular" name="celular" required>
-    </div><br>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div><br>
-    <div>
-        <label for="empresa">Nome da Empresa:</label>
-        <input type="text" id="empresa" name="empresa" required>
-    </div><br>
-    <div>
-        <label for="cnpj">CNPJ (optional):</label>
-        <input type="text" id="cnpj" name="cnpj">
-    </div><br>
-    <button type="submit">Submit</button>
-</form>
 <br><br>
 <form id="filter-form">
     <section class="grid main-grid">
@@ -132,6 +166,10 @@
     var Maquinas = JSON.parse('{{ maquinas|safe }}');
     var embalagem = 0;
     var produto = 0;
+
+    $(document).ready(function() {
+      $('#telefone').inputmask();
+    });
 
     $('#filter-form button[type="submit"]').prop('disabled', true);
 

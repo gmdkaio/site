@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
 
-body {
+* body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   text-align: left;
-  margin: 7%;
+  margin-left: 30px;
 }
 
-h1 {
+* h1 {
   color: #002d72;
 }
 
-.button-content {
+* .button-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,17 +19,17 @@ h1 {
   text-align: center;
 }
 
-.button-content img {
+* .button-content img {
   margin-bottom: 5px;
 }
 
-.button-row {
+* .button-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.button-row-inner {
+* .button-row-inner {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -37,7 +37,7 @@ h1 {
   width: 100%;
 }
 
-.embalagem-btn, .produto-btn {
+* .embalagem-btn, .produto-btn {
   padding: 0;
   border: none;
   background: none;
@@ -51,7 +51,7 @@ h1 {
   text-align: center;
 }
 
-.embalagem-btn img, .produto-btn img{
+* .embalagem-btn img, .produto-btn img{
   width: 75px;
   height: 75px;
   object-fit: cover;
@@ -59,33 +59,33 @@ h1 {
   transition: border-color 0.3s ease;
 }
 
-.embalagem-btn.active, .produto-btn.active {
+* .embalagem-btn.active, .produto-btn.active {
   transform: scale(1.4);
 }
 
-.main-grid {
+* .main-grid {
   display: flex;
   gap: 20px;
 }
 
-.grid-embalagens,
+* .grid-embalagens,
 .grid-produtos {
   flex-basis: 50%;
   max-width: 450px;
 }
 
-.grid-produtos .content {
+* .grid-produtos .content {
   padding-right: 6px;
 }
 
-.nav {
+* .nav {
   grid-column: 1 / span 4;
   grid-row: 1;
   background-color: #002d72;
   height: 30px;
 }
 
-.navtop{
+* .navtop{
   margin: 0;
   padding: 0;
   height: 50px;
@@ -96,7 +96,7 @@ h1 {
   top: 0;
 }
 
-.navtop a{
+* .navtop a{
   display: block;
   color: white;
   text-align: center;
@@ -104,19 +104,19 @@ h1 {
   text-decoration: none;
 }
 
-.icnSocial{
+* .icnSocial{
   color: grey;
   height: 15px;
   width: auto;
 }
 
-.content {
+* .content {
   grid-column: 1 / span 4;
   grid-row: 2;
   border: 1px solid #dadbdf;
 }
 
-.texto {
+* .texto {
   padding-top: 7px;
   padding-left: 12px;
   font-size: 11px;
@@ -125,7 +125,7 @@ h1 {
   font-weight: 300;
 }
 
-.card {
+* .card {
   opacity: 0;
   transition: opacity 0.5s ease;
   flex: 0 0 calc(15% - 20px); 
@@ -136,28 +136,28 @@ h1 {
   cursor: pointer;
 }
 
-.card:hover .card-name{
+* .card:hover .card-name{
   background-color: #002d72;
   transition: background-color 0.12s linear;
 }
 
-.container {
+* .container {
   padding: 1px 8px;
   margin-top: -17px;
 }
 
-.card img{
+* .card img{
   height: 150px;
   width: auto;
 }
 
-.card-name {
+* .card-name {
   background-color: dimgrey;
   height: 20px;
   width: calc(100% + 1px);
 }
 
-.texto-card {
+* .texto-card {
   padding-top: 5px;
   padding-left: 6px;
   font-size: 10px;
@@ -166,29 +166,29 @@ h1 {
   font-weight: 300;
 }
 
-.center {
+* .center {
   padding-top: 2px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.card h4 {
+* .card h4 {
   font-size: 15px;
 }
 
-.card p {
+* .card p {
   font-size: 12px;
 }
 
-.flexbox {
+* .flexbox {
   display: flex;
   flex-wrap: wrap;
   gap: 20px; 
   justify-content: flex-start; 
 }
 
-.card.animate {
+* .card.animate {
   opacity: 1;
   transition-delay: 0.1s;
 }
