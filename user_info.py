@@ -6,9 +6,7 @@ def create_table_user(app):
     with app.app_context():
         connection = sqlite3.connect('user_info.db')
         cursor = connection.cursor()
-        cursor.execute(
-            'CREATE TABLE IF NOT EXISTS user_info (id TEXT PRIMARY KEY, nome TEXT, endereco TEXT, celular TEXT, email TEXT, empresa TEXT, cnpj TEXT)')
-
+        cursor.execute('CREATE TABLE IF NOT EXISTS user_info (id TEXT PRIMARY KEY, nome TEXT, endereco TEXT, celular TEXT, email TEXT, empresa TEXT, cnpj TEXT)')
         connection.commit()
         connection.close()
 

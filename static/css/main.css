@@ -4,11 +4,14 @@
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   text-align: left;
-  margin-left: 30px;
 }
 
 * h1 {
   color: #002d72;
+}
+
+* .montagem {
+  margin-left: 30px;
 }
 
 * .button-content {
@@ -52,8 +55,8 @@
 }
 
 * .embalagem-btn img, .produto-btn img{
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -104,12 +107,6 @@
   text-decoration: none;
 }
 
-* .icnSocial{
-  color: grey;
-  height: 15px;
-  width: auto;
-}
-
 * .content {
   grid-column: 1 / span 4;
   grid-row: 2;
@@ -132,7 +129,7 @@
   height: 300px;
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 2px;
   box-sizing: border-box;
-  max-width: 270px;
+  max-width: 280px;
   cursor: pointer;
 }
 
@@ -149,6 +146,7 @@
 * .card img{
   height: 150px;
   width: auto;
+  max-width: 160px;
 }
 
 * .card-name {
@@ -191,4 +189,36 @@
 * .card.animate {
   opacity: 1;
   transition-delay: 0.1s;
+}
+
+ .btn-dark:hover {
+  background-color: #002d72;
+}
+
+ .btn-dark:focus {
+  background-color: #002d72;
+}
+
+.user_form{ 
+  width: 700px;
+  height: auto;
+  max-height: 380px;
+  margin: 70px auto;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.btn-block{
+background-color: #002d72;
+color:white;
+width: 660px;
+margin-right:10px;
+height: 45px;
+}
+
+.btn-block:hover{
+color:white;
+transition: 0.3s ease;
+transform: scale(0.97);
 }
