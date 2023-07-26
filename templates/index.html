@@ -44,7 +44,7 @@
                 <label for="cnpj" class="form-label">CNPJ(opcional)</label>
                 <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="XX.XXX.XXX/YYYY-ZZ">
               </div>
-              <button type="submit" class="btn btn-default shadow-none">Enviar</button>
+              <button type="submit" class="btn btn-default shadow-none" id="submit-btn">Enviar</button>
             </form>
           </div>
             <li class="nav-item">
@@ -191,7 +191,7 @@
             data: formData,
             success: function (response) {
                 console.log('User information submitted successfully.');
-
+                disableForm();
                 $('#filter-form button[type="submit"]').prop('disabled', false);
             },
             error: function (error) {
@@ -199,6 +199,18 @@
             }
         });
     });
+
+    function disableForm() {
+    const form = document.getElementById("user-info-form");
+    const elements = form.elements;
+
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = true;
+    }
+
+    const submitButton = form.querySelector("#submit-btn");
+    submitButton.innerText = "Enviado";
+  }
 
 
     function setFilterValues() {
