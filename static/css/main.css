@@ -222,3 +222,15 @@ color:white;
 transition: 0.3s ease;
 transform: scale(0.97);
 }
+
+* .fixed-top {
+  height: 58px
+}
+
+.logo {
+  margin-bottom: 0px;
+}
+
+* .ml-auto{
+  margin-bottom: -6px;
+}

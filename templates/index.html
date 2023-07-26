@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar fixed-top bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><img class="logo" src="../static/images/pagina/logo.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -212,6 +212,7 @@
             success: function (response) {
                 console.log('User information submitted successfully.');
                 disableForm();
+                scrollToSection('montar');
                 $('#filter-form button[type="submit"]').prop('disabled', false);
             },
             error: function (error) {
@@ -230,6 +231,15 @@
 
     const submitButton = form.querySelector("#submit-btn");
     submitButton.innerText = "Enviado";
+  }
+
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const offsetTop = section.offsetTop;
+    window.scroll({
+      top: offsetTop,
+      behavior: "smooth",
+    });
   }
 
 
