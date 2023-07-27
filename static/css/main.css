@@ -10,9 +10,11 @@
   color: #002d72;
 }
 
-* .montagem {
+* .montagem, .resultados {
   margin-left: 30px;
 }
+
+
 
 * .button-content {
   display: flex;

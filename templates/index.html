@@ -1,86 +1,89 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Profills</title>
-<link rel="icon" type="image/x-icon" href="/static/images/icones/favicon.ico">
+<link rel="stylesheet" href="/static/css/main.css">
 {% endblock %}
 
 {% block body %}
 <nav class="navbar fixed-top bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img class="logo" src="../static/images/pagina/logo.png" alt="Logo"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <nav class="navbar navbar-expand-sm bg-light">
-  
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Home
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Contato
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#montar">
-                  Monte sua máquina
-                </a>
-            </li>
-        </ul>
-    </nav>
-      </div>
+        <a class="navbar-brand" href="#"><img class="logo" src="../static/images/pagina/logo.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <nav class="navbar navbar-expand-sm bg-light">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Contato
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#montar">
+                        Monte sua máquina
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-  </nav>
-  <div class="p-5 text-center bg-image" style="  
+    </div>
+</nav>
+<div class="p-5 text-center bg-image" style="  
   background-image: url('https://www.profills.com/images/topo-fundo2.jpg');
   height: 540px;
-  margin-top: 0;"
-  >
+  margin-top: 0;">
     <div class="mask">
         <div class="d-flex justify-content-center align-items-center h-100">
             <form class="user_form" id="user-info-form">
-              <br>
-              <div class="row mb-4">
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
-                  </div>
+                <br>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="email@example.com" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="tel" class="form-control" name="celular" id="celular"
+                                placeholder="Número de celular" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" class="form-control" name="empresa" id="empresa"
+                                placeholder="Nome da empresa" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="col">
-                  <div class="form-outline">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
-                  </div>
+                    <div class="form-outline">
+                        <input type="text" class="form-control" name="endereco" id="endereco"
+                            placeholder="Endereço(Opcional)">
+                    </div>
                 </div>
-              </div>
-              <div class="row mb-4">
+                <br>
                 <div class="col">
-                  <div class="form-outline">
-                    <input type="tel" class="form-control" name="celular" id="celular" placeholder="Número de celular" required>
-                  </div>
+                    <div class="form-outline">
+                        <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ(Opcional)">
+                    </div>
                 </div>
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Nome da empresa" required>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Endereço(Opcional)">
-                </div>
-              </div>
-              <br>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ(Opcional)">
-                </div>
-              </div>
-              <br>
-              <button type="submit" class="btn btn-default btn-lg btn-block" id="submit-btn">Enviar</button>
+                <br>
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="submit-btn">Enviar</button>
             </form>
         </div>
     </div>
@@ -178,17 +181,20 @@
         <br>
         <button type="submit" class="btn btn-dark shadow-none">Filter</button>
     </form>
-<br><br>
-<div id="card-container" class="flexbox">
-</div>
+</section>
+    <br><br>
+<section id="resultados" class="resultados">
+    <p hidden>scrolling</p>
+    <div id="card-container" class="flexbox">
+    </div>
 </section>
 <script>
     var Maquinas = JSON.parse('{{ maquinas|safe }}');
     var embalagem = 0;
     var produto = 0;
 
-    $(document).ready(function() {
-      $('#telefone').inputmask();
+    $(document).ready(function () {
+        $('#telefone').inputmask();
     });
 
     $('#filter-form button[type="submit"]').prop('disabled', true);
@@ -222,25 +228,25 @@
     });
 
     function disableForm() {
-    const form = document.getElementById("user-info-form");
-    const elements = form.elements;
+        const form = document.getElementById("user-info-form");
+        const elements = form.elements;
 
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].disabled = true;
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].disabled = true;
+        }
+
+        const submitButton = form.querySelector("#submit-btn");
+        submitButton.innerText = "Enviado";
     }
 
-    const submitButton = form.querySelector("#submit-btn");
-    submitButton.innerText = "Enviado";
-  }
-
-  function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    const offsetTop = section.offsetTop;
-    window.scroll({
-      top: offsetTop,
-      behavior: "smooth",
-    });
-  }
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const offsetTop = section.offsetTop;
+        window.scroll({
+            top: offsetTop,
+            behavior: "smooth",
+        });
+    }
 
 
     function setFilterValues() {
@@ -304,7 +310,7 @@
             success: function (response) {
                 var result = response.result;
                 var cardContainer = $('#card-container');
-
+                scrollToSection('resultados');
                 if (result.length === 0) {
                     cardContainer.html('<p>Nenhum resultado encontrado</p>');
                 } else {

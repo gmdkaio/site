@@ -3,6 +3,10 @@ import uuid, hashlib, secrets, json
 from info.maquinas import Maquinas
 from propostas import create_table_proposta, insert_proposta
 from user_info import create_table_user, insert_info
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet
 
 secret_key = secrets.token_hex(16)
 
@@ -64,14 +68,16 @@ def maquina_page(maquina_pagina):
 @app.route('/proposta', methods=['GET', 'POST'])
 def proposta():
     if request.method == 'POST':
-        version = request.form.get('version')
-        accessories = request.form.get('accessories')
+        versao = request.form.get('version')
+        accessorios = request.form.get('accessories')
+        produtos = request.form.get('produtos')
+        embalagens = request.form.get('embalagens')
 
         user_id = session.get('user_id', None)
 
-        insert_proposta(app, user_id, version, accessories)
+        insert_proposta(app, user_id, versao, accessorios, produtos, embalagens)
 
-        return render_template('proposta.html', version=version, accessories=accessories)
+        return render_template('proposta.html', version=versao, accessories=accessorios, produtos=produtos, embalagens=embalagens)
 
     return render_template('proposta.html')
 
@@ -92,6 +98,9 @@ def user_info():
     session['user_id'] = user_id
 
     return jsonify(message='User information submitted successfully.')
+
+# def generate_pdf():
+#     d
 
 if __name__ == '__main__':
     create_table_user(app)

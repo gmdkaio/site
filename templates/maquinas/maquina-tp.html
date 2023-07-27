@@ -1,212 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/maquinas.css">
-  <link rel="icon" type="image/x-icon" href="/static/images/icones/favicon.ico">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <title>Profills - Linha TP</title>
-</head>
+{% block head %}
+<link rel="stylesheet" href="/static/css/maquinas.css">
+{% endblock %}
 
-<body>
-  <div class="grid">
-    <div class="item nome">
-      <div class='item texto-nome'>
-        <div class="textost">Linha TP</div>
-      </div>
-    </div>
-    <div class="montagem border">
-      <div><img src="/static/images/maquinas_cortado/tp.jpg" alt="Máquina da linha TP" class="imagemMaquina"></div>
-      <div class="content">
-        <div class="versoes">
-          <button class="version active" role="button" onclick="updateInfo('TP 85', this)">TP 85</button>
-          <button class="version" role="button" onclick="updateInfo('TP 100', this)">TP 100</button>
-          <button class="version" role="button" onclick="updateInfo('TP 120', this)">TP 120</button>
-          <button class="version" role="button" onclick="updateInfo('TP 140', this)">TP 140</button>
-          <button class="version" role="button" onclick="updateInfo('TP 180', this)">TP 180</button>
-          <button class="version" role="button" onclick="updateInfo('TP 300', this)">TP 300</button>
-        </div>
-      </div>
-      <div class="info">
-        <div class="info-container" id="producao">
-          <div class="info-azul">
-            <div class="textoinfoA">Capacidade de produção</div>
-          </div>
-          <div class="info-cinza">
-            <div class="textoinfoB">
-              Até 850 unidades por hora
-              <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="info-container" id="dosagem">
-          <div class="info-azul">
-            <div class="textoinfoA">Sistema de dosagem</div>
-          </div>
-          <div class="info-cinza">
-            <div class="textoinfoB">
-              Temporizado | Bomba positiva | Volumétrico
-            </div>
-          </div>
-        </div>
-
-        <div class="info-container" id="operacao">
-          <div class="info-azul">
-            <div class="textoinfoA">Área de operação</div>
-          </div>
-          <div class="info-cinza">
-            <div class="textoinfoB">
-              2.100x2.450 [mm²]
-            </div>
-          </div>
-        </div>
-
-        <div class="info-container" id="fabricacao">
-          <div class="info-azul">
-            <div class="textoinfoA">Material de fabricação</div>
-          </div>
-          <div class="info-cinza">
-            <div class="textoinfoB">
-              Aço inoxidável AISI 304, alumínio, policarbonato e aço carbono
-            </div>
-          </div>
-        </div>
-
-        <div class="info-container" id="produtos">
-          <div class="info-azul">
-            <div class="textoinfoA">Produtos de envase</div>
-          </div>
-          <div class="info-cinza">
-            <div class="textoinfoB">
-              Líquidos e secos
-            </div>
-          </div>
-        </div>
-
-        <div class="info-container" id="embalagens">
-          <div class="info-azul">
-            <div class="textoinfoA">Embalagens compatíveis</div>
-          </div>
-          <div class="info-cinza">
-            <div class="textoinfoB">
-              PEBD e PEAD
-            </div>
-          </div>
-        </div>
-      </div>
-      <br><br>
-      <hr>
-      <h3>Escolha acessórios</h3>
-      <div class="acessorios">
-        <div class="acessorios">
-          <button type="button" class="acessorio-btn" value="acessorio1">
-            <img src="/static/images/produtos/pos.png" alt="acessorio1">
-          </button>
-          <button type="button" class="acessorio-btn" value="acessorio2">
-            <img src="/static/images/produtos/pos.png" alt="acessorio2">
-          </button>
-          <button type="button" class="acessorio-btn" value="acessorio3">
-            <img src="/static/images/produtos/pos.png" alt="acessorio3">
-          </button>
-          <button type="button" class="acessorio-btn" value="acessorio4">
-            <img src="/static/images/produtos/pos.png" alt="acessorio4">
-          </button>
-        </div>
-      </div>
-      <hr>
-      <form id="proposta-form" action="{{ url_for('proposta') }}" method="POST">
-        <input type="hidden" name="version" id="selected-version">
-        <input type="hidden" name="accessories" id="selected-accessories">
-        <button type="submit">Generate proposta</button>
-      </form>
+{% block body %}
+<br><br><br><br><br>
+<div class="grid">
+  <div class="item nome">
+    <div class='item texto-nome'>
+      <div class="textost">Linha TP</div>
     </div>
   </div>
-  <script>
-    var buttons = document.querySelectorAll('.version');
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function () {
-        buttons.forEach(function (btn) {
-          btn.classList.remove('active');
-        });
+  <div class="montagem border">
+    <div><img src="/static/images/maquinas_cortado/tp.jpg" alt="Máquina da linha TP" class="imagemMaquina"></div>
+    <div class="content">
+      <div class="versoes">
+        <button class="version active" role="button" onclick="updateInfo('TP 85', this)">TP 85</button>
+        <button class="version" role="button" onclick="updateInfo('TP 100', this)">TP 100</button>
+        <button class="version" role="button" onclick="updateInfo('TP 120', this)">TP 120</button>
+        <button class="version" role="button" onclick="updateInfo('TP 140', this)">TP 140</button>
+        <button class="version" role="button" onclick="updateInfo('TP 180', this)">TP 180</button>
+        <button class="version" role="button" onclick="updateInfo('TP 300', this)">TP 300</button>
+      </div>
+    </div>
+    <div class="info">
+      <div class="info-container" id="producao">
+        <div class="info-azul">
+          <div class="textoinfoA">Capacidade de produção</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Até 850 unidades por hora
+            <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
+          </div>
+        </div>
+      </div>
 
-        button.classList.add('active');
+      <div class="info-container" id="dosagem">
+        <div class="info-azul">
+          <div class="textoinfoA">Sistema de dosagem</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Temporizado | Bomba positiva | Volumétrico
+          </div>
+        </div>
+      </div>
 
-        var version = button.textContent.trim();
-        updateInfo(version);
+      <div class="info-container" id="operacao">
+        <div class="info-azul">
+          <div class="textoinfoA">Área de operação</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            2.100x2.450 [mm²]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="fabricacao">
+        <div class="info-azul">
+          <div class="textoinfoA">Material de fabricação</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Aço inoxidável AISI 304, alumínio, policarbonato e aço carbono
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="produtos">
+        <div class="info-azul">
+          <div class="textoinfoA">Produtos de envase</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Líquidos e secos
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="embalagens">
+        <div class="info-azul">
+          <div class="textoinfoA">Embalagens compatíveis</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            PEBD e PEAD
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <hr>
+    <h3>Escolha acessórios</h3>
+    <div class="acessorios">
+      <div class="acessorios">
+        <button type="button" class="acessorio-btn" value="acessorio1">
+          <img src="/static/images/produtos/pos.png" alt="acessorio1">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio2">
+          <img src="/static/images/produtos/pos.png" alt="acessorio2">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio3">
+          <img src="/static/images/produtos/pos.png" alt="acessorio3">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio4">
+          <img src="/static/images/produtos/pos.png" alt="acessorio4">
+        </button>
+      </div>
+    </div>
+    <hr>
+    <form id="proposta-form" action="{{ url_for('proposta') }}" method="POST">
+      <input type="hidden" name="version" id="selected-version">
+      <input type="hidden" name="accessories" id="selected-accessories">
+      <input type="hidden" name="produtos" id="selected-produtos">
+      <input type="hidden" name="embalagens" id="selected-embalagens">
+      <button type="submit">Generate proposta</button>
+    </form>
+  </div>
+</div>
+<script>
+  var buttons = document.querySelectorAll('.version');
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      buttons.forEach(function (btn) {
+        btn.classList.remove('active');
       });
+
+      button.classList.add('active');
+
+      var version = button.textContent.trim();
+      updateInfo(version);
     });
+  });
 
-    var selectedMachine = {
-      'version': "",
-      'acessories': [],
-      'producao': 0
-    }
+  var selectedMachine = {
+    'version': "",
+    'acessories': [],
+    'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
+    'embalagens': ['especial', 'sache'],
+  }
 
-    function updateInfo(version) {
-      selectedMachine.version = version;
-      const infoContainers = document.querySelectorAll('.info-container');
-      infoContainers.forEach(function (container) {
-        if (container.id === 'producao') {
-          var textoinfoB = container.querySelector('.textoinfoB');
-          var subtexto = textoinfoB.querySelector('.subtexto');
-          var existingSubtext = subtexto.innerHTML;
+  function updateInfo(version) {
+    selectedMachine.version = version;
+    const infoContainers = document.querySelectorAll('.info-container');
+    infoContainers.forEach(function (container) {
+      if (container.id === 'producao') {
+        var textoinfoB = container.querySelector('.textoinfoB');
+        var subtexto = textoinfoB.querySelector('.subtexto');
+        var existingSubtext = subtexto.innerHTML;
 
-          var producaoValue = 0;
+        var producaoValue = 0;
 
-          if (version === 'TP 85') {
-            producaoValue = 850;
-          } else if (version === 'TP 100') {
-            producaoValue = 1000;
-          } else if (version === 'TP 120') {
-            producaoValue = 1200;
-          } else if (version === 'TP 140') {
-            producaoValue = 1400;
-          } else if (version === 'TP 180') {
-            producaoValue = 1800;
-          } else if (version === 'TP 300') {
-            producaoValue = 3000;
-          }
-
-          selectedMachine.producao = producaoValue;
-
-          textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+        if (version === 'TP 85') {
+          producaoValue = 850;
+        } else if (version === 'TP 100') {
+          producaoValue = 1000;
+        } else if (version === 'TP 120') {
+          producaoValue = 1200;
+        } else if (version === 'TP 140') {
+          producaoValue = 1400;
+        } else if (version === 'TP 180') {
+          producaoValue = 1800;
+        } else if (version === 'TP 300') {
+          producaoValue = 3000;
         }
-      });
-    }
 
-    const acessoriosBtn = document.querySelectorAll('.acessorio-btn');
+        selectedMachine.producao = producaoValue;
 
-    acessoriosBtn.forEach(button => {
-      button.addEventListener('click', function () {
-        this.classList.toggle('active');
-
-        const accessoryValue = this.value;
-        const accessoryIndex = selectedMachine.acessories.indexOf(accessoryValue);
-
-        if (accessoryIndex == -1) {
-          selectedMachine.acessories.push(accessoryValue);
-        } else {
-          selectedMachine.acessories.splice(accessoryIndex, 1);
-        }
-
-        console.log(selectedMachine);
-      });
+        textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+      }
     });
+  }
 
-    function updateHiddenFields() {
-      const selectedVersion = document.querySelector('.version.active').textContent.trim();
-      document.getElementById('selected-version').value = selectedVersion;
-      document.getElementById('selected-accessories').value = selectedMachine.acessories.join(',');
-    }
+  const acessoriosBtn = document.querySelectorAll('.acessorio-btn');
 
-    $('#proposta-form').submit(function (event) {
-      updateHiddenFields();
-      return true;
+  acessoriosBtn.forEach(button => {
+    button.addEventListener('click', function () {
+      this.classList.toggle('active');
+
+      const accessoryValue = this.value;
+      const accessoryIndex = selectedMachine.acessories.indexOf(accessoryValue);
+
+      if (accessoryIndex == -1) {
+        selectedMachine.acessories.push(accessoryValue);
+      } else {
+        selectedMachine.acessories.splice(accessoryIndex, 1);
+      }
+
+      console.log(selectedMachine);
     });
-  </script>
-</body>
+  });
+
+  function updateHiddenFields() {
+    const selectedVersion = document.querySelector('.version.active').textContent.trim();
+    document.getElementById('selected-version').value = selectedVersion;
+    document.getElementById('selected-accessories').value = selectedMachine.acessories.join(', ');
+    document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
+    document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
+  }
+
+  $('#proposta-form').submit(function (event) {
+    updateHiddenFields();
+    return true;
+  });
+</script>
+{% endblock %}
 
 </html>
