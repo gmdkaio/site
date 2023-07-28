@@ -5,7 +5,39 @@
 
 {% block body %}
 <br><br><br><br>
-  <h1>Proposta</h1>
-  <h3>Confirme os detalhes da máquina e clique em download para baixar sua proposta</h3>
+<h1>Sua Proposta</h1>
+<form action="/generate_pdf" method="post">
+  <input type="hidden" name="version" value="{{ version }}">
+  <input type="hidden" name="accessories" value="{{ accessories }}">
+  <input type="hidden" name="produtos" value="{{ produtos }}">
+  <input type="hidden" name="embalagens" value="{{ embalagens }}">
+  <br>
+  <button type="submit">Baixar Proposta em PDF</button>
+</form>
+
+<script>
+  document.getElementById('proposta-form').onsubmit = function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+          method: 'POST',
+          body: formData,
+      })
+      .then(response => response.blob())
+      .then(blob => {
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'proposta.pdf';
+
+          document.body.appendChild(link);
+          link.click();
+
+          URL.revokeObjectURL(link.href);
+          document.body.removeChild(link);
+      })
+      .catch(error => console.error('Error:', error));
+  };
+</script>
 {% endblock %}
 </html>

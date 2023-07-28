@@ -112,12 +112,13 @@
       </div>
     </div>
     <hr>
-    <form id="proposta-form" action="{{ url_for('proposta') }}" method="POST">
+    <form id="proposta-form" action="/proposta" method="POST">
       <input type="hidden" name="version" id="selected-version">
       <input type="hidden" name="accessories" id="selected-accessories">
       <input type="hidden" name="produtos" id="selected-produtos">
       <input type="hidden" name="embalagens" id="selected-embalagens">
-      <button type="submit">Generate proposta</button>
+      <input type="hidden" name="selected-date" id="selected-date">
+      <button type="submit" id="generate-proposta">Generate proposta</button>
     </form>
   </div>
 </div>
@@ -141,6 +142,14 @@
     'acessories': [],
     'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
     'embalagens': ['especial', 'sache'],
+  }
+
+  function getCurrentDate() {
+    var now = new Date();
+    var day = String(now.getDate()).padStart(2, '0');
+    var month = String(now.getMonth() + 1).padStart(2, '0');
+    var year = now.getFullYear();
+    return day + '/' + month + '/' + year;
   }
 
   function updateInfo(version) {
@@ -200,8 +209,10 @@
     document.getElementById('selected-accessories').value = selectedMachine.acessories.join(', ');
     document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
     document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
-  }
 
+    document.getElementById('selected-date').value = getCurrentDate();
+  }
+  
   $('#proposta-form').submit(function (event) {
     updateHiddenFields();
     return true;
