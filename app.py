@@ -277,7 +277,7 @@ def generate_pdf():
 
     if os.path.exists(icon_local):
         c.drawImage(ImageReader(icon_local), x=mp(
-            1110), y=mp(35), width=40, height=40)
+            1100), y=mp(35), width=40, height=40)
     else:
         print(
             f"Icon image not found at '{icon_local}'. Please check the file path.")
@@ -287,10 +287,10 @@ def generate_pdf():
     c.drawString(x=mp(215), y=mp(77), text='+55 (41) 9 99674-8465')
 
     c.setFont("Helvetica", 9)
-    c.drawString(x=mp(1220), y=mp(112),
+    c.drawString(x=mp(1210), y=mp(112),
                  text='Rua Marechal Deodoro 717 - 4º Andar')
-    c.drawString(x=mp(1220), y=mp(82), text='Edifício Muralha - Centro')
-    c.drawString(x=mp(1220), y=mp(
+    c.drawString(x=mp(1210), y=mp(82), text='Edifício Muralha - Centro')
+    c.drawString(x=mp(1210), y=mp(
         52), text='CEP: 80020-320. Curitiba - PR, Brasil')
 
     c.showPage()
@@ -298,7 +298,7 @@ def generate_pdf():
 
     # Set up the response to download the PDF
     response = make_response(pdf_buffer.getvalue())
-    response.headers['Content-Disposition'] = 'attachment; filename=sample.pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=proposta.pdf'
     response.headers['Content-type'] = 'application/pdf'
 
     return response
