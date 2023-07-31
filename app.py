@@ -205,7 +205,7 @@ def generate_pdf():
 
     # Info
     uxl, uyl = mp(53), mp(2060)   # Upper left
-    uxr, uyr = mp(1690), mp(1660)  # Lower right
+    uxr, uyr = mp(1690), mp(1650)  # Lower right
 
     # Manually apply the background color to the section below the top
     c.setFillColor(azul)
@@ -225,7 +225,7 @@ def generate_pdf():
 
     # Draw a line separating the sections vertically
     midpoint_x = (mp(53) + mp(1690)) / 2
-    c.line(midpoint_x, mp(2060), midpoint_x, mp(1680))
+    c.line(midpoint_x, mp(2060), midpoint_x, mp(1650))
 
     # Top section user text color
     c.setFont("Helvetica", 12)
@@ -252,7 +252,7 @@ def generate_pdf():
     c.drawString(x=mp(890), y=mp(1680), text='Data da proposta: ' + str(data))
 
     # machine info
-    mxl, myl = mp(53), mp(1650)   # Upper left
+    mxl, myl = mp(53), mp(1630)   # Upper left
     mxr, myr = mp(1690), mp(200)  # Lower right
 
     c.rect(mxl, myl, mxr - mxl, myr - myl)
