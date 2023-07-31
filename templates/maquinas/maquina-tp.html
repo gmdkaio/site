@@ -118,6 +118,7 @@
       <input type="hidden" name="produtos" id="selected-produtos">
       <input type="hidden" name="embalagens" id="selected-embalagens">
       <input type="hidden" name="selected-date" id="selected-date">
+      <input type="hidden" name="linha" id="linha">
       <button type="submit" id="generate-proposta">Generate proposta</button>
     </form>
   </div>
@@ -142,6 +143,7 @@
     'acessories': [],
     'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
     'embalagens': ['especial', 'sache'],
+    'linha': "Linha TP"
   }
 
   function getCurrentDate() {
@@ -206,6 +208,7 @@
   function updateHiddenFields() {
     const selectedVersion = document.querySelector('.version.active').textContent.trim();
     document.getElementById('selected-version').value = selectedVersion;
+    document.getElementById('linha').value = selectedMachine.linha;
     document.getElementById('selected-accessories').value = selectedMachine.acessories.join(', ');
     document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
     document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
