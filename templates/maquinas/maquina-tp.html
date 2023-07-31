@@ -209,7 +209,7 @@
     const selectedVersion = document.querySelector('.version.active').textContent.trim();
     document.getElementById('selected-version').value = selectedVersion;
     document.getElementById('linha').value = selectedMachine.linha;
-    document.getElementById('selected-accessories').value = selectedMachine.acessories.join(', ');
+    document.getElementById('selected-accessories').value = selectedMachine.acessories.join('\n');
     document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
     document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
 

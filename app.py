@@ -181,7 +181,7 @@ def generate_pdf():
     elif(embalagens == 7):
         embalagens = 'Fardo'   
     else:
-        embalagens = 'Pote'   
+        embalagens = 'Pote'  
 
     # Header
     c.setFont("Helvetica", 20)
@@ -239,21 +239,50 @@ def generate_pdf():
     c.drawString(x=mp(70), y=mp(1930), text='Nome: ' + str(nome))
     c.drawString(x=mp(70), y=mp(1880), text='Celular: ' + str(celular))
     c.drawString(x=mp(70), y=mp(1830), text='Email: ' + str(email))
-    c.drawString(x=mp(70), y=mp(1780), text='Endereço: ' + str(endereco))
-    c.drawString(x=mp(70), y=mp(1730), text='CNPJ: ' + str(cnpj))
-    c.drawString(x=mp(70), y=mp(1680), text='Id da proposta: ' + str(user_id))
+    c.drawString(x=mp(70), y=mp(1780), text='Empresa: ' + str(empresa))
+    c.drawString(x=mp(70), y=mp(1730), text='Endereço: ' + str(endereco))
+    c.drawString(x=mp(70), y=mp(1680), text='CNPJ: ' + str(cnpj))
 
     # selected machine info
     c.drawString(x=mp(890), y=mp(1930), text='Linha: ' + str(linha))
     c.drawString(x=mp(890), y=mp(1880), text='Máquina: ' + str(versao))
     c.drawString(x=mp(890), y=mp(1830), text='Produto: ' + str(produtos))
     c.drawString(x=mp(890), y=mp(1780), text='Embalagem: ' + str(embalagens))
-    c.drawString(x=mp(890), y=mp(1730), text='Acessórios: ' + str(accessorios))
-    c.drawString(x=mp(890), y=mp(1680), text='Data da proposta: ' + str(data))
+    c.drawString(x=mp(890), y=mp(1730), text='Data da proposta: ' + str(data))
+    c.drawString(x=mp(890), y=mp(1680), text='Id da proposta: ' + str(user_id))
+
+    #acessories info
+    axl, ayl = mp(1130), mp(1630) # Upper right
+    axr, ayr = mp(1690), mp(200) # Lower right
+
+    c.setFillColor(azul)
+    c.rect(axl, ayl, axr - axl, mp(1555) - ayl, fill=True)
+
+    c.setFont("Helvetica", 12)
+    c.setFillColor(branco)
+    c.drawString(x=mp(1147), y=mp(1585), text='Acessórios')
+
+    selected_accessories = accessorios
+    if selected_accessories:
+        accessories_list = selected_accessories.split('\n')
+        y_offset = mp(1500)  # Starting y-coordinate for the first accessory
+        line_spacing = mp(50)  # Spacing between lines
+        for accessory in accessories_list:
+            accessory = accessory.strip()  # Remove leading/trailing whitespace, including the newline character
+            c.setFont("Helvetica", 12)
+            c.setFillColor(preto)
+            c.drawString(x=mp(1147), y=y_offset, text=accessory)
+            y_offset -= line_spacing  # Move the next line up by the line_spacing value
+    else:
+        c.setFont("Helvetica", 12)
+        c.setFillColor(preto)
+        c.drawString(x=mp(1147), y=mp(1580), text='Nenhum acessório selecionado.')
+
+    c.rect(axl, ayl, axr - axl, ayr - ayl)
 
     # machine info
     mxl, myl = mp(53), mp(1630)   # Upper left
-    mxr, myr = mp(1690), mp(200)  # Lower right
+    mxr, myr = mp(1120), mp(200)  # Lower right  
 
     c.rect(mxl, myl, mxr - mxl, myr - myl)
 
