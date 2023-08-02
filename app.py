@@ -149,21 +149,6 @@ def generate_pdf():
     data = session.get('data', None)
     linha = session.get('linha', None)
 
-    if(produtos == 0):
-       produtos = 'Não selecionado'
-    elif(produtos == 1):
-        produtos = 'Líquido'
-    elif(produtos == 2):
-        produtos == 'Viscoso'
-    elif(produtos == 3):
-        produtos == 'Pastoso'
-    elif(produtos == 4):
-        produtos = 'Pó'
-    elif(produtos == 5):
-        produtos == 'Granular'
-    else:
-        produtos == 'Sólido'
-
     if(embalagens == 0):
         embalagens = 'Não selecionado'
     elif(embalagens == 1):
@@ -182,6 +167,21 @@ def generate_pdf():
         embalagens = 'Fardo'   
     else:
         embalagens = 'Pote'  
+
+    if(produtos == 0):
+       produtos = 'Não selecionado'
+    elif(produtos == 1):
+        produtos = 'Líquido'
+    elif(produtos == 2):
+        produtos == 'Viscoso'
+    elif(produtos == 3):
+        produtos == 'Pastoso'
+    elif(produtos == 4):
+        produtos = 'Pó'
+    elif(produtos == 5):
+        produtos == 'Granular'
+    else:
+        produtos == 'Sólido'
 
     # Header
     c.setFont("Helvetica", 20)
@@ -327,7 +327,7 @@ def generate_pdf():
 
     # Set up the response to download the PDF
     response = make_response(pdf_buffer.getvalue())
-    response.headers['Content-Disposition'] = 'attachment; filename=proposta.pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=solicitação.pdf'
     response.headers['Content-type'] = 'application/pdf'
 
     return response

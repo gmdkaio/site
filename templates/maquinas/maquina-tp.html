@@ -5,25 +5,18 @@
 {% endblock %}
 
 {% block body %}
-<br><br><br><br><br>
+<br><br><br><br>
 <div class="grid">
-  <div class="item nome">
-    <div class='item texto-nome'>
-      <div class="textost">Linha TP</div>
+  <div class="grid-left">
+    <div class="versoes">
+      <button class="version active" role="button" onclick="updateInfo('TP 85', this)">TP 85</button>
+      <button class="version" role="button" onclick="updateInfo('TP 100', this)">TP 100</button>
+      <button class="version" role="button" onclick="updateInfo('TP 120', this)">TP 120</button>
+      <button class="version" role="button" onclick="updateInfo('TP 140', this)">TP 140</button>
+      <button class="version" role="button" onclick="updateInfo('TP 180', this)">TP 180</button>
+      <button class="version" role="button" onclick="updateInfo('TP 300', this)">TP 300</button>
     </div>
-  </div>
-  <div class="montagem border">
-    <div><img src="/static/images/maquinas_cortado/tp.jpg" alt="Máquina da linha TP" class="imagemMaquina"></div>
-    <div class="content">
-      <div class="versoes">
-        <button class="version active" role="button" onclick="updateInfo('TP 85', this)">TP 85</button>
-        <button class="version" role="button" onclick="updateInfo('TP 100', this)">TP 100</button>
-        <button class="version" role="button" onclick="updateInfo('TP 120', this)">TP 120</button>
-        <button class="version" role="button" onclick="updateInfo('TP 140', this)">TP 140</button>
-        <button class="version" role="button" onclick="updateInfo('TP 180', this)">TP 180</button>
-        <button class="version" role="button" onclick="updateInfo('TP 300', this)">TP 300</button>
-      </div>
-    </div>
+    <br>
     <div class="info">
       <div class="info-container" id="producao">
         <div class="info-azul">
@@ -91,12 +84,61 @@
           </div>
         </div>
       </div>
+      <div class="info-container" id="producao">
+        <div class="info-azul">
+          <div class="textoinfoA">Capacidade de produção</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Até 850 unidades por hora
+            <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="dosagem">
+        <div class="info-azul">
+          <div class="textoinfoA">Sistema de dosagem</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Temporizado | Bomba positiva | Volumétrico
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="operacao">
+        <div class="info-azul">
+          <div class="textoinfoA">Área de operação</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            2.100x2.450 [mm²]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="fabricacao">
+        <div class="info-azul">
+          <div class="textoinfoA">Material de fabricação</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Aço inoxidável AISI 304, alumínio, policarbonato e aço carbono
+          </div>
+        </div>
+      </div>
     </div>
-    <br><br>
-    <hr>
-    <h3>Escolha acessórios</h3>
-    <div class="acessorios">
-      <div class="acessorios">
+  </div>
+  <div class="grid-right">
+    <div class="img-container">
+      <img src="/static/images/pagmaquinas/tp_montagem.jpg" alt="Máquina TP">
+    </div>
+    <div class='acessorios'>
+      <div class="topbar">
+        <div class="topbar-txt">Escolha os acessórios</div>
+      </div>
+      <div class="botoes-acessorios">
         <button type="button" class="acessorio-btn" value="acessorio1">
           <img src="/static/images/produtos/pos.png" alt="acessorio1">
         </button>
@@ -109,20 +151,47 @@
         <button type="button" class="acessorio-btn" value="acessorio4">
           <img src="/static/images/produtos/pos.png" alt="acessorio4">
         </button>
+        <button type="button" class="acessorio-btn" value="acessorio5">
+          <img src="/static/images/produtos/pos.png" alt="acessorio5">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio6">
+          <img src="/static/images/produtos/pos.png" alt="acessorio6">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio7">
+          <img src="/static/images/produtos/pos.png" alt="acessorio7">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio8">
+          <img src="/static/images/produtos/pos.png" alt="acessorio8">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio9">
+          <img src="/static/images/produtos/pos.png" alt="acessorio9">
+        </button>
+        <button type="button" class="acessorio-btn" value="acessorio10">
+          <img src="/static/images/produtos/pos.png" alt="acessorio10">
+        </button>
       </div>
+      <form id="proposta-form" action="/proposta" method="POST" class="submit-form">
+        <input type="hidden" name="version" id="selected-version">
+        <input type="hidden" name="accessories" id="selected-accessories">
+        <input type="hidden" name="produtos" id="selected-produtos">
+        <input type="hidden" name="embalagens" id="selected-embalagens">
+        <input type="hidden" name="selected-date" id="selected-date">
+        <input type="hidden" name="linha" id="linha">
+        <button type="submit" id="generate-proposta" class="btn btn-default btn-lg btn-block">Montar</button>
+      </form>
     </div>
-    <hr>
-    <form id="proposta-form" action="/proposta" method="POST">
-      <input type="hidden" name="version" id="selected-version">
-      <input type="hidden" name="accessories" id="selected-accessories">
-      <input type="hidden" name="produtos" id="selected-produtos">
-      <input type="hidden" name="embalagens" id="selected-embalagens">
-      <input type="hidden" name="selected-date" id="selected-date">
-      <input type="hidden" name="linha" id="linha">
-      <button type="submit" id="generate-proposta">Generate proposta</button>
-    </form>
+  </div>
   </div>
 </div>
+<footer class="bg-dark text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md3- col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5>Profills</h5>
+      </div>
+    </div>
+  </div>
+</footer>
 <script>
   var buttons = document.querySelectorAll('.version');
   buttons.forEach(function (button) {
