@@ -41,42 +41,66 @@
         </div>
       </div>
 
-      <div class="info-container" id="operacao">
+      <div class="info-container" id="largura">
         <div class="info-azul">
-          <div class="textoinfoA">Área de operação</div>
+          <div class="textoinfoA">Largura do Filme</div>
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            2.100x2.450 [mm²]
+            85 a 300 [mm]
           </div>
         </div>
       </div>
 
-      <div class="info-container" id="fabricacao">
+
+      <div class="info-container" id="espessura">
         <div class="info-azul">
-          <div class="textoinfoA">Material de fabricação</div>
+          <div class="textoinfoA">Espessura do Filme</div>
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Aço inoxidável AISI 304, alumínio, policarbonato e aço carbono
+            60 a 90 [μm]
           </div>
         </div>
       </div>
 
-      <div class="info-container" id="produtos">
+      <div class="info-container" id="comando">
         <div class="info-azul">
-          <div class="textoinfoA">Produtos de envase</div>
+          <div class="textoinfoA">Comando</div>
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Líquidos e secos
+            CLP com IHM Touchscreen
           </div>
         </div>
       </div>
 
-      <div class="info-container" id="embalagens">
+      <div class="info-container" id="consumo-ar">
         <div class="info-azul">
-          <div class="textoinfoA">Embalagens compatíveis</div>
+          <div class="textoinfoA">Consumo de ar</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            277 [L/min]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="embalagem-final">
+        <div class="info-azul">
+          <div class="textoinfoA">Embalagem final</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Largura: 35 a 140 [mm]
+            Comprimento: 40 a 250 [mm]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="embalagem-compativel">
+        <div class="info-azul">
+          <div class="textoinfoA">Embalagem compatível</div>
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
@@ -84,28 +108,6 @@
           </div>
         </div>
       </div>
-      <div class="info-container" id="producao">
-        <div class="info-azul">
-          <div class="textoinfoA">Capacidade de produção</div>
-        </div>
-        <div class="info-cinza">
-          <div class="textoinfoB">
-            Até 850 unidades por hora
-            <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-container" id="dosagem">
-        <div class="info-azul">
-          <div class="textoinfoA">Sistema de dosagem</div>
-        </div>
-        <div class="info-cinza">
-          <div class="textoinfoB">
-            Temporizado | Bomba positiva | Volumétrico
-          </div>
-        </div>
-      </div>
 
       <div class="info-container" id="operacao">
         <div class="info-azul">
@@ -118,13 +120,13 @@
         </div>
       </div>
 
-      <div class="info-container" id="fabricacao">
+      <div class="info-container" id="produto-envase">
         <div class="info-azul">
-          <div class="textoinfoA">Material de fabricação</div>
+          <div class="textoinfoA">Produto de envase</div>
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Aço inoxidável AISI 304, alumínio, policarbonato e aço carbono
+            Líquidos e secos
           </div>
         </div>
       </div>
@@ -163,12 +165,6 @@
         <button type="button" class="acessorio-btn" value="acessorio8">
           <img src="/static/images/produtos/pos.png" alt="acessorio8">
         </button>
-        <button type="button" class="acessorio-btn" value="acessorio9">
-          <img src="/static/images/produtos/pos.png" alt="acessorio9">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio10">
-          <img src="/static/images/produtos/pos.png" alt="acessorio10">
-        </button>
       </div>
       <form id="proposta-form" action="/proposta" method="POST" class="submit-form">
         <input type="hidden" name="version" id="selected-version">
@@ -181,17 +177,14 @@
       </form>
     </div>
   </div>
+</div>
+</div>
+<div class="footer bg-dark text-white">
+  <div class="footer-content"></div>
+  <div class="footer-bottom">
+    &copy; Profills do Brasil - 22.198.308/0001-26 | Todos os direitos reservados - Desenvolvido por gmdkaio@gmail.com
   </div>
 </div>
-<footer class="bg-dark text-white pt-5 pb-4">
-  <div class="container text-center text-md-left">
-    <div class="row text-center text-md-left">
-      <div class="col-md3- col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5>Profills</h5>
-      </div>
-    </div>
-  </div>
-</footer>
 <script>
   var buttons = document.querySelectorAll('.version');
   buttons.forEach(function (button) {
@@ -250,8 +243,15 @@
 
         selectedMachine.producao = producaoValue;
 
-        textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+        container.classList.add('fade-in');
+
+        setTimeout(function () {
+
+          container.classList.remove('fade-in');
+        }, 500); //SS
       }
+
+      textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
     });
   }
 
@@ -284,7 +284,7 @@
 
     document.getElementById('selected-date').value = getCurrentDate();
   }
-  
+
   $('#proposta-form').submit(function (event) {
     updateHiddenFields();
     return true;
