@@ -1,4 +1,4 @@
-# Embalagens:
+# Embalagens
 
 # 1 - Gable Top
 # 2 - Stand-up Pouch
@@ -18,18 +18,16 @@
 # 5 - Granular
 # 6 - Sólido
 
-
 Maquinas = {
-    
-  'TP': {
-      'linha': 'Linha TP',
-      'nome': 'Linha TP',
-      'embalagem': [3, 4],
-      'produto': [1, 2, 3, 4, 5, 6],
-      'imagem': '../static/images/maquinas/tp.jpg',
-      'descricao': 'Máquinas envasadoras da linha TP',
-      'pagina': 'maquina-tp',
-      'acessorios': []
+    'TP': {
+   	'linha': 'Linha TP',
+   	'nome': 'Linha TP',
+   	'embalagem': [3, 4],
+   	'produto': [1, 2, 3, 4, 5, 6],
+        'imagem': '../static/images/maquinas/tp.jpg',
+        'descricao': 'Máquinas envasadoras da linha TP',
+        'pagina': 'maquina-tp',
+        'acessorios': []
     },
 
     'TC 4S': {
