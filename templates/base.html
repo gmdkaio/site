@@ -6,7 +6,9 @@
     <title>Profills</title>
     <link rel="icon" type="image/x-icon" href="/static/images/icones/favicon.ico">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="{{ url_for('static', filename= 'js/bootstrap.bundle.min.js' )}}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     {% block head %}{% endblock %}
@@ -43,5 +45,60 @@
         </div>
     </nav>
     {% block body %}{% endblock %}
+    <div class="footer bg-dark text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2" style="margin-top: 38px;">
+              <ul class="list-unstyled">
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Profills Responde</a></li>
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Clientes</a></li>
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Projetos</a></li>
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Loja</a></li>
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Blog</a></li>
+                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Contatos</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-md-2" style="margin-left: 30px;">
+              <h5>Vendas</h5>
+              <ul class="list-unstyled">
+                <li class="ic-txt">
+                  <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+                  comercial@profillsdobrasil.com.br
+                </li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i> 
+                  +55 41 3209-4227
+                </li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i> 
+                  +55 41 99785-1998
+                </li>
+              </ul>
+    
+              <h5 class="single-line">Suporte e Assistência Técnica</h5>
+              <ul class="list-unstyled">
+                <li class="ic-txt">
+                  <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+                  suporte@profillsdobrasil.com.br
+                </li>
+                <li>
+                  <i class="fa fa-phone" aria-hidden="true"></i> 
+                  +55 14 3714-3425
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-md-2">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2577899620605!2d-49.268439725666504!3d-25.42964363287552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce46adb52fd23%3A0xfc45682bd3499a57!2sR.%20Mal.%20Deodoro%2C%20717%20-%20Centro%2C%20Curitiba%20-%20PR%2C%2080020-320!5e0!3m2!1sen!2sbr!4v1691166987894!5m2!1sen!2sbr"
+                width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+           <p>Profills do Brasil - 22.198.308/0001-26 | Todos os direitos reservados - Sistema por gmdkaio@gmail.com</p>
+        </div>
+      </div>
 </body>
 </html>

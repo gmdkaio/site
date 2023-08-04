@@ -1,13 +1,35 @@
+# Embalagens:
+
+# 1 - Gable Top
+# 2 - Stand-up Pouch
+# 3 - Especial
+# 4 - Sachê
+# 5 - Garrafa
+# 6 - Frasco
+# 7 - Fardo
+# 8 - Pote
+
+# Produtos:
+
+# 1 - Líquido
+# 2 - Viscoso
+# 3 - Pastoso
+# 4 - Pó
+# 5 - Granular
+# 6 - Sólido
+
+
 Maquinas = {
-    'TP': {
-        'linha': 'Linha TP',
-        'nome': 'Linha TP',
-        'embalagem': [3, 4],
-        'produto': [1, 2, 3, 4, 5, 6],
-        'imagem': '../static/images/maquinas/tp.jpg',
-        'descricao': 'Máquinas envasadoras da linha TP',
-        'pagina': 'maquina-tp',
-        'acessorios': []
+    
+  'TP': {
+      'linha': 'Linha TP',
+      'nome': 'Linha TP',
+      'embalagem': [3, 4],
+      'produto': [1, 2, 3, 4, 5, 6],
+      'imagem': '../static/images/maquinas/tp.jpg',
+      'descricao': 'Máquinas envasadoras da linha TP',
+      'pagina': 'maquina-tp',
+      'acessorios': []
     },
 
     'TC 4S': {
@@ -162,7 +184,7 @@ Maquinas = {
         'descricao': 'Máquinas enfardadeiras da linha TC 4U',
         'pagina': 'maquina-tc4u',
         'acessorios': []
-    },
+    }, 
 
     'PTC': {
         'linha': 'Linha PTC',
