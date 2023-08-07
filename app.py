@@ -1,16 +1,18 @@
 from flask import Flask, render_template, request, jsonify, session, make_response
-import uuid
-import hashlib
-import secrets
-import json
 from info.maquinas import Maquinas
 from propostas import create_table_proposta, insert_proposta
 from user_info import create_table_user, insert_info
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
+from email_sender import send_email_with_attachment
+import uuid
+import hashlib
+import secrets
+import json
 import io
 import os
+
 
 secret_key = secrets.token_hex(16)
 
@@ -93,8 +95,8 @@ def proposta():
 
         insert_proposta(app, user_id, versao, accessorios,
                         produtos, embalagens, data)
-
-    return render_template('proposta.html')
+    
+        return render_template('proposta.html')
 
 
 @app.route('/user-info', methods=['POST'])
@@ -299,7 +301,7 @@ def generate_pdf():
 
     if os.path.exists(icon_cell):
         c.drawImage(ImageReader(icon_cell), x=mp(
-            100), y=mp(35), width=40, height=40)
+            900), y=mp(35), width=40, height=40)
     else:
         print(
             f"Icon image not found at '{icon_cell}'. Please check the file path.")
@@ -313,7 +315,7 @@ def generate_pdf():
 
     c.setFillColor(cinza)
     c.setFont("Helvetica", 12)
-    c.drawString(x=mp(215), y=mp(77), text='+55 (41) 9 99674-8465')
+    c.drawString(x=mp(205), y=mp(77), text='+55 (41) 9 99674-8465')
 
     c.setFont("Helvetica", 9)
     c.drawString(x=mp(1210), y=mp(112),
@@ -325,13 +327,24 @@ def generate_pdf():
     c.showPage()
     c.save()
 
+    pdf_content = pdf_buffer.getvalue()
+
+    # Construct the email content using session variables
+    email_content= {
+        'nome': nome,
+        'celular': celular,
+        'email': email,
+        'empresa': empresa,
+    }
+
+    send_email_with_attachment(pdf_content, email_content)
+
     # Set up the response to download the PDF
-    response = make_response(pdf_buffer.getvalue())
+    response = make_response(pdf_content)
     response.headers['Content-Disposition'] = 'attachment; filename=solicitação.pdf'
     response.headers['Content-type'] = 'application/pdf'
 
     return response
-
 
 if __name__ == '__main__':
     create_table_user(app)

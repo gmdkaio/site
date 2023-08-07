@@ -6,13 +6,14 @@
 {% block body %}
 <br><br><br><br>
 <h1>Sua Proposta</h1>
-<form action="/generate_pdf" method="post">
+<form action="/generate_pdf" method="post" id="proposta-form">
   <input type="hidden" name="version" value="{{ version }}">
   <input type="hidden" name="accessories" value="{{ accessories }}">
   <input type="hidden" name="produtos" value="{{ produtos }}">
   <input type="hidden" name="embalagens" value="{{ embalagens }}">
   <br>
   <button type="submit">Baixar Proposta em PDF</button>
+</form>
 </form>
 
 <script>
@@ -28,7 +29,7 @@
       .then(blob => {
           const link = document.createElement('a');
           link.href = URL.createObjectURL(blob);
-          link.download = 'proposta.pdf';
+          link.download = 'solicitacao.pdf';
 
           document.body.appendChild(link);
           link.click();
