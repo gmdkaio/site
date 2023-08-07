@@ -6,7 +6,7 @@
 {% block body %}
 <br><br><br><br>
 <h1>Sua Proposta</h1>
-<form action="/generate_pdf" method="post" id="proposta-form">
+<form action="/download_pdf" method="post" id="proposta-form">
   <input type="hidden" name="version" value="{{ version }}">
   <input type="hidden" name="accessories" value="{{ accessories }}">
   <input type="hidden" name="produtos" value="{{ produtos }}">
