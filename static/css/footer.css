@@ -51,6 +51,6 @@
   align-items: center;
 }
 
-.ic-txt i {
+* .ic-txt i { 
   margin-right: 8px; 
 }

@@ -210,17 +210,17 @@
 }
 
 .btn-block{
-background-color: #002d72;
-color:white;
-width: 660px;
-margin-right:10px;
-height: 45px;
+  background-color: #002d72;
+  color:white;
+  width: 660px;
+  margin-right:10px;
+  height: 45px;
 }
 
 .btn-block:hover{
-color:white;
-transition: 0.3s ease;
-transform: scale(0.97);
+  color:white;
+  transition: 0.3s ease;
+  transform: scale(0.97);
 }
 
 * .fixed-top {

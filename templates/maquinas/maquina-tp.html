@@ -2,6 +2,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="/static/css/maquinas.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 {% endblock %}
 
 {% block body %}
@@ -173,7 +174,8 @@
         <input type="hidden" name="embalagens" id="selected-embalagens">
         <input type="hidden" name="selected-date" id="selected-date">
         <input type="hidden" name="linha" id="linha">
-        <button type="submit" id="generate-proposta" class="btn btn-default btn-lg btn-block">Montar</button>
+        <button type="submit" id="generate-proposta" class="btn btn-default btn-lg btn-block"
+          onclick="startLoading()">Montar</button>
       </form>
     </div>
   </div>
@@ -267,6 +269,20 @@
       console.log(selectedMachine);
     });
   });
+
+  function startLoading() {
+    const generateButton = document.getElementById("generate-proposta");
+    generateButton.style.backgroundColor = "#ccc";
+    generateButton.style.cursor = "not-allowed";
+
+    // Create the loading wheel icon element
+    const loadingIcon = document.createElement("i");
+    loadingIcon.classList.add("fas", "fa-circle-notch", "fa-spin");
+
+    // Add the icon to the button
+    generateButton.appendChild(loadingIcon);
+  }
+
 
   function updateHiddenFields() {
     const selectedVersion = document.querySelector('.version.active').textContent.trim();
