@@ -1,44 +1,106 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link rel="stylesheet" href="../static/css/proposta.css">
 {% endblock %}
 
 {% block body %}
 <br><br><br><br>
-<h1>Sua Proposta</h1>
-<form action="/download_pdf" method="post" id="proposta-form">
-  <input type="hidden" name="version" value="{{ version }}">
-  <input type="hidden" name="accessories" value="{{ accessories }}">
-  <input type="hidden" name="produtos" value="{{ produtos }}">
-  <input type="hidden" name="embalagens" value="{{ embalagens }}">
-  <br>
-  <button type="submit">Baixar Proposta em PDF</button>
-</form>
-</form>
+<div class="grid">
+  <div class="grid-left">
+    <div class="maquina-container">
+      <div class="topbar">
+        <div class="topbar-txt">Montagem concluída</div>
+      </div>
+      <div class="content">
+        <h4>Obrigado por usar o sistema de montagem Profills</h4>
+        <p>Você está prestes a adquirir o que há de mais modeno em sistema de envase do mercado.
+          Nosso próximo passo será entrar em contato para concluir os detalhes da sua solicitação e
+          garantir que sua empresa tenha acesso ao que há de melhor em tecnologia envasadora.
+          Estamos empenhados em oferecer o máximo para o sucesso da sua empresa.
+          Obrigado!</p>
+      </div>
+    </div>
+  </div>
+  <div class="grid-right">
+    <div class="topbar">
+      <div class="topbar-txt">Enviar um feedback(Opcional)</div>
+    </div>
+    <div class="content">
+      <form class="feedback-form">
+        <label for="feedback">Envie sugestões ou reclamações sobre o site: </label>
+        <textarea id="feedbackText" name="feedback" rows="4" required></textarea>
+        <button type="submit" class="btn btn-default btn-lg btn-block" id="submitFeedbackButton" onclick="startLoading()">Enviar</button>
+      </form>
+    </div>
 
+
+    <form action="/download_pdf" method="post" id="proposta-form">
+      <input type="hidden" name="version" value="{{ version }}">
+      <input type="hidden" name="accessories" value="{{ accessories }}">
+      <input type="hidden" name="produtos" value="{{ produtos }}">
+      <input type="hidden" name="embalagens" value="{{ embalagens }}">
+      <br>
+      <button type="submit" class="btn btn-default btn-lg btn-block btn-final">Baixar PDF</button>
+    </form>
+    <a href="index.html"><button type="submit" class="btn btn-default btn-lg btn-block btn-final">Voltar</button></a>
+  </div>
+</div>
 <script>
   document.getElementById('proposta-form').onsubmit = function (event) {
-      event.preventDefault();
-      const formData = new FormData(this);
+    event.preventDefault();
+    const formData = new FormData(this);
 
-      fetch(this.action, {
-          method: 'POST',
-          body: formData,
-      })
+    fetch(this.action, {
+      method: 'POST',
+      body: formData,
+    })
       .then(response => response.blob())
       .then(blob => {
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          link.download = 'solicitacao.pdf';
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'solicitacao.pdf';
 
-          document.body.appendChild(link);
-          link.click();
+        document.body.appendChild(link);
+        link.click();
 
-          URL.revokeObjectURL(link.href);
-          document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+        document.body.removeChild(link);
       })
       .catch(error => console.error('Error:', error));
   };
+
+  document.getElementById("submitFeedbackButton").addEventListener("click", function(event) {
+    var feedback = document.getElementById("feedbackText").value;
+    var button = this;
+
+    // Change button color to #ccc when clicked
+    button.style.backgroundColor = "#999";
+
+    // Add loading animation
+    button.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/send_feedback", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                // Update button text after successful submission
+                button.textContent = "Enviado";
+            } else {
+                console.error("Error sending feedback.");
+                // Reset button text and remove loading animation in case of an error
+                button.innerHTML = "Enviar Feedback";
+                // Change button color back to blue in case of an error
+                button.style.backgroundColor = "#002d72";
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify({ feedback: feedback }));
+
+    event.preventDefault();
+});
 </script>
 {% endblock %}
-</html>

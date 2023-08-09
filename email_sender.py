@@ -41,3 +41,34 @@ def send_email_with_attachment(pdf_content, user_info):
         print("Email sent successfully!")
     except Exception as e:
         print("Error sending email:", str(e))
+
+
+def send_email_with_feedback(feedback_content, user_info):
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+    sender_email = 'gmdkaio@gmail.com'
+    sender_password = 'gtskhgztskdkwmvb'
+    receiver_email = 'teste.enviaremails@gmail.com'  
+
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = 'Feedback Submission'
+
+    email_content = (
+        f"Nome do cliente: {user_info['nome']}\n"
+        f"Email do cliente: {user_info['email']}\n"
+        f"Feedback do site:\n{feedback_content}\n"
+    )
+
+    msg.attach(MIMEText(email_content, 'plain'))
+
+    try:
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, receiver_email, msg.as_string())
+        server.quit()
+        print("Feedback email sent successfully!")
+    except Exception as e:
+        print("Error sending feedback email:", str(e))

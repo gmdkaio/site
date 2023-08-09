@@ -5,7 +5,7 @@ from user_info import create_table_user, insert_info
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
-from email_sender import send_email_with_attachment
+from email_sender import send_email_with_attachment, send_email_with_feedback
 import uuid
 import hashlib
 import secrets
@@ -113,6 +113,21 @@ def proposta():
     produtos = session.get('produto_pdf', None)
     embalagens = session.get('embalagem_pdf', None)
 
+    if(produtos == 0):
+       produtos = 'Não selecionado'
+    elif(produtos == 1):
+        produtos = 'Líquido'
+    elif(produtos == 2):
+        produtos == 'Viscoso'
+    elif(produtos == 3):
+        produtos == 'Pastoso'
+    elif(produtos == 4):
+        produtos = 'Pó'
+    elif(produtos == 5):
+        produtos == 'Granular'
+    else:
+        produtos == 'Sólido'
+
     if(embalagens == 0):
         embalagens = 'Não selecionado'
     elif(embalagens == 1):
@@ -131,21 +146,6 @@ def proposta():
         embalagens = 'Fardo'   
     else:
         embalagens = 'Pote'  
-
-    if(produtos == 0):
-       produtos = 'Não selecionado'
-    elif(produtos == 1):
-        produtos = 'Líquido'
-    elif(produtos == 2):
-        produtos == 'Viscoso'
-    elif(produtos == 3):
-        produtos == 'Pastoso'
-    elif(produtos == 4):
-        produtos = 'Pó'
-    elif(produtos == 5):
-        produtos == 'Granular'
-    else:
-        produtos == 'Sólido'
 
     # Header
     c.setFont("Helvetica", 20)
@@ -353,6 +353,21 @@ def download_pdf():
     data = session.get('data', None)
     linha = session.get('linha', None)
 
+    if(produtos == 0):
+       produtos = 'Não selecionado'
+    elif(produtos == 1):
+        produtos = 'Líquido'
+    elif(produtos == 2):
+        produtos == 'Viscoso'
+    elif(produtos == 3):
+        produtos == 'Pastoso'
+    elif(produtos == 4):
+        produtos = 'Pó'
+    elif(produtos == 5):
+        produtos == 'Granular'
+    else:
+        produtos == 'Sólido'
+
     if(embalagens == 0):
         embalagens = 'Não selecionado'
     elif(embalagens == 1):
@@ -371,21 +386,6 @@ def download_pdf():
         embalagens = 'Fardo'   
     else:
         embalagens = 'Pote'  
-
-    if(produtos == 0):
-       produtos = 'Não selecionado'
-    elif(produtos == 1):
-        produtos = 'Líquido'
-    elif(produtos == 2):
-        produtos == 'Viscoso'
-    elif(produtos == 3):
-        produtos == 'Pastoso'
-    elif(produtos == 4):
-        produtos = 'Pó'
-    elif(produtos == 5):
-        produtos == 'Granular'
-    else:
-        produtos == 'Sólido'
 
     # Header
     c.setFont("Helvetica", 20)
@@ -503,7 +503,7 @@ def download_pdf():
 
     if os.path.exists(icon_cell):
         c.drawImage(ImageReader(icon_cell), x=mp(
-            30), y=mp(35), width=40, height=40)
+            75), y=mp(35), width=40, height=40)
     else:
         print(
             f"Icon image not found at '{icon_cell}'. Please check the file path.")
@@ -538,6 +538,22 @@ def download_pdf():
     response.headers['Content-type'] = 'application/pdf'
 
     return response
+
+@app.route('/send_feedback', methods=['POST'])
+def send_feedback():
+    feedback_data = request.get_json()
+    feedback_content = feedback_data.get('feedback')
+
+    nome = session.get('nome', None)
+    email = session.get('email', None)
+
+    email_content= {
+        'nome': nome,
+        'email': email,
+    }
+
+    send_email_with_feedback(feedback_content, email_content)
+    return jsonify({"message": "Enviado"})
 
 if __name__ == '__main__':
     create_table_user(app)
