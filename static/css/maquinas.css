@@ -184,43 +184,57 @@ i {
   height: auto;
 }
 
-.acessorios {
-  margin-top: 20px; /* Adjust as needed */
-  margin-right: 20px; /* Add margin to the right */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.button-row-inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  width: 100%;
+}
+
+.content {
+  grid-column: 1 / span 4;
+  grid-row: 2;
+  border: 1px solid #dadbdf;
+  width: 600px;
+}
+
 .acessorio-btn {
   padding: 0;
-  border: 5px solid #b1b1b1;
+  border: none;
   background: none;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-  margin: 20px;
+  transition: transform 0.3s ease;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
-  box-sizing: content-box; /* Add this property */
 }
 
 .acessorio-btn img {
   width: 75px;
   height: 75px;
   object-fit: cover;
-  border: none;
+  border: 2px solid transparent;
   transition: border-color 0.3s ease;
-  border-radius: 50%;
 }
 
 .acessorio-btn.active {
-  border-color: #002d72;
+  transform: scale(1.4);
 }
 
 .topbar {
   background-color:#002d72;
   height: 35px;
-  width: auto;
+  width: 600px;
 }
 
 .topbar-txt {

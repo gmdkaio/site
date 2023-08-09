@@ -139,34 +139,49 @@
     </div>
     <div class='acessorios'>
       <div class="topbar">
-        <div class="topbar-txt">Escolha os acessórios</div>
+        <div class="topbar-txt">Selecione uma embalagem</div>
       </div>
-      <div class="botoes-acessorios">
-        <button type="button" class="acessorio-btn" value="acessorio1">
-          <img src="/static/images/produtos/pos.png" alt="acessorio1">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio2">
-          <img src="/static/images/produtos/pos.png" alt="acessorio2">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio3">
-          <img src="/static/images/produtos/pos.png" alt="acessorio3">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio4">
-          <img src="/static/images/produtos/pos.png" alt="acessorio4">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio5">
-          <img src="/static/images/produtos/pos.png" alt="acessorio5">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio6">
-          <img src="/static/images/produtos/pos.png" alt="acessorio6">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio7">
-          <img src="/static/images/produtos/pos.png" alt="acessorio7">
-        </button>
-        <button type="button" class="acessorio-btn" value="acessorio8">
-          <img src="/static/images/produtos/pos.png" alt="acessorio8">
-        </button>
+      <div class="content">
+          <div class="button-row">
+              <div class="button-row-inner">
+                  <button type="button" class="acessorio-btn" value="Silo">
+                      <img src="/static/images/produtos/pos.png" alt="Silo">
+                      <span>Silo</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Mixer">
+                      <img src="/static/images/produtos/pos.png" alt="Mixer">
+                      <span>Mixer</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Tanque">
+                      <img src="/static/images/produtos/pos.png" alt="Tanque">
+                      <span>Tanque</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Dosador">
+                      <img src="/static/images/produtos/pos.png" alt="Dosador">
+                      <span>Dosador</span>
+                  </button>
+              </div>
+              <div class="button-row-inner">
+                  <button type="button" class="acessorio-btn" value="Esteira">
+                      <img src="/static/images/produtos/pos.png" alt="Esteira">
+                      <span>Esteira</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Elevador">
+                      <img src="/static/images/produtos/pos.png" alt="Elevador">
+                      <span>Elevador</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Bomba">
+                      <img src="/static/images/produtos/pos.png" alt="Bomba">
+                      <span>Bomba</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Alimentador">
+                      <img src="/static/images/produtos/pos.png" alt="ALimentador">
+                      <span>Alimentador</span>
+                  </button>
+              </div>
+          </div>
       </div>
+    </div>
       <form id="proposta-form" action="/proposta" method="POST" class="submit-form">
         <input type="hidden" name="version" id="selected-version">
         <input type="hidden" name="accessories" id="selected-accessories">
