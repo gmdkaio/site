@@ -10,7 +10,11 @@
 <div class="grid">
   <div class="grid-left">
     <div class="versoes">
-      <button class="version active" role="button" onclick="updateInfo('TC 3SC 200-2', this)">TC 3SC 200-2</button>
+      <button class="version active" role="button" onclick="updateInfo('TC 4S 200-2', this)">TC 4S 200-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 4S 240-2', this)">TC 4S 240-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 4S 280-2', this)">TC 4S 280-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 4S 360-2', this)">TC 4S 360-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 4S-2 ESPECIAL', this)">TC 4S-2 ESPECIAL</button>
     </div>
     <br>
     <div class="info">
@@ -20,7 +24,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Até 4000 unidades por hora
+            Até 2000 unidades por hora
             <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
           </div>
         </div>
@@ -43,7 +47,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            200 a 360 [mm]
+            120 a 360 [mm]
           </div>
         </div>
       </div>
@@ -55,7 +59,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            50 a 100 [μm]
+            40 a 100 [μm]
           </div>
         </div>
       </div>
@@ -77,7 +81,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            245 [L/min]
+            360 [L/min]
           </div>
         </div>
       </div>
@@ -88,7 +92,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Largura: 50 a 90 [mm]
+            Largura: 60 a 180 [mm]
             Comprimento: 70 a 180 [mm]
           </div>
         </div>
@@ -98,8 +102,8 @@
         <div class="info-azul">
           <div class="textoinfoA">Embalagem compatível</div>
         </div>
-        <div class="textoinfoB">
-            <div class="info-cinza">
+        <div class="info-cinza">
+          <div class="textoinfoB">
             PET + PE | PET + PE + Al | BOPP | BOPPA | EVOH
           </div>
         </div>
@@ -232,7 +236,15 @@
 
         var producaoValue = 0;
 
-        if (version === 'TC 3SC 200-2') {
+        if (version === 'TC 4S 200-2') {
+          producaoValue = 2000;
+        } else if (version === 'TC 4S 240-2') {
+          producaoValue = 2400;
+        } else if (version === 'TC 4S 280-2') {
+          producaoValue = 2800;
+        } else if (version === 'TC 4S 360-2') {
+          producaoValue = 3600;
+        } else if (version === 'TC 4S-2 ESPECIAL') {
           producaoValue = 4000;
         }
       

@@ -262,7 +262,7 @@ def proposta():
                               'images', 'pdf', 'local.png')
 
     if os.path.exists(icon_cell):
-        c.drawImage(ImageReader(icon_cell), x=mp(30), y=mp(35), width=40, height=40)
+        c.drawImage(ImageReader(icon_cell), x=mp(75), y=mp(35), width=40, height=40)
     else:
         print(
             f"Icon image not found at '{icon_cell}'. Please check the file path.")

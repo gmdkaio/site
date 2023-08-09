@@ -30,14 +30,36 @@ Maquinas = {
         'acessorios': []
     },
 
-    'TC 4S': {
-        'linha': 'Linha TC 4S',
-        'nome': 'Linha TC 4S',
+    'TC 4S-1': {
+        'linha': 'Linha TC 4S-1',
+        'nome': 'Linha TC 4S-1',
         'embalagem': [3, 4],
         'produto': [1, 2, 3, 4, 5, 6],
         'imagem': '../static/images/maquinas/tc4S-1.jpg',
-        'descricao': 'Máquinas envasadoras da linha TC 4S',
-        'pagina': 'maquina-tc4s',
+        'descricao': 'Máquinas envasadoras da linha TC 4S-1',
+        'pagina': 'maquina-tc4s-1',
+        'acessorios': []
+    },
+    
+    'TC 4S-2': {
+        'linha': 'Linha TC 4S-2',
+        'nome': 'Linha TC 4S-2',
+        'embalagem': [3, 4],
+        'produto': [1, 2, 3, 4, 5, 6],
+        'imagem': '../static/images/maquinas/tc4S-2.jpg',
+        'descricao': 'Máquinas envasadoras da linha TC 4S-2',
+        'pagina': 'maquina-tc4s-2',
+        'acessorios': []
+    },
+
+        'TC 4S-3': {
+        'linha': 'Linha TC 4S-3',
+        'nome': 'Linha TC 4S-3',
+        'embalagem': [3, 4],
+        'produto': [1, 2, 3, 4, 5, 6],
+        'imagem': '../static/images/maquinas/tc4S-3.jpg',
+        'descricao': 'Máquinas envasadoras da linha TC 4S-3',
+        'pagina': 'maquina-tc4s-3',
         'acessorios': []
     },
 

@@ -1,11 +1,316 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TC3SCLS</title>
-</head>
-<body>
-  <h1>TC3SCLS</h1>
-</body>
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/maquinas.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block body %}
+<br><br><br><br>
+<div class="grid">
+  <div class="grid-left">
+    <div class="versoes">
+      <button class="version active" role="button" onclick="updateInfo('TC 3SC 100-1', this)">TC 3SC 100-1</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SC 200-1', this)">TC 3SC 200-1</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SC 240-1', this)">TC 3SC 240-1</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SC 350-1', this)">TC 3SC 350-1</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SC ESPECIAL', this)">TC 3SC ESPECIAL</button>
+    </div>
+    <br>
+    <div class="info">
+      <div class="info-container" id="producao">
+        <div class="info-azul">
+          <div class="textoinfoA">Capacidade de produção</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Até 100 unidades por hora
+            <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="dosagem">
+        <div class="info-azul">
+          <div class="textoinfoA">Sistema de dosagem</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Temporizado | Bomba positiva | Volumétrico
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="largura">
+        <div class="info-azul">
+          <div class="textoinfoA">Largura do Filme</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            100 a 350 [mm]
+          </div>
+        </div>
+      </div>
+
+
+      <div class="info-container" id="espessura">
+        <div class="info-azul">
+          <div class="textoinfoA">Espessura do Filme</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            50 a 100 [μm]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="comando">
+        <div class="info-azul">
+          <div class="textoinfoA">Comando</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            CLP com IHM Touchscreen
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="consumo-ar">
+        <div class="info-azul">
+          <div class="textoinfoA">Consumo de ar</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            245 [L/min]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="embalagem-final">
+        <div class="info-azul">
+          <div class="textoinfoA">Embalagem final</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Largura: 40 a 150 [mm]
+            Comprimento: 70 a 180 [mm]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="embalagem-compativel">
+        <div class="info-azul">
+          <div class="textoinfoA">Embalagem compatível</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            PET + PE | PET + PE + Al | BOPP | BOPPA | EVOH
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="operacao">
+        <div class="info-azul">
+          <div class="textoinfoA">Área de operação</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            2.300x2.600 [mm²]
+          </div>
+        </div>
+      </div>
+
+      <div class="info-container" id="produto-envase">
+        <div class="info-azul">
+          <div class="textoinfoA">Produto de envase</div>
+        </div>
+        <div class="info-cinza">
+          <div class="textoinfoB">
+            Líquidos e secos
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-right">
+    <div class="img-container">
+      <img src="/static/images/pagmaquinas/tp_montagem.jpg" alt="Máquina TC 4S">
+    </div>
+    <div class='acessorios'>
+      <div class="topbar">
+        <div class="topbar-txt">Selecione acessórios</div>
+      </div>
+      <div class="content">
+          <div class="button-row">
+              <div class="button-row-inner">
+                  <button type="button" class="acessorio-btn" value="Silo">
+                      <img src="/static/images/produtos/pos.png" alt="Silo">
+                      <span>Silo</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Mixer">
+                      <img src="/static/images/produtos/pos.png" alt="Mixer">
+                      <span>Mixer</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Tanque">
+                      <img src="/static/images/produtos/pos.png" alt="Tanque">
+                      <span>Tanque</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Dosador">
+                      <img src="/static/images/produtos/pos.png" alt="Dosador">
+                      <span>Dosador</span>
+                  </button>
+              </div>
+              <div class="button-row-inner">
+                  <button type="button" class="acessorio-btn" value="Esteira">
+                      <img src="/static/images/produtos/pos.png" alt="Esteira">
+                      <span>Esteira</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Elevador">
+                      <img src="/static/images/produtos/pos.png" alt="Elevador">
+                      <span>Elevador</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Bomba">
+                      <img src="/static/images/produtos/pos.png" alt="Bomba">
+                      <span>Bomba</span>
+                  </button>
+                  <button type="button" class="acessorio-btn" value="Alimentador">
+                      <img src="/static/images/produtos/pos.png" alt="ALimentador">
+                      <span>Alimentador</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+    </div>
+      <form id="proposta-form" action="/proposta" method="POST" class="submit-form">
+        <input type="hidden" name="version" id="selected-version">
+        <input type="hidden" name="accessories" id="selected-accessories">
+        <input type="hidden" name="produtos" id="selected-produtos">
+        <input type="hidden" name="embalagens" id="selected-embalagens">
+        <input type="hidden" name="selected-date" id="selected-date">
+        <input type="hidden" name="linha" id="linha">
+        <button type="submit" id="generate-proposta" class="btn btn-default btn-lg btn-block"
+          onclick="startLoading()">Montar</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  var buttons = document.querySelectorAll('.version');
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      buttons.forEach(function (btn) {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+
+      var version = button.textContent.trim();
+      updateInfo(version);
+    });
+  });
+
+  var selectedMachine = {
+    'version': "TC 4S 200-2",
+    'acessories': [],
+    'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
+    'embalagens': ['especial', 'sache'],
+    'linha': "Linha TC 4S-2"
+  }
+
+  function getCurrentDate() {
+    var now = new Date();
+    var day = String(now.getDate()).padStart(2, '0');
+    var month = String(now.getMonth() + 1).padStart(2, '0');
+    var year = now.getFullYear();
+    return day + '/' + month + '/' + year;
+  }
+
+  function updateInfo(version) {
+    selectedMachine.version = version;
+    const infoContainers = document.querySelectorAll('.info-container');
+    infoContainers.forEach(function (container) {
+      if (container.id === 'producao') {
+        var textoinfoB = container.querySelector('.textoinfoB');
+        var subtexto = textoinfoB.querySelector('.subtexto');
+        var existingSubtext = subtexto.innerHTML;
+
+        var producaoValue = 0;
+
+        if (version === 'TC 3SC 100-1') {
+          producaoValue = 100;
+        } else if (version === 'TC 3SC 200-1') {
+          producaoValue = 200;
+        } else if (version === 'TC 4S 240-1') {
+          producaoValue = 240;
+        } else if (version === 'TC 3SC 350-1') {
+          producaoValue = 360;
+        } else if (version === 'TC 3SC ESPECIAL') {
+          producaoValue = 1800;
+        }
+      
+        selectedMachine.producao = producaoValue;
+
+        container.classList.add('fade-in');
+
+        setTimeout(function () {
+
+          container.classList.remove('fade-in');
+        }, 500); //SS
+      }
+
+      textoinfoB.innerHTML = 'Até ' + producaoValue + ' máquinas por hora' + '<div class="subtexto">' + existingSubtext + '</div>';
+    });
+  }
+
+  const acessoriosBtn = document.querySelectorAll('.acessorio-btn');
+
+  acessoriosBtn.forEach(button => {
+    button.addEventListener('click', function () {
+      this.classList.toggle('active');
+
+      const accessoryValue = this.value;
+      const accessoryIndex = selectedMachine.acessories.indexOf(accessoryValue);
+
+      if (accessoryIndex == -1) {
+        selectedMachine.acessories.push(accessoryValue);
+      } else {
+        selectedMachine.acessories.splice(accessoryIndex, 1);
+      }
+
+      console.log(selectedMachine);
+    });
+  });
+
+  function startLoading() {
+    const generateButton = document.getElementById("generate-proposta");
+    generateButton.style.backgroundColor = "#ccc";
+    generateButton.style.cursor = "not-allowed";
+
+    // Create the loading wheel icon element
+    const loadingIcon = document.createElement("i");
+    loadingIcon.classList.add("fas", "fa-circle-notch", "fa-spin");
+
+    // Add the icon to the button
+    generateButton.appendChild(loadingIcon);
+  }
+
+
+  function updateHiddenFields() {
+    const selectedVersion = document.querySelector('.version.active').textContent.trim();
+    document.getElementById('selected-version').value = selectedVersion;
+    document.getElementById('linha').value = selectedMachine.linha;
+    document.getElementById('selected-accessories').value = selectedMachine.acessories.join('\n');
+    document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
+    document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
+
+    document.getElementById('selected-date').value = getCurrentDate();
+  }
+
+  $('#proposta-form').submit(function (event) {
+    updateHiddenFields();
+    return true;
+  });
+</script>
+{% endblock %}
+
 </html>
