@@ -10,12 +10,10 @@
 <div class="grid">
   <div class="grid-left">
     <div class="versoes">
-      <button class="version active" role="button" onclick="updateInfo('TP 85', this)">TP 85</button>
-      <button class="version" role="button" onclick="updateInfo('TP 100', this)">TP 100</button>
-      <button class="version" role="button" onclick="updateInfo('TP 120', this)">TP 120</button>
-      <button class="version" role="button" onclick="updateInfo('TP 140', this)">TP 140</button>
-      <button class="version" role="button" onclick="updateInfo('TP 180', this)">TP 180</button>
-      <button class="version" role="button" onclick="updateInfo('TP 300', this)">TP 300</button>
+      <button class="version active" role="button" onclick="updateInfo('TC 3SL 140-2', this)">TC 3SL 140-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SL 170-2', this)">TC 3SL 170-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SL 200-2', this)">TC 3SL 200-2</button>
+      <button class="version" role="button" onclick="updateInfo('TC 3SL 220-2', this)">TC 3SL 220-2</button>
     </div>
     <br>
     <div class="info">
@@ -25,7 +23,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Até 850 unidades por hora
+            Até 1400 unidades por hora
             <div class="subtexto">Variável de acordo com a embalagem e a quantidade do produto</div>
           </div>
         </div>
@@ -48,7 +46,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            85 a 300 [mm]
+            140 a 220 [mm]
           </div>
         </div>
       </div>
@@ -60,7 +58,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            60 a 90 [μm]
+            50 a 100 [µm]
           </div>
         </div>
       </div>
@@ -82,7 +80,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            277 [L/min]
+            245 [L/min]
           </div>
         </div>
       </div>
@@ -93,8 +91,8 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            Largura: 35 a 140 [mm]
-            Comprimento: 40 a 250 [mm]
+            Largura: 35 a 55 [mm]
+            Comprimento: 70 a 230 [mm]
           </div>
         </div>
       </div>
@@ -105,7 +103,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            PEBD e PEAD
+            PET + PE | PET + PE + Al | BOPP |BOPPA | EVOH
           </div>
         </div>
       </div>
@@ -116,7 +114,7 @@
         </div>
         <div class="info-cinza">
           <div class="textoinfoB">
-            2.100x2.450 [mm²]
+            2.300x2.600 [mm²]
           </div>
         </div>
       </div>
@@ -211,11 +209,11 @@
   });
 
   var selectedMachine = {
-    'version': "TP 85",
+    'version': "TC 3SL 140-2",
     'acessories': [],
     'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
     'embalagens': ['especial', 'sache'],
-    'linha': "Linha TP"
+    'linha': "Linha TC 3SL"
   }
 
   function getCurrentDate() {
@@ -237,18 +235,14 @@
 
         var producaoValue = 0;
 
-        if (version === 'TP 85') {
-          producaoValue = 850;
-        } else if (version === 'TP 100') {
-          producaoValue = 1000;
-        } else if (version === 'TP 120') {
-          producaoValue = 1200;
-        } else if (version === 'TP 140') {
+        if (version === 'TC 3SL 140-2') {
           producaoValue = 1400;
-        } else if (version === 'TP 180') {
-          producaoValue = 1800;
-        } else if (version === 'TP 300') {
-          producaoValue = 3000;
+        } else if (version === 'TC 3SL 170-2') {
+          producaoValue = 1700;
+        } else if (version === 'TC 3SL 200-2') {
+          producaoValue = 2000;
+        } else if (version === 'TC 3SL 220-2') {
+          producaoValue = 4000;
         }
 
         selectedMachine.producao = producaoValue;

@@ -1,17 +1,13 @@
+import uuid, hashlib, secrets, json, os, io
 from flask import Flask, render_template, request, jsonify, session, make_response
-from info.maquinas import Maquinas
 from propostas import create_table_proposta, insert_proposta
 from user_info import create_table_user, insert_info
+from email_sender import send_email_with_attachment, send_email_with_feedback
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
-from email_sender import send_email_with_attachment, send_email_with_feedback
-import uuid
-import hashlib
-import secrets
-import json
-import os
-import io
+from info.maquinas import Maquinas
+
 
 secret_key = secrets.token_hex(16)
 
@@ -86,7 +82,7 @@ def proposta():
 
         user_id = session.get('user_id', None)
 
-        insert_proposta(app, user_id, versao, accessorios,
+        insert_proposta(app, user_id, versao, linha, accessorios,
                         produtos, embalagens, data)
         
         session['versao'] = versao
