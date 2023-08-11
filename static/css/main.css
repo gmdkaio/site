@@ -113,6 +113,11 @@
   border: 1px solid #dadbdf;
 }
 
+.topo{
+  padding-top: 70px;
+  width: 100%;
+}
+
 * .texto {
   padding-top: 7px;
   padding-left: 12px;
@@ -138,10 +143,7 @@
   transition: background-color 0.12s linear;
 }
 
-* .container {
-  padding: 1px 8px;
-  margin-top: -17px;
-}
+
 
 * .card img{
   height: 150px;
@@ -199,20 +201,16 @@
   background-color: #002d72;
 }
 
-.user_form{ 
-  width: 700px;
-  height: auto;
-  max-height: 380px;
-  margin: 70px auto;
-  padding: 10px 20px;
-  background: white;
-  border-radius: 5px;
+.user-form{ 
+ border-radius: 1.5rem;
+ padding: 16px;
+ max-width: 750px;
 }
 
 .btn-block{
   background-color: #002d72;
   color:white;
-  width: 660px;
+  max-width:600px;
   margin-right:10px;
   height: 45px;
 }
@@ -223,9 +221,6 @@
   transform: scale(0.97);
 }
 
-* .fixed-top {
-  height: 58px
-}
 
 .logo {
   margin-bottom: 0px;

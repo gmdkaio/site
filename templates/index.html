@@ -5,52 +5,116 @@
 {% endblock %}
 
 {% block body %}
-<div class="p-5 text-center bg-image" style="  
-  background-image: url('https://www.profills.com/images/topo-fundo2.jpg');
-  height: 540px;
-  margin-top: 0;">
-    <div class="mask">
-        <div class="d-flex justify-content-center align-items-center h-100">
-            <form class="user_form" id="user-info-form">
-                <br>
-                <div class="row mb-4">
-                    <div class="col">
-                        <div class="form-outline">
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
-                        </div>
+<div class="container-fluid topo" style="background-image: url('https://www.profills.com/images/topo-fundo2.jpg'); height: auto;">
+    <div class="container-fluid ">
+        <p class="fs-3 fw-bold text-light text-center"> Preencha seus dados para começar ! </p>
+        <div class="container-fluid user-form grid gap-3 bg-white ">
+           <form class="user_form" id="user-info-form">
+                <div class="row md-center">
+                    <div class="col col-lg-6">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control form-control-lg" id="nome" name="nome" placeholder="Insira seu nome" minlength="4" required>
                     </div>
                     <div class="col">
-                        <div class="form-outline">
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="email@example.com" required>
-                        </div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                placeholder="Insira seu melhor e-mail" required>    
                     </div>
                 </div>
-                <div class="row mb-4">
+                <div class="row md-center">
                     <div class="col">
-                        <div class="form-outline">
-                            <input type="tel" class="form-control" name="celular" id="celular"
+                       
+                            <label for="celular" class="form-label">Celular</label>
+                            <input type="tel" class="form-control form-control-lg" name="celular" id="celular"
                                 placeholder="Número de celular" required>
-                        </div>
+                        
                     </div>
                     <div class="col">
-                        <div class="form-outline">
-                            <input type="text" class="form-control" name="empresa" id="empresa"
-                                placeholder="Nome da empresa" required>
-                        </div>
+                       
+                            <label for="empresa" class="form-label">Empresa</label>
+                            <input type="text" class="form-control form-control-lg" name="empresa" id="empresa"
+                                placeholder="Nome da sua empresa" required>
+                        
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-outline">
-                        <input type="text" class="form-control" name="endereco" id="endereco"
-                            placeholder="Endereço(Opcional)">
-                    </div>
+                    
+                        <label for="endereco" class="form-label ">Endereço da Empresa</label>
+                        <input type="text" class="form-control form-control-lg" name="endereco" id="endereco"
+                            placeholder="Insira o endereço da sua empresa" required>
+                   
                 </div>
+                <div class="col">
+                    
+                        <label for="end-numero" class="form-label ">Numero</label>
+                        <input type="text" class="form-control form-control-lg" name="end-numero" id="end-numero"
+                            placeholder="Número" required>
+                  
+                </div>
+                <div class="col">
+                    
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control form-control-lg" name="cidade" id="cidade"
+                            placeholder="Cidade" required>
+                   
+                </div>
+                <div class="col">
+                    
+                        <label for="CEP" class="form-label">CEP</label>
+                        <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
+                            placeholder="00000-000" required>
+                    
+                </div>
+                <div class="col">
+                    
+                        <label for="estado" class="form-label ">Estado</label>
+                        <input class="form-control" list="lista-estados" id="estado" placeholder="Clique para selecionar ...">
+                        <datalist id="lista-estados">
+                                <option value="Acre">
+                                <option value="Alagoas">
+                                <option value="Amapá">
+                                <option value="Amazonas">
+                                <option value="Bahia">
+                                <option value="Ceará">
+                                <option value="Distrito Federal">
+                                <option value="Espírito Santo">
+                                <option value="Goiás">
+                                <option value="Maranhão">
+                                <option value="Mato Grosso">
+                                <option value="Mato Grosso do Sul">
+                                <option value="Minas Gerais">
+                                <option value="Pará">
+                                <option value="Paraíba">
+                                <option value="Paraná">
+                                <option value="Pernambuco">
+                                <option value="Piauí">
+                                <option value="Rio de Janeiro">
+                                <option value="Rio Grande do Norte">
+                                <option value="Rio Grande do Sul">
+                                <option value="Rondônia">
+                                <option value="Roraima">
+                                <option value="Santa Catarina">
+                                <option value="São Paulo">
+                                <option value="Sergipe">
+                                <option value="Tocantins">
+                                <option value="Outro">
+                              </datalist>
+                  
+                </div>
+
+                <div class="col">
+                    
+                    <label for="cidade" class="form-label">País</label>
+                    <input type="text" class="form-control form-control-lg" name="cidade" id="cidade"
+                        placeholder="Cidade" required>
+               
+            </div>
                 <br>
                 <div class="col">
-                    <div class="form-outline">
-                        <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ(Opcional)">
-                    </div>
+                   
+                        <label for="cnpj" class="form-label">CNPJ</label>
+                        <input type="text" class="form-control form-control-lg" name="cnpj" id="cnpj" placeholder="CNPJ(Opcional)">
+                    
                 </div>
                 <br>
                 <button type="submit" class="btn btn-default btn-lg btn-block" id="submit-btn">Enviar</button>

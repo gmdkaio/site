@@ -554,4 +554,4 @@ def send_feedback():
 if __name__ == '__main__':
     create_table_user(app)
     create_table_proposta(app)
-    app.run()
+    app.run(debug=True)
