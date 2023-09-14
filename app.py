@@ -1,17 +1,21 @@
-import uuid, hashlib, secrets, json, os, io
 from flask import Flask, render_template, request, jsonify, session, make_response
+from info.maquinas import Maquinas
 from propostas import create_table_proposta, insert_proposta
 from user_info import create_table_user, insert_info
-from email_sender import send_email_with_attachment, send_email_with_feedback
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
-from info.maquinas import Maquinas
-
+from email_sender import send_email_with_attachment, send_email_with_feedback
+import uuid
+import hashlib
+import secrets
+import json
+import os
+import io
 
 secret_key = secrets.token_hex(16)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 DATABASE = 'propostas.db'
 DATABASE_USERS = 'user_info.db'
 app.secret_key = secret_key
@@ -64,7 +68,7 @@ def maquina_page(maquina_pagina):
             break
 
     if maquina_details:
-        return render_template(f'maquinas/{maquina_pagina}.html', maquina=maquina_details)
+        return render_template(f'maquinas/maquina_selecionada.html', maquina=maquina_details)
 
     else:
         return render_template('404.html'), 404
@@ -79,11 +83,14 @@ def proposta():
         embalagens = request.form.get('embalagens')
         data = request.form.get('selected-date')
         linha = request.form.get('linha')
+        peso = session.get('peso_produto', None)
+        unidade_peso = session.get('unidade_peso', None)
+        descricao = session.get('descricao_produto', None)
 
         user_id = session.get('user_id', None)
 
-        insert_proposta(app, user_id, versao, linha, accessorios,
-                        produtos, embalagens, data)
+        insert_proposta(app, user_id, versao, accessorios,
+                        produtos, embalagens, data, descricao, peso, unidade_peso)
         
         session['versao'] = versao
         session['accessorios'] = accessorios
@@ -323,6 +330,18 @@ def user_info():
     session['cnpj'] = cnpj
 
     return jsonify(message='User information submitted successfully.')
+
+@app.route('/product-info', methods=['POST'])
+def product_info():
+    descricao_produto = request.form.get('descricao_produto')
+    peso_produto = request.form.get('peso_produto')
+    unidade_peso = request.form.get('unidade_peso')
+
+    session['descricao_produto'] = descricao_produto
+    session['peso_produto'] = peso_produto
+    session['unidade_peso'] = unidade_peso
+
+    return jsonify(message='Product information submitted successfully.')
 
 @app.route('/download_pdf', methods=['POST'])
 def download_pdf():

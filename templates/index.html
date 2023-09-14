@@ -2,237 +2,311 @@
 
 {% block head %}
 <link rel="stylesheet" href="/static/css/main.css">
+
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid topo" style="background-image: url('https://www.profills.com/images/topo-fundo2.jpg'); height: auto;">
-    <div class="container-fluid ">
+<div class="container-fluid topo" style="background-image: url('/static/images/imagem-topo-site.jpg'); height: auto;">
+    <section class="container-fluid " id="dados">
         <p class="fs-3 fw-bold text-light text-center"> Preencha seus dados para começar ! </p>
         <div class="container-fluid user-form grid gap-3 bg-white ">
-           <form class="user_form" id="user-info-form">
-                <div class="row md-center">
-                    <div class="col col-lg-6">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control form-control-lg" id="nome" name="nome" placeholder="Insira seu nome" minlength="4" required>
-                    </div>
-                    <div class="col">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control form-control-lg" id="email" name="email"
-                                placeholder="Insira seu melhor e-mail" required>    
-                    </div>
-                </div>
+            <form class="user-form" id="user-info-form">
                 <div class="row md-center">
                     <div class="col">
-                       
-                            <label for="celular" class="form-label">Celular</label>
-                            <input type="tel" class="form-control form-control-lg" name="celular" id="celular"
-                                placeholder="Número de celular" required>
-                        
-                    </div>
-                    <div class="col">
-                       
-                            <label for="empresa" class="form-label">Empresa</label>
-                            <input type="text" class="form-control form-control-lg" name="empresa" id="empresa"
-                                placeholder="Nome da sua empresa" required>
-                        
+                        <label for="nome" class="form-label">Nome </label>
+                        <input type="text" class="form-control form-control-lg" id="nome" name="nome"
+                            placeholder="Insira seu nome" minlength="4" required>
                     </div>
                 </div>
-                <div class="col">
-                    
+
+                <div class="row md-center mt-2">
+                    <div class="col-md-6 col-sm-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email"
+                            placeholder="Insira seu melhor e-mail" required autocomplete="on">
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        <label for="celular" class="form-label">Celular</label>
+                        <input type="tel" class="form-control form-control-lg" name="celular" id="celular"
+                            placeholder="Número de celular" required>
+                    </div>
+                </div>
+
+                <div class="row md-center mt-2">
+                    <div class="col">
+                        <label for="empresa" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control form-control-lg" name="empresa" id="empresa"
+                            placeholder="Nome da sua empresa" required>
+                    </div>
+                </div>
+
+                <div class="row md-center mt-2">
+                    <div class="col">
                         <label for="endereco" class="form-label ">Endereço da Empresa</label>
                         <input type="text" class="form-control form-control-lg" name="endereco" id="endereco"
                             placeholder="Insira o endereço da sua empresa" required>
-                   
+                    </div>
                 </div>
-                <div class="col">
-                    
+
+                <div class="row md-center mt-2">
+                    <div class="col-md-6 col-sm-12">
                         <label for="end-numero" class="form-label ">Numero</label>
                         <input type="text" class="form-control form-control-lg" name="end-numero" id="end-numero"
                             placeholder="Número" required>
-                  
-                </div>
-                <div class="col">
-                    
+                    </div>
+                    <div class="col-md-6 col-sm-12">
                         <label for="cidade" class="form-label">Cidade</label>
                         <input type="text" class="form-control form-control-lg" name="cidade" id="cidade"
                             placeholder="Cidade" required>
-                   
+                    </div>
                 </div>
-                <div class="col">
-                    
+
+                <div class="row md-center mt-2">
+                    <div class="col-md-4 col-sm-12">
                         <label for="CEP" class="form-label">CEP</label>
                         <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
                             placeholder="00000-000" required>
-                    
-                </div>
-                <div class="col">
-                    
+                    </div>
+                    <div class="col-md-4 col-sm-12">
                         <label for="estado" class="form-label ">Estado</label>
-                        <input class="form-control" list="lista-estados" id="estado" placeholder="Clique para selecionar ...">
+                        <input class="form-control form-control-lg" list="lista-estados" id="estado"
+                            placeholder="Selecionar ...">
                         <datalist id="lista-estados">
-                                <option value="Acre">
-                                <option value="Alagoas">
-                                <option value="Amapá">
-                                <option value="Amazonas">
-                                <option value="Bahia">
-                                <option value="Ceará">
-                                <option value="Distrito Federal">
-                                <option value="Espírito Santo">
-                                <option value="Goiás">
-                                <option value="Maranhão">
-                                <option value="Mato Grosso">
-                                <option value="Mato Grosso do Sul">
-                                <option value="Minas Gerais">
-                                <option value="Pará">
-                                <option value="Paraíba">
-                                <option value="Paraná">
-                                <option value="Pernambuco">
-                                <option value="Piauí">
-                                <option value="Rio de Janeiro">
-                                <option value="Rio Grande do Norte">
-                                <option value="Rio Grande do Sul">
-                                <option value="Rondônia">
-                                <option value="Roraima">
-                                <option value="Santa Catarina">
-                                <option value="São Paulo">
-                                <option value="Sergipe">
-                                <option value="Tocantins">
-                                <option value="Outro">
-                              </datalist>
-                  
-                </div>
+                            <option value="Acre">
+                            <option value="Alagoas">
+                            <option value="Amapá">
+                            <option value="Amazonas">
+                            <option value="Bahia">
+                            <option value="Ceará">
+                            <option value="Distrito Federal">
+                            <option value="Espírito Santo">
+                            <option value="Goiás">
+                            <option value="Maranhão">
+                            <option value="Mato Grosso">
+                            <option value="Mato Grosso do Sul">
+                            <option value="Minas Gerais">
+                            <option value="Pará">
+                            <option value="Paraíba">
+                            <option value="Paraná">
+                            <option value="Pernambuco">
+                            <option value="Piauí">
+                            <option value="Rio de Janeiro">
+                            <option value="Rio Grande do Norte">
+                            <option value="Rio Grande do Sul">
+                            <option value="Rondônia">
+                            <option value="Roraima">
+                            <option value="Santa Catarina">
+                            <option value="São Paulo">
+                            <option value="Sergipe">
+                            <option value="Tocantins">
+                            <option value="Outro">
+                        </datalist>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <label for="cidade" class="form-label">País</label>
+                        <input type="text" class="form-control form-control-lg" name="pais" id="pais" placeholder="Pais"
+                            required>
+                    </div>
 
-                <div class="col">
-                    
-                    <label for="cidade" class="form-label">País</label>
-                    <input type="text" class="form-control form-control-lg" name="cidade" id="cidade"
-                        placeholder="Cidade" required>
-               
-            </div>
-                <br>
-                <div class="col">
-                   
+                </div>
+                <div class="row md-center mt-2">
+                    <div class="col">
                         <label for="cnpj" class="form-label">CNPJ</label>
-                        <input type="text" class="form-control form-control-lg" name="cnpj" id="cnpj" placeholder="CNPJ(Opcional)">
-                    
+                        <input type="text" class="form-control form-control-lg" name="cnpj" id="cnpj"
+                            placeholder="CNPJ(Opcional)">
+                    </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-default btn-lg btn-block" id="submit-btn">Enviar</button>
+                <div class="d-grid gap-2 col-12">
+                    <button type="submit" class="btn btn-default btn-lg btn-block" id="submit-btn">Enviar</button>
+                </div>
             </form>
         </div>
-    </div>
+    </section>
 </div>
 <br><br>
-<section id="montar" class="montagem">
-    <h1>Monte sua Máquina</h1>
-    <h3>Utilize nosso site e descubra qual a máquina ideal para o seu produto</h3>
+<section id="montar" class="container-fluid px-5">
+    <p class="display-3 fw-bold color-profills text-center">Monte sua Máquina</p>
+    <h3 class=" text-center"> Preencha os dados abaixo e descubra qual a máquina ideal para o seu produto.</h3>
     <br><br>
-    <form id="filter-form">
-        <section class="grid main-grid">
-            <section class="grid grid-embalagens">
-                <div class="item nav">
-                    <div class="texto">Selecione uma embalagem</div>
-                </div>
-                <div class="item content">
-                    <div class="button-row">
-                        <div class="button-row-inner">
-                            <button type="button" class="embalagem-btn" value="1">
+
+    <form id="filter-form" class="mx-auto" style="width: 90%">
+        <div class="container overlow-hidden">
+            <div class="row gy-2 gx-5">
+                <section class="col-lg-6">
+                    <div class="header-nav row py-2">
+                        <p class="h4 text-light">Selecione uma embalagem</p>
+                    </div>
+                    <div class="row py-3   border-bottom border-1 border-secondary">
+                        <div class="col-6 col-sm-3 text-center">
+                            <button type="button" class="embalagem-btn " value="1">
                                 <img src="../static/images/embalagens/gabletop.png" alt="Gable Top">
-                                <span>Cartonada</span>
+                                <p><span>Cartonada</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
-                            <button type="button" class="embalagem-btn" value="2">
-                                <img src="../static/images/embalagens/pouch.png" alt="Stand-Up Pouch">
-                                <span>Pouch</span>
+                        </div>
+                        <div class="col-6 col-sm-3 text-center">
+                            <button type="button" class="embalagem-btn " value="2">
+                                <img src="../static/images/embalagens/pouch.png" class=" btn-itens"
+                                    alt="Stand-Up Pouch">
+                                <p><span>Pouch</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="3">
                                 <img src="../static/images/embalagens/especiais.png" alt="Especiais">
-                                <span>Especiais</span>
+                                <p><span>Especiais</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="4">
                                 <img src="../static/images/embalagens/sache.png" alt="Sachê">
-                                <span>Sachê</span>
+                                <p><span>Sachê</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
-                        <div class="button-row-inner">
+                        <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="5">
                                 <img src="../static/images/embalagens/garrafa.png" alt="Garrafa">
-                                <span>Garrafa</span>
+                                <p><span>Garrafa</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="6">
                                 <img src="../static/images/embalagens/frasco.png" alt="Frasco">
-                                <span>Frasco</span>
+                                <p><span>Frasco</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="7">
                                 <img src="../static/images/embalagens/fardo.png" alt="Fardo">
-                                <span>Fardo</span>
+                                <p><span>Fardo</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="8">
                                 <img src="../static/images/embalagens/pote.png" alt="Pote">
-                                <span>Pote</span>
+                                <p><span>Pote</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
+
+
                     </div>
-                </div>
-            </section>
-            <section class="grid grid-produtos">
-                <div class="item nav">
-                    <div class="texto">Selecione um tipo de produto</div>
-                </div>
-                <div class="item content">
-                    <div class="button-row">
-                        <div class="button-row-inner">
+                </section>
+                <section class="col-lg-6">
+                    <div class="header-nav row py-2">
+                        <p class="h4 text-light">Selecione um tipo de produto</p>
+                    </div>
+                    <div class="row py-3  border-bottom border-1 border-secondary">
+                        <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="1">
-                                <img src="../static/images/produtos/liquido-fino.png" alt="Líquido fino">
-                                <span>Líquido</span>
+                                <img src="../static/images/produtos/liquido-fino.png" class="circle" alt="Líquido fino">
+                                <p><span>Líquidos</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="2">
                                 <img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio">
-                                <span>Viscoso</span>
+                                <p><span>Viscoso</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
+                        </div>
+                        <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="3">
                                 <img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso">
-                                <span>Pastoso</span>
+                                <p><span>Pastoso</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
-                        <div class="button-row-inner">
+
+                        <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="4">
                                 <img src="../static/images/produtos/pos.png" alt="Pó">
-                                <span>Pó</span>
-                            </button>
-                            <button type="button" class="produto-btn" value="5">
-                                <img src="../static/images/produtos/granular.png" alt="Granular">
-                                <span>Granular</span>
-                            </button>
-                            <button type="button" class="produto-btn" value="6">
-                                <img src="../static/images/produtos/solidos.png" alt="Sólido">
-                                <span>Sólido</span>
+                                <p><span>Pó</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
+                        <div class="col-6 col-sm-4 text-center">
+                            <button type="button" class="produto-btn" value="5">
+                                <img src="../static/images/produtos/granular.png" alt="Granular">
+                                <p><span>Granular</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
+                            </button>
+                        </div>
+                        <div class="col-6 col-sm-4 text-center">
+                            <button type="button" class="produto-btn" value="6">
+                                <img src="../static/images/produtos/solidos.png" alt="Sólido">
+                                <p><span>Sólido</span></p>
+                                <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
+                            </button>
+                        </div>
+
                     </div>
-                </div>
-            </section>
-        </section>
+                </section>
+                <br>
+            </div>
+            <div class="row gy-2 gx-5 my-1">
+                <form id="product-info-form">
+                    <section class="col-lg-6">
+                        <div class="py-3">
+                            <label for="descricao-produto">Descreva seu produto</label>
+                            <textarea name="descricao-produto" cols="30" rows="3" class="form-control form-control-lg"
+                                placeholder="Descreva o produto a ser envasado..." id="descricao-produto"></textarea>
+                        </div>
+                    </section>
+                    <section class="col-lg-6">
+                        <div class="row py-3">
+                            <div class="col-6">
+                                <label for="peso-produto">Peso por embalagem</label>
+                                <input type="number" class="form-control form-control-lg" id="peso-produto">
+                            </div>
+                            <div class="col-6">
+                                <label for="unidade-peso">Unidade de Peso</label>
+                                <select class="form-select" aria-label="Default select example" id="unidade-peso">
+                                    <option selected>Selecionar ..</option>
+                                    <option value="Kg">Kilo (Kg.)</option>
+                                    <option value="Gr">Gramas(Gr.)</option>
+                                    <option value="Mg">Miligramas(Mg.)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+                <br>
+            </div>
+            <div class="d-grid  m-0 col-12">
+                <button type="submit" class="btn btn-default btn-lg btn-block" id="filterbtn">Preencha seus dados para
+                    iniciar a busca</button>
+            </div>
+        </div>
         <br>
-        <button type="submit" class="btn btn-dark shadow-none">Filter</button>
     </form>
-</section>
-    <br><br>
-<section id="resultados" class="resultados">
-    <p hidden>scrolling</p>
-    <div id="card-container" class="flexbox">
     </div>
 </section>
+<br><br>
+<section id="resultados" class="resultados">
+    <p hidden>scrolling</p>
+    <div class="container">
+        <div id="card-container" class="row">
+
+        </div>
+    </div>
+</section>
+
 <script>
     var Maquinas = JSON.parse('{{ maquinas|safe }}');
     var embalagem = 0;
     var produto = 0;
 
-    $(document).ready(function () {
-        $('#telefone').inputmask();
-    });
-
-    $('#filter-form button[type="submit"]').prop('disabled', true);
-
+    let confirma = false;
     $('#user-info-form').submit(function (event) {
         event.preventDefault();
 
@@ -254,12 +328,15 @@
                 disableForm();
                 scrollToSection('montar');
                 $('#filter-form button[type="submit"]').prop('disabled', false);
+                const filterbtn = document.getElementById("filterbtn")
+                filterbtn.innerText = "Buscar Máquinas";
+                confirma = true;
             },
             error: function (error) {
                 console.log('Error:', error);
             }
         });
-    });
+    }); 
 
     function disableForm() {
         const form = document.getElementById("user-info-form");
@@ -300,17 +377,23 @@
 
     function generateCardHtml(machine) {
         return `
-        <div class='card' onclick="redirectToMachinePage('${machine.pagina}')">
-            <div class='card-name'>
-                <div class='texto-card' alt='${machine.nome}'>${machine.linha}</div>
+
+            <div class=" col-6 col-md-4">
+				<div class="news">
+					<div class="img-figure">
+						<div class="cat"alt='${machine.nome}'>${machine.linha}</div>
+						<img src='${machine.imagem}' class="img-responsive">
+					</div>	
+
+					<div class="title">
+						<h1>${machine.nome}</h1>
+					</div>
+					<p class="description">${machine.descricao}</p>
+                    <p class="more">
+						<a href='/maquinas/${machine.pagina}'>SELECIONAR</a><i class="fa fa-angle-right" aria-hidden="true"></i>   
+					</p>
+			    </div>
             </div>
-            <img src='${machine.imagem}' class='center'>
-            <hr>
-            <div class='container'>
-                <h4>${machine.nome}</h4>
-                <p>${machine.descricao}</p>
-            </div>
-        </div>
     `;
     }
 
@@ -330,7 +413,35 @@
     }
 
     $('#filter-form').submit(function (event) {
-        event.preventDefault();
+        event.preventDefault(); 
+        
+        var formData = {
+            descricao_produto: $('#descricao-produto').val(),
+            peso_produto: $('#peso-produto').val(),
+            unidade_peso: $('#unidade-peso').val()
+        };
+
+        
+        $.ajax({
+            type: 'POST',
+            url: '/product-info', 
+            data: formData,
+            success: function (response) {
+                console.log('Product information submitted successfully.');
+                console.log(descricao_produto)
+                console.log(peso_produto)
+                console.log(unidade_peso)
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
+
+        if (!confirma) {
+            scrollToSection('dados');
+            return
+
+        }
 
         var formData = {
             embalagem: embalagem,
@@ -346,7 +457,7 @@
                 var cardContainer = $('#card-container');
                 scrollToSection('resultados');
                 if (result.length === 0) {
-                    cardContainer.html('<p>Nenhum resultado encontrado</p>');
+                    cardContainer.html('<p>Nenhum resultado encontrado, selecione outra opção.</p>');
                 } else {
                     var cardsHtml = '';
                     for (var i = 0; i < result.length; i++) {
@@ -368,14 +479,19 @@
 
     embButtons.forEach(button => {
         button.addEventListener('click', function () {
-            const isActive = this.classList.contains('active');
-            embButtons.forEach(btn => btn.classList.remove('active'));
+            let isActive = this.classList.contains('active');
+            embButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.querySelector('.fa-circle-check').style.display = 'none';
+            });
             if (!isActive) {
                 this.classList.add('active');
+                this.querySelector('.fa-circle-check').style.display = 'block';
                 embalagem = parseInt(this.value);
             } else {
                 embalagem = 0;
             }
+
             setFilterValues();
         });
     });
@@ -383,9 +499,14 @@
     prodButtons.forEach(button => {
         button.addEventListener('click', function () {
             const isActive = this.classList.contains('active');
-            prodButtons.forEach(btn => btn.classList.remove('active'));
+            prodButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.querySelector('.fa-circle-check').style.display = 'none';
+
+            });
             if (!isActive) {
                 this.classList.add('active');
+                this.querySelector('.fa-circle-check').style.display = 'block';
                 produto = parseInt(this.value);
             } else {
                 produto = 0;
