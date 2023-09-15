@@ -8,20 +8,21 @@
 
 {% block body %}
 
-<div class="container-fluid topo" style="background-image: url('https://www.profills.com/images/topo-fundo2.jpg'); height: 150px;">
+<div class="container-fluid topo"
+  style="background-image: url('https://www.profills.com/images/topo-fundo2.jpg'); height: 150px;">
 </div>>
 
 <div class="container">
   <h3 class="color-profills">Maquinas Envasadoras</h3>
   <p class="fw-bold fs-2">{{maquina.linha}}</p>
   <p>{{maquina.linha_texto}}</p>
-  
+
   <hr>
 </div>
 
 <div class="container" id="maquina-selecionada">
-  
-  <div class="row g-0" >
+
+  <div class="row g-0">
 
     <div class="col-4 maquina-card">
       <div class="maquina-card-text">
@@ -30,8 +31,8 @@
       </div>
       <img src={{maquina.imagem_pag_maquina}} alt="{{maquina.nome}}">
     </div>
-    
-    <div class="col-8 ms-5 d-flex flex-column justify-content-between" >
+
+    <div class="col-8 ms-5 d-flex flex-column justify-content-between">
       <h3>Especificação da Embalagem</h3>
       <p>Os modelos da {{maquina.linha}} {{maquina.variacao}}.</p>
       <hr>
@@ -44,185 +45,199 @@
               <p class="card-text text-center"> {{maquina.info_embalagem.variacao}}</p>
             </div>
           </div>
-          <div class="col-8 d-flex flex-column justify-content-between">    
-                  <h5 class="info-embalagem-item"><span class="color-profills">Largura do Filme: </span><span class="fw-bold" id="largura_filme">{{maquina.espessura_filme}}</span></h5>
-                  <h5 class="info-embalagem-item"><span class="color-profills">Espessura do Filme:</span> <span class="fw-bold"> {{maquina.espessura_filme}}</span></h5>
-                  <h5 class="info-embalagem-item"><spam class="color-profills">Embalagem Final: </spam><span class="fw-bold" id="largura_final">85 a 300 [mm]</span></h5>
-                  <h5 class="info-embalagem-item"><spam class="color-profills">Material: </spam><span class="fw-bold"  >{{maquina.material_embalagem}}</span></h5>
-                  <h5 class="info-embalagem-item"><spam class="color-profills">Produto de Envase: </spam><span class="fw-bold" id="largura_filme">{{maquina.produto_texto}}</span></h5>
+          <div class="col-8 d-flex flex-column justify-content-between">
+            <h5 class="info-embalagem-item"><span class="color-profills">Largura do Filme: </span><span class="fw-bold"
+                id="largura_filme">{{maquina.espessura_filme}}</span></h5>
+            <h5 class="info-embalagem-item"><span class="color-profills">Espessura do Filme:</span> <span
+                class="fw-bold"> {{maquina.espessura_filme}}</span></h5>
+            <h5 class="info-embalagem-item">
+              <spam class="color-profills">Embalagem Final: </spam><span class="fw-bold" id="largura_final">85 a 300
+                [mm]</span>
+            </h5>
+            <h5 class="info-embalagem-item">
+              <spam class="color-profills">Material: </spam><span class="fw-bold">{{maquina.material_embalagem}}</span>
+            </h5>
+            <h5 class="info-embalagem-item">
+              <spam class="color-profills">Produto de Envase: </spam><span class="fw-bold"
+                id="largura_filme">{{maquina.produto_texto}}</span>
+            </h5>
           </div>
         </div>
+      </div>
     </div>
-  </div>
 
 
-  <div class="row  gx-5 px-3 mt-5">
-    <div class="col-lg-6" >
-            <div class="header-nav row py-2">
-              <p class="h4 text-light">Selecione um modelo de Máquina</p>
-            </div>
-            <div class="row row-cols-2 py-3 border border-1 border-secondary d-flex justify-content-between " style="min-height:300px">
-              {% for model in maquina.modelos%}
-                {% if loop.index is eq(1) %}
-                  <div class="d-grid gap-2 my-2 " ><button class="version btn btn-primary btn-lg active" role="button"  onclick="updateInfo({{MODEL}}, this)">{{model}}</button></div>
-                {% else %}
-                  <div class="d-grid gap-2 my-2 " ><button class="version btn btn-primary btn-lg " role="button" onclick="updateInfo({{MODEL}}, this)">{{model}}</button></div>
-                {%  endif %}
-              {% endfor %}
-            </div>
-    </div>
-  
-    <section class="col-lg-6" >
+    <div class="row  gx-5 px-3 mt-5">
+      <div class="col-lg-6">
+        <div class="header-nav row py-2">
+          <p class="h4 text-light">Selecione um modelo de Máquina</p>
+        </div>
+        <div class="row row-cols-2 py-3 border border-1 border-secondary d-flex justify-content-between "
+          style="min-height:300px">
+          {% for model in maquina.modelos%}
+          {% if loop.index is eq(1) %}
+          <div class="d-grid gap-2 my-2 "><button class="version btn btn-primary btn-lg active" role="button"
+              onclick="updateInfo({{MODEL}}, this)">{{model}}</button></div>
+          {% else %}
+          <div class="d-grid gap-2 my-2 "><button class="version btn btn-primary btn-lg " role="button"
+              onclick="updateInfo({{MODEL}}, this)">{{model}}</button></div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <section class="col-lg-6">
 
         <div class="header-nav row py-2">
-            <p class="h4 text-light">Incluir Acessórios</p>
+          <p class="h4 text-light">Incluir Acessórios</p>
         </div>
 
-        <div class="row row-cols-3 py-4 px-3 border border-1 border-secondary d-flex justify-content-around " style="min-height:300px">
-            
+        <div class="row row-cols-3 py-4 px-3 border border-1 border-secondary d-flex justify-content-around "
+          style="min-height:300px">
+
           <button type="button" class="acessorio-btn " value="Mixer">
-              <img src="/static/images/acessorios/ribbon.png" alt="Mixer">
-              <p>Mixer</p>
-              <i class="fa-solid fa-circle-check acessorio-incluido"  style="display: none;"></i>
-            </button>
+            <img src="/static/images/acessorios/ribbon.png" alt="Mixer">
+            <p>Mixer</p>
+            <i class="fa-solid fa-circle-check acessorio-incluido" style="display: none;"></i>
+          </button>
           <button type="button" class="acessorio-btn" value="Tanque">
-              <img src="/static/images/acessorios/tanque.png" alt="Tanque">
-              <p>Tanque</p>
-              <i class="fa-solid fa-circle-check acessorio-incluido"  style="display: none;"></i>
+            <img src="/static/images/acessorios/tanque.png" alt="Tanque">
+            <p>Tanque</p>
+            <i class="fa-solid fa-circle-check acessorio-incluido" style="display: none;"></i>
           </button>
           <button type="button" class="acessorio-btn" value="Dosador">
-              <img src="/static/images/acessorios/dosador.png" alt="Dosador">
-              <p>Dosador</p>
-              <i class="fa-solid fa-circle-check acessorio-incluido"  style="display: none;"></i>
-            </button>
-      
+            <img src="/static/images/acessorios/dosador.png" alt="Dosador">
+            <p>Dosador</p>
+            <i class="fa-solid fa-circle-check acessorio-incluido" style="display: none;"></i>
+          </button>
+
           <button type="button" class="acessorio-btn" value="Esteira">
-              <img src="/static/images/acessorios/esteira.png" alt="Esteira">
-              <p>Esteira</p>
-              <i class="fa-solid fa-circle-check acessorio-incluido"  style="display: none;"></i>
+            <img src="/static/images/acessorios/esteira.png" alt="Esteira">
+            <p>Esteira</p>
+            <i class="fa-solid fa-circle-check acessorio-incluido" style="display: none;"></i>
           </button>
           <button type="button" class="acessorio-btn" value="Elevador">
-              <img src="/static/images/acessorios/elevador.png" alt="Elevador">
-              <p>Elevador</p>
-              <i class="fa-solid fa-circle-check acessorio-incluido"  style="display: none;"></i>
+            <img src="/static/images/acessorios/elevador.png" alt="Elevador">
+            <p>Elevador</p>
+            <i class="fa-solid fa-circle-check acessorio-incluido" style="display: none;"></i>
           </button>
           <button type="button" class="acessorio-btn" value="Bomba">
-              <img src="/static/images/acessorios/bomba.png" alt="Bomba">
-              <p>Bomba</p>
-              <i class="fa-solid fa-circle-check acessorio-incluido"  style="display: none;"></i>
+            <img src="/static/images/acessorios/bomba.png" alt="Bomba">
+            <p>Bomba</p>
+            <i class="fa-solid fa-circle-check acessorio-incluido" style="display: none;"></i>
           </button>
         </div>
-    </section>
-    
-  </div>
-</div>
+      </section>
 
-
-<div class="container my-5" id="info-maquina-selecionada">
-  <h4>Informações Técnicas</h4><br>
-  <div class="row row-cols-md-5 row-cols-2  g-3 d-flex align-items-stretch">
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Produção</div>
-        <div class="card-body d-flex flex-column justify-content-center">
-          <h5 class="card-title">Até {{maquina.info_tecnicas.producao}} unid./hora</h5>
-          <p class="card-text">Variável de acordo com a embalagem e quantidade de produto</p>
-        </div>
-      </div>
     </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Sistema Datador</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.datador}}</h5>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Sistema de Dosagem</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.dosagem}}</h5>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Tensão Operativa</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.tensao}}</h5>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Potência Ativa Instalada</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.potencia_instalada}}[kW]</h5>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Potência Ativa Consumida</div>
-        <div class="card-body d-flex flex-column justify-content-center">
-          <h5 class="card-title">{{maquina.info_tecnicas.potencia_consumida}} [kW.h]</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Comando</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.comando}}</h5>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Consumo de Ar</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.consumo_ar}}</h5>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Área de Operação</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.area}} [mm²]</h5>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-        <div class="card-header">Material de Fabricação</div>
-        <div class="card-body d-flex align-items-center ">
-          <h5 class="card-title">{{maquina.info_tecnicas.material}}</h5>
-          
-        </div>
-      </div>
-    </div>
-
   </div>
 
-</div>
+
+  <div class="container my-5" id="info-maquina-selecionada">
+    <h4>Informações Técnicas</h4><br>
+    <div class="row row-cols-md-5 row-cols-2  g-3 d-flex align-items-stretch">
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Produção</div>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <h5 class="card-title">Até {{maquina.info_tecnicas.producao}} unid./hora</h5>
+            <p class="card-text">Variável de acordo com a embalagem e quantidade de produto</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Sistema Datador</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.datador}}</h5>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Sistema de Dosagem</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.dosagem}}</h5>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Tensão Operativa</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.tensao}}</h5>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Potência Ativa Instalada</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.potencia_instalada}}[kW]</h5>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Potência Ativa Consumida</div>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <h5 class="card-title">{{maquina.info_tecnicas.potencia_consumida}} [kW.h]</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Comando</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.comando}}</h5>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Consumo de Ar</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.consumo_ar}}</h5>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Área de Operação</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.area}} [mm²]</h5>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          <div class="card-header">Material de Fabricação</div>
+          <div class="card-body d-flex align-items-center ">
+            <h5 class="card-title">{{maquina.info_tecnicas.material}}</h5>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
 
@@ -240,14 +255,14 @@
   </form>
 </div>
 <script>
-  
+
   let info_maquina = JSON.parse('{{maquina.info_embalagem  | tojson | safe}}');
 
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-  
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+
   var buttons = document.querySelectorAll('.version');
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {
@@ -284,18 +299,18 @@
     const larguraFilme = document.getElementById('largura_filme');
     const larguraFinal = document.getElementById('largura_final');
     modeloMaquina.textContent = version;
-   
-    
-    Object.keys(info_maquina).forEach(function(item){
-      
-      if (item == info_embalagem){
+
+
+    Object.keys(info_maquina).forEach(function (item) {
+
+      if (item == info_embalagem) {
         larguraFilme.textContent = info_maquina[item].largura + "[mm]";
         larguraFinal.textContent = info_maquina[item].final + "[mm]";
-        
+
       }
     });
   };
-    
+
 
   const acessoriosBtn = document.querySelectorAll('.acessorio-btn');
 
@@ -303,13 +318,13 @@
     button.addEventListener('click', function () {
       this.classList.toggle('active');
       let check = this.querySelector('.fa-circle-check');
-      if(check.style.display ==='none'){
+      if (check.style.display === 'none') {
         check.style.display = 'block';
-      }else{
+      } else {
         check.style.display = 'none';
       }
-      
-     
+
+
 
       const accessoryValue = this.value;
       const accessoryIndex = selectedMachine.acessories.indexOf(accessoryValue);

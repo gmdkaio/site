@@ -1,6 +1,4 @@
 import sqlite3
-import uuid
-
 
 def create_table_user(app):
     with app.app_context():

@@ -74,6 +74,23 @@ def maquina_page(maquina_pagina):
         return render_template('404.html'), 404
 
 
+@app.route('/product-info', methods=['POST'])
+def product_info():
+    descricao_produto = request.form.get('descricao_produto')
+    peso_produto = request.form.get('peso_produto')
+    unidade_peso = request.form.get('unidade_peso')
+
+    session['descricao_produto'] = descricao_produto
+    session['peso_produto'] = peso_produto
+    session['unidade_peso'] = unidade_peso
+
+    print('peso: ', peso_produto)
+    print('unidade: ', unidade_peso)
+    print('descricao: ', descricao_produto)
+    
+    return jsonify(message='Product information submitted successfully.')
+
+
 @app.route('/proposta', methods=['GET', 'POST'])
 def proposta():
     if request.method == 'POST':
@@ -83,9 +100,14 @@ def proposta():
         embalagens = request.form.get('embalagens')
         data = request.form.get('selected-date')
         linha = request.form.get('linha')
-        peso = session.get('peso_produto', None)
-        unidade_peso = session.get('unidade_peso', None)
-        descricao = session.get('descricao_produto', None)
+
+        peso = session.get('peso_produto')
+        unidade_peso = session.get('unidade_peso')
+        descricao = session.get('descricao_produto')
+
+        print('peso: ', peso)
+        print('unidade: ', unidade_peso)
+        print('descricao: ', descricao)
 
         user_id = session.get('user_id', None)
 
@@ -330,18 +352,6 @@ def user_info():
     session['cnpj'] = cnpj
 
     return jsonify(message='User information submitted successfully.')
-
-@app.route('/product-info', methods=['POST'])
-def product_info():
-    descricao_produto = request.form.get('descricao_produto')
-    peso_produto = request.form.get('peso_produto')
-    unidade_peso = request.form.get('unidade_peso')
-
-    session['descricao_produto'] = descricao_produto
-    session['peso_produto'] = peso_produto
-    session['unidade_peso'] = unidade_peso
-
-    return jsonify(message='Product information submitted successfully.')
 
 @app.route('/download_pdf', methods=['POST'])
 def download_pdf():

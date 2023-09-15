@@ -279,6 +279,7 @@
                             </div>
                         </div>
                     </section>
+                    <button id="submit-product-info" style="display: none;">Submit Product Info</button>
                 </form>
                 <br>
             </div>
@@ -305,6 +306,14 @@
     var Maquinas = JSON.parse('{{ maquinas|safe }}');
     var embalagem = 0;
     var produto = 0;
+
+    var filterBtn = document.getElementById("filterbtn");
+    var submitBtn = document.getElementById("submit-product-info");
+
+    filterBtn.addEventListener("click", function () {
+        submitBtn.click();
+        console.log('triggered')
+    });
 
     let confirma = false;
     $('#user-info-form').submit(function (event) {
@@ -336,7 +345,38 @@
                 console.log('Error:', error);
             }
         });
-    }); 
+    });
+
+    $('#submit-product-info').click(function (event) {
+        event.preventDefault();
+
+
+        var formData = {
+            descricao_produto: $('#descricao-produto').val(),
+            peso_produto: $('#peso-produto').val(),
+            unidade_peso: $('#unidade-peso').val()
+        };
+
+        console.log('Form data: ', formData)
+
+        if (!formData.descricao_produto || !formData.peso_produto || !formData.unidade_peso) {
+            console.log('Nothing being passed.');
+            // Display a message or take appropriate action here
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/product-info',
+            data: formData,
+            success: function (response) {
+                console.log('Product information submitted successfully.');
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
+    });
 
     function disableForm() {
         const form = document.getElementById("user-info-form");
@@ -413,29 +453,7 @@
     }
 
     $('#filter-form').submit(function (event) {
-        event.preventDefault(); 
-        
-        var formData = {
-            descricao_produto: $('#descricao-produto').val(),
-            peso_produto: $('#peso-produto').val(),
-            unidade_peso: $('#unidade-peso').val()
-        };
-
-        
-        $.ajax({
-            type: 'POST',
-            url: '/product-info', 
-            data: formData,
-            success: function (response) {
-                console.log('Product information submitted successfully.');
-                console.log(descricao_produto)
-                console.log(peso_produto)
-                console.log(unidade_peso)
-            },
-            error: function (error) {
-                console.log('Error:', error);
-            }
-        });
+        event.preventDefault();
 
         if (!confirma) {
             scrollToSection('dados');
