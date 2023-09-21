@@ -46,14 +46,16 @@
             </div>
           </div>
           <div class="col-8 d-flex flex-column justify-content-between">
-            <h5 class="info-embalagem-item"><span class="color-profills">Largura do Filme: </span><span class="fw-bold"
-                id="largura_filme">{{maquina.espessura_filme}}</span></h5>
+            <!-- espessura -->
+            {% if maquina.espessura_filme %}
             <h5 class="info-embalagem-item"><span class="color-profills">Espessura do Filme:</span> <span
                 class="fw-bold"> {{maquina.espessura_filme}}</span></h5>
-            <h5 class="info-embalagem-item">
-              <spam class="color-profills">Embalagem Final: </spam><span class="fw-bold" id="largura_final">85 a 300
-                [mm]</span>
-            </h5>
+            <!-- volume -->
+            {% elif maquina.volume %}
+            <h5 class="info-embalagem-item"><span class="color-profills">Volume:</span> <span class="fw-bold">
+                {{maquina.volume}}</span></h5>
+            {% endif %}
+
             <h5 class="info-embalagem-item">
               <spam class="color-profills">Material: </spam><span class="fw-bold">{{maquina.material_embalagem}}</span>
             </h5>
@@ -149,226 +151,276 @@
 
       <div class="col">
         <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+          {% if maquina.info_tecnicas.datador %}
           <div class="card-header">Sistema Datador</div>
           <div class="card-body d-flex align-items-center ">
             <h5 class="card-title">{{maquina.info_tecnicas.datador}}</h5>
-
+            {% elif maquina.info_tecnicas.alimentacao %}
+            <div class="card-header">Alimentação</div>
+            <div class="card-body d-flex align-items-center ">
+              <h5 class="card-title">{{maquina.info_tecnicas.alimentacao}}</h5>
+            </div>
+            {% endif %}
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Sistema de Dosagem</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.dosagem}}</h5>
+        {% if maquina.info_tecnicas.dosagem %}
+          <div class="col">
+            <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+              <div class="card-header">Sistema de Dosagem</div>
+              <div class="card-body d-flex align-items-center ">
+                <h5 class="card-title">{{maquina.info_tecnicas.dosagem}}</h5>
+              </div>
+            </div>
+          </div>
+        {% endif %}
 
+        {% if maquina.info_tecnicas.tensao %}
+          <div class="col">
+            <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+              <div class="card-header">Tensão Operativa</div>
+              <div class="card-body d-flex align-items-center ">
+                <h5 class="card-title">{{maquina.info_tecnicas.tensao}}</h5>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="col">
+          <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+            {% if maquina.info_tecnicas.potencia_instalada %}
+            <div class="card-header">Potência Ativa Instalada</div>
+            <div class="card-body d-flex align-items-center ">
+              <h5 class="card-title">{{maquina.info_tecnicas.potencia_instalada}}[kW]</h5>
+            </div>
+            {% elif maquina.info_tecnicas.esterilizacao %}
+            <div class="card-header">Sistema de esterilização: </div>
+            <div class="card-body d-flex align-items-center ">
+              <h5 class="card-title">{{maquina.info_tecnicas.esterilizacao}}</h5>
+            </div>
+            {% elif maquina.info_tecnicas.bicos_lavagem %}
+            <div class="card-header">Quantidade de bicos para lavagem: </div>
+            <div class="card-body d-flex align-items-center ">
+              <h5 class="card-title">{{maquina.info_tecnicas.bicos_lavagem}}</h5>
+            </div>
+            {% endif %}
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Tensão Operativa</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.tensao}}</h5>
 
+        <div class="col">
+          <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+            {% if maquina.info_tecnicas.potencia_consumida %}
+            <div class="card-header">Potência Ativa Consumida</div>
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">{{maquina.info_tecnicas.potencia_consumida}} [kW.h]</h5>
+            </div>
+            {% elif maquina.info_tecnicas.sistema_solda %}
+            <div class="card-header">Sistema de solda:</div>
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">{{maquina.info_tecnicas.sistema_solda}}</h5>
+            </div>
+            {% elif maquina.info_tecnicas.bicos_produto %}
+            <div class="card-header">Quantidade de bicos para aplicação de produtos:</div>
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">{{maquina.info_tecnicas.bicos_produto}}</h5>
+            </div>
+            {% endif %}
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Potência Ativa Instalada</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.potencia_instalada}}[kW]</h5>
-
+        <div class="col">
+          <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+            <div class="card-header">Comando</div>
+            <div class="card-body d-flex align-items-center ">
+              <h5 class="card-title">{{maquina.info_tecnicas.comando}}</h5>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Potência Ativa Consumida</div>
-          <div class="card-body d-flex flex-column justify-content-center">
-            <h5 class="card-title">{{maquina.info_tecnicas.potencia_consumida}} [kW.h]</h5>
+
+        <div class="col">
+          <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+            {% if maquina.info_tecnicas.consumo_ar %}
+            <div class="card-header">Consumo de Ar</div>
+            <div class="card-body d-flex align-items-center ">
+              <h5 class="card-title">{{maquina.info_tecnicas.consumo_ar}}</h5>
+            </div>
+            {% elif maquina.info_tecnicas.esteira_saida %}
+            <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+              <div class="card-header">Esteira de saída:</div>
+              <div class="card-body d-flex align-items-center ">
+                <h5 class="card-title">{{maquina.info_tecnicas.esteira_saida}}</h5>
+              </div>
+              {% elif maquina.info_tecnicas.peso %}
+              <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+                <div class="card-header">Peso(Kg):</div>
+                <div class="card-body d-flex align-items-center ">
+                  <h5 class="card-title">{{maquina.info_tecnicas.peso}}</h5>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+                {% if maquina.info_tecnicas.area %}
+                <div class="card-header">Área de Operação</div>
+                <div class="card-body d-flex align-items-center ">
+                  <h5 class="card-title">{{maquina.info_tecnicas.area}} [mm²]</h5>
+                </div>
+                {% elif maquina.info_tecnicas.nr12 %}
+                <div class="card-header">Área de Operação</div>
+                <div class="card-body d-flex align-items-center ">
+                  <h5 class="card-title">{{maquina.info_tecnicas.area}} [mm²]</h5>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card text-dark bg-light mb-3" style="min-height: 150px">
+                <div class="card-header">Material de Fabricação</div>
+                <div class="card-body d-flex align-items-center ">
+                  <h5 class="card-title">{{maquina.info_tecnicas.material}}</h5>
+
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Comando</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.comando}}</h5>
 
+
+        <form id="proposta-form" action="/proposta" method="POST" class="submit-form">
+          <input type="hidden" name="version" id="selected-version">
+          <input type="hidden" name="accessories" id="selected-accessories">
+          <input type="hidden" name="produtos" id="selected-produtos">
+          <input type="hidden" name="embalagens" id="selected-embalagens">
+          <input type="hidden" name="selected-date" id="selected-date">
+          <input type="hidden" name="linha" id="linha">
+          <div class="d-grid gap-2">
+            <button type="submit" id="generate-proposta" class="btn btn-default btn-lg btn-block"
+              onclick="startLoading()">Montar</button>
           </div>
-        </div>
+        </form>
       </div>
+      <script>
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Consumo de Ar</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.consumo_ar}}</h5>
+        let info_maquina = JSON.parse('{{maquina.info_embalagem  | tojson | safe}}');
 
-          </div>
-        </div>
-      </div>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Área de Operação</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.area}} [mm²]</h5>
+        var buttons = document.querySelectorAll('.version');
+        buttons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            buttons.forEach(function (btn) {
+              btn.classList.remove('active');
+            });
 
-          </div>
-        </div>
-      </div>
+            button.classList.add('active');
 
-      <div class="col">
-        <div class="card text-dark bg-light mb-3" style="min-height: 150px">
-          <div class="card-header">Material de Fabricação</div>
-          <div class="card-body d-flex align-items-center ">
-            <h5 class="card-title">{{maquina.info_tecnicas.material}}</h5>
+            let version = button.textContent.trim();
+            updateInfo(version);
+          });
+        });
 
-          </div>
-        </div>
-      </div>
+        var selectedMachine = {
+          'version': "TP 85",
+          'acessories': [],
+          'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
+          'embalagens': ['especial', 'sache'],
+          'linha': "Linha TP"
+        }
 
-    </div>
+        function getCurrentDate() {
+          var now = new Date();
+          var day = String(now.getDate()).padStart(2, '0');
+          var month = String(now.getMonth() + 1).padStart(2, '0');
+          var year = now.getFullYear();
+          return day + '/' + month + '/' + year;
+        }
 
-  </div>
-
-
-
-  <form id="proposta-form" action="/proposta" method="POST" class="submit-form">
-    <input type="hidden" name="version" id="selected-version">
-    <input type="hidden" name="accessories" id="selected-accessories">
-    <input type="hidden" name="produtos" id="selected-produtos">
-    <input type="hidden" name="embalagens" id="selected-embalagens">
-    <input type="hidden" name="selected-date" id="selected-date">
-    <input type="hidden" name="linha" id="linha">
-    <div class="d-grid gap-2">
-      <button type="submit" id="generate-proposta" class="btn btn-default btn-lg btn-block"
-        onclick="startLoading()">Montar</button>
-    </div>
-  </form>
-</div>
-<script>
-
-  let info_maquina = JSON.parse('{{maquina.info_embalagem  | tojson | safe}}');
-
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-
-  var buttons = document.querySelectorAll('.version');
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      buttons.forEach(function (btn) {
-        btn.classList.remove('active');
-      });
-
-      button.classList.add('active');
-
-      let version = button.textContent.trim();
-      updateInfo(version);
-    });
-  });
-
-  var selectedMachine = {
-    'version': "TP 85",
-    'acessories': [],
-    'produtos': ['liquido', 'viscoso', 'pastoso', 'po', 'granular', 'solido'],
-    'embalagens': ['especial', 'sache'],
-    'linha': "Linha TP"
-  }
-
-  function getCurrentDate() {
-    var now = new Date();
-    var day = String(now.getDate()).padStart(2, '0');
-    var month = String(now.getMonth() + 1).padStart(2, '0');
-    var year = now.getFullYear();
-    return day + '/' + month + '/' + year;
-  }
-
-  function updateInfo(version) {
-    let info_embalagem = version.replace(/\s+/g, '');
-    const modeloMaquina = document.getElementById('modelo-maquina-header');
-    const larguraFilme = document.getElementById('largura_filme');
-    const larguraFinal = document.getElementById('largura_final');
-    modeloMaquina.textContent = version;
+        function updateInfo(version) {
+          let info_embalagem = version.replace(/\s+/g, '');
+          const modeloMaquina = document.getElementById('modelo-maquina-header');
+          const larguraFilme = document.getElementById('largura_filme');
+          const larguraFinal = document.getElementById('largura_final');
+          modeloMaquina.textContent = version;
 
 
-    Object.keys(info_maquina).forEach(function (item) {
+          Object.keys(info_maquina).forEach(function (item) {
 
-      if (item == info_embalagem) {
-        larguraFilme.textContent = info_maquina[item].largura + "[mm]";
-        larguraFinal.textContent = info_maquina[item].final + "[mm]";
+            if (item == info_embalagem) {
+              larguraFilme.textContent = info_maquina[item].largura + "[mm]";
+              larguraFinal.textContent = info_maquina[item].final + "[mm]";
 
-      }
-    });
-  };
+            }
+          });
+        };
 
 
-  const acessoriosBtn = document.querySelectorAll('.acessorio-btn');
+        const acessoriosBtn = document.querySelectorAll('.acessorio-btn');
 
-  acessoriosBtn.forEach(button => {
-    button.addEventListener('click', function () {
-      this.classList.toggle('active');
-      let check = this.querySelector('.fa-circle-check');
-      if (check.style.display === 'none') {
-        check.style.display = 'block';
-      } else {
-        check.style.display = 'none';
-      }
+        acessoriosBtn.forEach(button => {
+          button.addEventListener('click', function () {
+            this.classList.toggle('active');
+            let check = this.querySelector('.fa-circle-check');
+            if (check.style.display === 'none') {
+              check.style.display = 'block';
+            } else {
+              check.style.display = 'none';
+            }
 
 
 
-      const accessoryValue = this.value;
-      const accessoryIndex = selectedMachine.acessories.indexOf(accessoryValue);
+            const accessoryValue = this.value;
+            const accessoryIndex = selectedMachine.acessories.indexOf(accessoryValue);
 
-      if (accessoryIndex == -1) {
-        selectedMachine.acessories.push(accessoryValue);
-      } else {
-        selectedMachine.acessories.splice(accessoryIndex, 1);
-      }
-
-
-    });
-  });
-
-  function startLoading() {
-    const generateButton = document.getElementById("generate-proposta");
-    generateButton.style.backgroundColor = "#ccc";
-    generateButton.style.cursor = "not-allowed";
-
-    // Create the loading wheel icon element
-    const loadingIcon = document.createElement("i");
-    loadingIcon.classList.add("fas", "fa-circle-notch", "fa-spin");
-
-    // Add the icon to the button
-    generateButton.appendChild(loadingIcon);
-  }
+            if (accessoryIndex == -1) {
+              selectedMachine.acessories.push(accessoryValue);
+            } else {
+              selectedMachine.acessories.splice(accessoryIndex, 1);
+            }
 
 
-  function updateHiddenFields() {
-    const selectedVersion = document.querySelector('.version.active').textContent.trim();
-    document.getElementById('selected-version').value = selectedVersion;
-    document.getElementById('linha').value = selectedMachine.linha;
-    document.getElementById('selected-accessories').value = selectedMachine.acessories.join('\n');
-    document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
-    document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
+          });
+        });
 
-    document.getElementById('selected-date').value = getCurrentDate();
-  }
+        function startLoading() {
+          const generateButton = document.getElementById("generate-proposta");
+          generateButton.style.backgroundColor = "#ccc";
+          generateButton.style.cursor = "not-allowed";
 
-  $('#proposta-form').submit(function (event) {
-    updateHiddenFields();
-    return true;
-  });
-</script>
-{% endblock %}
+          // Create the loading wheel icon element
+          const loadingIcon = document.createElement("i");
+          loadingIcon.classList.add("fas", "fa-circle-notch", "fa-spin");
 
-</html>
+          // Add the icon to the button
+          generateButton.appendChild(loadingIcon);
+        }
+
+
+        function updateHiddenFields() {
+          const selectedVersion = document.querySelector('.version.active').textContent.trim();
+          document.getElementById('selected-version').value = selectedVersion;
+          document.getElementById('linha').value = selectedMachine.linha;
+          document.getElementById('selected-accessories').value = selectedMachine.acessories.join('\n');
+          document.getElementById('selected-produtos').value = selectedMachine.produtos.join(', ');
+          document.getElementById('selected-embalagens').value = selectedMachine.embalagens.join(', ');
+
+          document.getElementById('selected-date').value = getCurrentDate();
+        }
+
+        $('#proposta-form').submit(function (event) {
+          updateHiddenFields();
+          return true;
+        });
+      </script>
+      {% endblock %}
+
+      </html>

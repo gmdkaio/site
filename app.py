@@ -25,7 +25,6 @@ with app.app_context():
     create_table_proposta(app)
     create_table_user(app)
 
-
 @app.route('/', methods=['GET'])
 def index():
     maquinas_json = json.dumps(Maquinas)
@@ -584,3 +583,4 @@ if __name__ == '__main__':
     create_table_user(app)
     create_table_proposta(app)
     app.run(debug=True)
+
