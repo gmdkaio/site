@@ -118,6 +118,11 @@
                     </div>
                 </div>
                 <br>
+                <!-- <label>
+                    <input class="form-check-input mt-0" type="checkbox" required>                    
+                    Eu li e concordo com os <a href="#" id="openPopupLink">Termos de política e privacidade</a>
+                </label> -->
+
                 <div class="d-grid gap-2 col-12">
                     <button type="submit" class="btn btn-default btn-lg btn-block" id="submit-btn">Enviar</button>
                 </div>
@@ -125,6 +130,24 @@
         </div>
     </section>
 </div>
+
+<div class="modal fade" id="modalCookies" tabindex="-1" role="dialog" aria-hidden="true" data-bs-backdrop='static'>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Cookies</h5>
+            </div>
+            <div class="modal-body">
+                Esse site usa cookies para facilitar o uso das funções para o usuário. Aceitar cookies?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="naoAceitoBtn">Não aceito</button>
+                <button type="button" class="btn btn-primary" id="aceitoBtn">Aceito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <br><br>
 <section id="montar" class="container-fluid px-5">
     <p class="display-3 fw-bold color-profills text-center">Monte sua Máquina</p>
@@ -309,6 +332,32 @@
 
     var filterBtn = document.getElementById("filterbtn");
     var submitBtn = document.getElementById("submit-product-info");
+
+    $(window).on('load', function () {
+        $('#modalCookies').modal('show');
+    });
+
+    var cookiesAccepted = false;
+
+    var naoAceitoBtn = document.getElementById('naoAceitoBtn');
+    var aceitoBtn = document.getElementById('aceitoBtn');
+
+    naoAceitoBtn.addEventListener('click', function () {
+        cookiesAccepted = false;
+        sendCookiesInfoAndClose();
+    });
+
+    aceitoBtn.addEventListener('click', function () {
+        cookiesAccepted = true;
+        sendCookiesInfoAndClose();
+    });
+
+    function sendCookiesInfoAndClose() {
+        console.log('Cookies Accepted:', cookiesAccepted);
+
+        $('#modalCookies').modal('hide');
+    }
+
 
     filterBtn.addEventListener("click", function () {
         submitBtn.click();

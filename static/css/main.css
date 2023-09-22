@@ -411,3 +411,7 @@ p.more {
   color:white;
 }
 
+.modal.fade:not(.show) {
+  display: block !important;
+}
+
