@@ -15,7 +15,7 @@
                     <div class="col">
                         <label for="nome" class="form-label">Nome </label>
                         <input type="text" class="form-control form-control-lg" id="nome" name="nome"
-                            placeholder="Insira seu nome" minlength="4" required>
+                            placeholder="Insira seu nome" minlength="4" value="{{ request.cookies.get('nome', '') }}" required>
                     </div>
                 </div>
 
@@ -23,13 +23,13 @@
                     <div class="col-md-6 col-sm-12">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control form-control-lg" id="email" name="email"
-                            placeholder="Insira seu melhor e-mail" required autocomplete="on">
+                            placeholder="Insira seu e-mail" value="{{ request.cookies.get('email', '') }}" required autocomplete="on">
                     </div>
 
                     <div class="col-md-6 col-sm-12">
                         <label for="celular" class="form-label">Celular</label>
                         <input type="tel" class="form-control form-control-lg" name="celular" id="celular"
-                            placeholder="Número de celular" required>
+                            placeholder="Número de celular" value="{{ request.cookies.get('celular', '') }}" required>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                     <div class="col">
                         <label for="empresa" class="form-label">Nome da Empresa</label>
                         <input type="text" class="form-control form-control-lg" name="empresa" id="empresa"
-                            placeholder="Nome da sua empresa" required>
+                            placeholder="Nome da sua empresa" value="{{ request.cookies.get('empresa', '') }}" required>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                     <div class="col">
                         <label for="endereco" class="form-label ">Endereço da Empresa</label>
                         <input type="text" class="form-control form-control-lg" name="endereco" id="endereco"
-                            placeholder="Insira o endereço da sua empresa" required>
+                            placeholder="Insira o endereço da sua empresa" value="{{ request.cookies.get('endereco', '') }}" required>
                     </div>
                 </div>
 
@@ -53,12 +53,12 @@
                     <div class="col-md-6 col-sm-12">
                         <label for="end-numero" class="form-label ">Numero</label>
                         <input type="text" class="form-control form-control-lg" name="end-numero" id="end-numero"
-                            placeholder="Número" required>
+                            placeholder="Número" value="{{ request.cookies.get('end-numero', '') }}" required>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="cidade" class="form-label">Cidade</label>
                         <input type="text" class="form-control form-control-lg" name="cidade" id="cidade"
-                            placeholder="Cidade" required>
+                            placeholder="Cidade" value="{{ request.cookies.get('cidade', '') }}" required>
                     </div>
                 </div>
 
@@ -66,12 +66,12 @@
                     <div class="col-md-4 col-sm-12">
                         <label for="CEP" class="form-label">CEP</label>
                         <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
-                            placeholder="00000-000" required>
+                            placeholder="00000-000" value="{{ request.cookies.get('CEP', '') }}" required>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="estado" class="form-label ">Estado</label>
                         <input class="form-control form-control-lg" list="lista-estados" id="estado"
-                            placeholder="Selecionar ...">
+                            placeholder="Selecionar ..." value="{{ request.cookies.get('estado', '') }}">
                         <datalist id="lista-estados">
                             <option value="Acre">
                             <option value="Alagoas">
@@ -106,7 +106,7 @@
                     <div class="col-md-4 col-sm-12">
                         <label for="cidade" class="form-label">País</label>
                         <input type="text" class="form-control form-control-lg" name="pais" id="pais" placeholder="Pais"
-                            required>
+                        value="{{ request.cookies.get('pais', '') }}" required>
                     </div>
 
                 </div>
@@ -114,7 +114,7 @@
                     <div class="col">
                         <label for="cnpj" class="form-label">CNPJ</label>
                         <input type="text" class="form-control form-control-lg" name="cnpj" id="cnpj"
-                            placeholder="CNPJ(Opcional)">
+                            placeholder="CNPJ(Opcional)" value="{{ request.cookies.get('cnpj', '') }}">
                     </div>
                 </div>
                 <br>
@@ -333,6 +333,16 @@
     var filterBtn = document.getElementById("filterbtn");
     var submitBtn = document.getElementById("submit-product-info");
 
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) {
+            return parts.pop().split(';').shift();
+        }
+        return null; 
+    }
+
+
     $(window).on('load', function () {
         $('#modalCookies').modal('show');
     });
@@ -354,15 +364,13 @@
 
     function sendCookiesInfoAndClose() {
         console.log('Cookies Accepted:', cookiesAccepted);
-     
-        // Send the cookiesAccepted variable to the Flask server using jQuery's $.ajax().
+
         $.ajax({
             type: 'POST',
             url: '/update_cookies',
             contentType: 'application/json',
             data: JSON.stringify({ cookiesAccepted: cookiesAccepted }),
             success: function (data) {
-                // If the request is successful, hide the modal.
                 $('#modalCookies').modal('hide');
             },
             error: function (xhr, status, error) {

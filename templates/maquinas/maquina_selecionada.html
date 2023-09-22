@@ -24,7 +24,7 @@
 
   <div class="row g-0">
 
-    <div class="col-4 maquina-card">
+    <div class="col-12  col-md-4 maquina-card p-3">
       <div class="maquina-card-text">
         <div class="maquina-card-text-meta">Maquina Envasadora</div>
         <div class="maquina-card-title" id="modelo-maquina-header">{{maquina.modelos[0]}}</div>
@@ -32,20 +32,20 @@
       <img src={{maquina.imagem_pag_maquina}} alt="{{maquina.nome}}">
     </div>
 
-    <div class="col-8 ms-5 d-flex flex-column justify-content-between">
+    <div class="col-12 col-md-8  d-flex flex-column justify-content-between">
       <h3>Especificação da Embalagem</h3>
       <p>Os modelos da {{maquina.linha}} {{maquina.variacao}}.</p>
       <hr>
       <div class="container card-embalagem" id="info-embalagem-maquina">
         <div class=" row">
-          <div class="col-4 ">
+          <div class="col-12 col-md-4">
             <div class="card">
               <img src="/static/images/embalagens-montadas/sache-envasadora-solda-simples.jpg" class="card-img-top">
               <hr>
               <p class="card-text text-center"> {{maquina.info_embalagem.variacao}}</p>
             </div>
           </div>
-          <div class="col-8 d-flex flex-column justify-content-between">
+          <div class="col-12 col-md-8 d-flex flex-column justify-content-between">
             <!-- espessura -->
             {% if maquina.espessura_filme %}
             <h5 class="info-embalagem-item"><span class="color-profills">Espessura do Filme:</span> <span
@@ -70,7 +70,7 @@
 
 
     <div class="row  gx-5 px-3 mt-5">
-      <div class="col-lg-6">
+      <div class="col-lg-6 my-0">
         <div class="header-nav row py-2">
           <p class="h4 text-light">Selecione um modelo de Máquina</p>
         </div>
@@ -137,7 +137,7 @@
 
   <div class="container my-5" id="info-maquina-selecionada">
     <h4>Informações Técnicas</h4><br>
-    <div class="row row-cols-md-5 row-cols-2  g-3 d-flex align-items-stretch">
+    <div class="row row-cols-lg-5 row-cols-2  g-3 d-flex align-items-stretch">
 
       <div class="col">
         <div class="card text-dark bg-light mb-3" style="min-height: 150px">
@@ -163,6 +163,7 @@
             {% endif %}
           </div>
         </div>
+      </div>
 
         {% if maquina.info_tecnicas.dosagem %}
           <div class="col">
