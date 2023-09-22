@@ -405,13 +405,8 @@ p.more {
   transition: all 0.5s ease;	
 }
 
-
 .news:hover .cat{
   background:#002d72;
   color:white;
-}
-
-.modal.fade:not(.show) {
-  display: block !important;
 }
 

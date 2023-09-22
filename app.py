@@ -337,6 +337,9 @@ def user_info():
     empresa = request.form.get('empresa')
     cnpj = request.form.get('cnpj', '')
 
+    # cookies_accepted = request.get('cookiesAcepted')
+    # print(cookies_accepted)
+
     uuid_hash = hashlib.sha1(str(uuid.uuid4()).encode()).hexdigest()[:5]
     user_id = uuid_hash
 
