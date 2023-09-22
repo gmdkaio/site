@@ -354,8 +354,21 @@
 
     function sendCookiesInfoAndClose() {
         console.log('Cookies Accepted:', cookiesAccepted);
-
-        $('#modalCookies').modal('hide');
+     
+        // Send the cookiesAccepted variable to the Flask server using jQuery's $.ajax().
+        $.ajax({
+            type: 'POST',
+            url: '/update_cookies',
+            contentType: 'application/json',
+            data: JSON.stringify({ cookiesAccepted: cookiesAccepted }),
+            success: function (data) {
+                // If the request is successful, hide the modal.
+                $('#modalCookies').modal('hide');
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', status, error);
+            }
+        });
     }
 
 

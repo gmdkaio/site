@@ -328,6 +328,16 @@ def proposta():
 def mp(px):
     return px * 0.352777
 
+@app.route('/update_cookies', methods=['POST'])
+def update_cookies():
+    cookies_data = request.get_json()
+    cookiesAccepted = cookies_data.get('cookiesAccepted', False)
+    
+    print('Cookies accepted: ', cookiesAccepted)
+    
+    return jsonify({'message': 'Cookies information received.'})
+
+
 @app.route('/user-info', methods=['POST'])
 def user_info():
     nome = request.form.get('nome')
@@ -336,9 +346,6 @@ def user_info():
     email = request.form.get('email')
     empresa = request.form.get('empresa')
     cnpj = request.form.get('cnpj', '')
-
-    # cookies_accepted = request.get('cookiesAcepted')
-    # print(cookies_accepted)
 
     uuid_hash = hashlib.sha1(str(uuid.uuid4()).encode()).hexdigest()[:5]
     user_id = uuid_hash
