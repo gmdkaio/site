@@ -15,7 +15,8 @@
                     <div class="col">
                         <label for="nome" class="form-label">Nome </label>
                         <input type="text" class="form-control form-control-lg" id="nome" name="nome"
-                            placeholder="Insira seu nome" minlength="4" value="{{ request.cookies.get('nome', '') }}" required>
+                            placeholder="Insira seu nome" minlength="4" value="{{ request.cookies.get('nome', '') }}"
+                            required>
                     </div>
                 </div>
 
@@ -23,7 +24,8 @@
                     <div class="col-md-6 col-sm-12">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control form-control-lg" id="email" name="email"
-                            placeholder="Insira seu e-mail" value="{{ request.cookies.get('email', '') }}" required autocomplete="on">
+                            placeholder="Insira seu e-mail" value="{{ request.cookies.get('email', '') }}" required
+                            autocomplete="on">
                     </div>
 
                     <div class="col-md-6 col-sm-12">
@@ -45,15 +47,16 @@
                     <div class="col">
                         <label for="endereco" class="form-label ">Endereço da Empresa</label>
                         <input type="text" class="form-control form-control-lg" name="endereco" id="endereco"
-                            placeholder="Insira o endereço da sua empresa" value="{{ request.cookies.get('endereco', '') }}" required>
+                            placeholder="Insira o endereço da sua empresa"
+                            value="{{ request.cookies.get('endereco', '') }}" required>
                     </div>
                 </div>
 
                 <div class="row md-center mt-2">
                     <div class="col-md-6 col-sm-12">
-                        <label for="end-numero" class="form-label ">Numero</label>
-                        <input type="text" class="form-control form-control-lg" name="end-numero" id="end-numero"
-                            placeholder="Número" value="{{ request.cookies.get('end-numero', '') }}" required>
+                        <label for="CEP" class="form-label">CEP</label>
+                        <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
+                            placeholder="00000-000" value="{{ request.cookies.get('CEP', '') }}" required>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="cidade" class="form-label">Cidade</label>
@@ -64,9 +67,9 @@
 
                 <div class="row md-center mt-2">
                     <div class="col-md-4 col-sm-12">
-                        <label for="CEP" class="form-label">CEP</label>
-                        <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
-                            placeholder="00000-000" value="{{ request.cookies.get('CEP', '') }}" required>
+                        <label for="end-numero" class="form-label ">Numero</label>
+                        <input type="text" class="form-control form-control-lg" name="end-numero" id="end-numero"
+                            placeholder="Número" value="{{ request.cookies.get('end-numero', '') }}" required>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="estado" class="form-label ">Estado</label>
@@ -106,7 +109,7 @@
                     <div class="col-md-4 col-sm-12">
                         <label for="cidade" class="form-label">País</label>
                         <input type="text" class="form-control form-control-lg" name="pais" id="pais" placeholder="Pais"
-                        value="{{ request.cookies.get('pais', '') }}" required>
+                            value="{{ request.cookies.get('pais', '') }}" required>
                     </div>
 
                 </div>
@@ -339,7 +342,7 @@
         if (parts.length === 2) {
             return parts.pop().split(';').shift();
         }
-        return null; 
+        return null;
     }
 
 
@@ -379,6 +382,27 @@
         });
     }
 
+
+    function preencherEndereco() {
+        var cep = $('#CEP').val().replace(/\D/g, '');
+        if (cep.length === 8) {
+            $.getJSON('https://viacep.com.br/ws/' + cep + '/json/', function (data) {
+                if (!("erro" in data)) {
+                    $('#endereco').val(data.logradouro);
+                    $('#end-numero').val('');
+                    $('#cidade').val(data.localidade);
+                    $('#estado').val(data.uf);
+                    $('#pais').val('Brasil');
+                } else {
+                    alert('CEP não encontrado.');
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        $('#CEP').on('input', preencherEndereco);
+    });
 
     filterBtn.addEventListener("click", function () {
         submitBtn.click();

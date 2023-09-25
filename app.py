@@ -6,9 +6,10 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
 from email_sender import send_email_with_attachment, send_email_with_feedback
-import uuid
+import requests
 import hashlib
 import secrets
+import uuid
 import json
 import os
 import io
@@ -72,6 +73,23 @@ def maquina_page(maquina_pagina):
     else:
         return render_template('404.html'), 404
 
+
+@app.route('/completar_endereco', methods=['GET'])
+def completar_endereco():
+    cep = request.args.get('cep')
+    
+    if not cep:
+        return jsonify({'error': 'Por favor, forneça um CEP'}), 400
+    
+    # Fazendo uma solicitação GET à API ViaCEP
+    url = f'https://viacep.com.br/ws/{cep}/json/'
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        data = response.json()
+        return jsonify(data)
+    else:
+        return jsonify({'error': 'CEP não encontrado'}), 404
 
 @app.route('/product-info', methods=['POST'])
 def product_info():
