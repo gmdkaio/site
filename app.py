@@ -1,18 +1,15 @@
 from flask import Flask, render_template, request, jsonify, session, make_response
-from info.maquinas import Maquinas
+from email_sender import send_email_with_attachment, send_email_with_feedback
 from propostas import create_table_proposta, insert_proposta
+import requests, hashlib, secrets, uuid, json, os, io, re
 from user_info import create_table_user, insert_info
+from reportlab.lib.utils import ImageReader
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-from reportlab.lib.utils import ImageReader
-from email_sender import send_email_with_attachment, send_email_with_feedback
-import requests
-import hashlib
-import secrets
-import uuid
-import json
-import os
-import io
+from info.maquinas import Maquinas
+from validate_docbr import CNPJ
+
+
 
 secret_key = secrets.token_hex(16)
 
