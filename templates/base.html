@@ -59,60 +59,57 @@
   </nav>
    
     {% block body %}{% endblock %}
-    <div class="footer bg-dark text-white">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2" style="margin-top: 38px;">
-              <ul class="list-unstyled">
-                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Home</a></li>
-                <li><a href="#"  class="single-line"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Profills Responde</a></li>
-                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Clientes</a></li>
-                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Projetos</a></li>
-                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Loja</a></li>
-                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Blog</a></li>
-                <li><a href="#"><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i> Contatos</a></li>
-              </ul>
+    <div style="background-color:#333333">
+      <div class="container py-5">
+        <div class="row text-white">
+          <div class="col-12 col-lg-2 text-left text-lg-left my-3 my-lg-0">
+            <a href="<? echo PATH ?>" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Home</a>
+            <a href="<? echo PATH ?>profills_responde.php" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Profills responde</a>
+            <a href="<? echo PATH ?>clientes.php" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Clientes</a>
+            <a href="<? echo PATH ?>projetos.php" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Projetos</a>
+            <a href="https://profills.lojaintegrada.com.br/" target="_blank" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Loja</a>
+            <a href="<? echo PATH ?>blog.php" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Blog</a>
+            <a href="<? echo PATH ?>contato.php" class="text-white d-block text-decoration-none"><i class="fas fa-angle-right fa-sm mr-2"></i> Contato</a>
+          </div>
+          <div class="col-12 col-lg-4 text-left my-3 my-lg-0">
+            <div>
+              <div class="lead">Vendas</div>
+              <i class="fas fa-envelope mr-2"></i> comercial@profillsdobrasil.com.br<br>
+              <i class="fas fa-phone mr-2"></i> +55 41 99785-1998<br>
+            </div>          
+            <div class="mt-4">
+              <div class="lead">Peças</div>
+              <i class="fas fa-envelope mr-2"></i> comercial@profillsdobrasil.com.br<br>
+              <i class="fas fa-phone mr-2"></i> +55 41 99785-1998
             </div>
-    
-            <div class="col-md-2" style="margin-left: 30px;">
-              <h5>Vendas</h5>
-              <ul class="list-unstyled">
-                <li class="ic-txt">
-                  <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
-                  comercial@profillsdobrasil.com.br
-                </li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i> 
-                  +55 41 3209-4227
-                </li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i> 
-                  +55 41 99785-1998
-                </li>
-              </ul>
-    
-              <h5 class="single-line">Suporte e Assistência Técnica</h5>
-              <ul class="list-unstyled">
-                <li class="ic-txt">
-                  <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
-                  suporte@profillsdobrasil.com.br
-                </li>
-                <li>
-                  <i class="fa fa-phone" aria-hidden="true"></i> 
-                  +55 14 3714-3425
-                </li>
-              </ul>
+            <div class="mt-4">
+              <div class="lead">Suporte e Assistência Técnica</div>
+              <i class="fas fa-envelope mr-2"></i> suporte@profillsdobrasil.com.br<br>
+              <i class="fas fa-phone mr-2"></i> +55 14 3714-3425
             </div>
-    
-            <div class="col-md-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2577899620605!2d-49.268439725666504!3d-25.42964363287552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce46adb52fd23%3A0xfc45682bd3499a57!2sR.%20Mal.%20Deodoro%2C%20717%20-%20Centro%2C%20Curitiba%20-%20PR%2C%2080020-320!5e0!3m2!1sen!2sbr!4v1691166987894!5m2!1sen!2sbr"
-                width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+            <div class="mt-4">
+              <div class="lead">Compras (Fornecedores)</div>
+              <i class="fas fa-envelope mr-2"></i> compras@profillsdobrasil.com.br<br>
+              <i class="fas fa-phone mr-2"></i> +55 41 9769-5013
             </div>
           </div>
+          <div class="col-12 col-lg-6 text-left">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4723.680314592945!2d-49.270430385565454!3d-25.43094164571456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce46adb52fd23%3A0xfc45682bd3499a57!2sR.%20Mal.%20Deodoro%2C%20717%20-%20Centro%2C%20Curitiba%20-%20PR%2C%2080020-320!5e0!3m2!1spt-BR!2sbr!4v1696355065518!5m2!1spt-BR!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
         </div>
-        <div class="footer-bottom">
-           <p>Profills do Brasil - 22.198.308/0001-26 | Todos os direitos reservados - Sistema por gmdkaio@gmail.com</p>
+      </div>
+    </div>
+    <div class="bg-dark py-3">
+      <div class="container text-white-50 text-center d-block d-lg-flex justify-content-between flex-wrap text-center">
+        <div>Profills do Brasil - 22.198.308/0001-26 | Todos os direitos reservados - Sistema por gmdkaio@gmail.com</div>
+        <div class="d-block text-center my-lg-0 my-3"> 
+        <a href="https://www.linkedin.com/company/profillsdobrasil/" target="_blank" class="text-white-50"><i class="fab fa-linkedin mx-2 fa-lg"></i></a>
+          <a href="https://www.facebook.com/profillsbrasil/" target="_blank" class="text-white-50"><i class="fab fa-facebook mx-2 fa-lg"></i></a>
+          <a href="https://www.instagram.com/profillsdobrasil/" target="_blank" class="text-white-50"><i class="fab fa-instagram mx-2 fa-lg"></i></a>
+          <a href="https://www.youtube.com/channel/UCQhaNOzqbkYnZlknSd79zEw" target="_blank" class="text-white-50"><i class="fab fa-youtube ml-2 fa-lg"></i></a>
         </div>
+      </div>
+    </div>
       </div>
 </body>
 </html>

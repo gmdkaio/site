@@ -11,25 +11,32 @@
         <p class="fs-3 fw-bold text-light text-center"> Preencha seus dados para começar ! </p>
         <div class="container-fluid user-form grid gap-3 bg-white ">
             <form class="user-form" id="user-info-form">
-                <div class="row md-center">
-                    <div class="col">
-                        <label for="nome" class="form-label">Nome </label>
+                <div class="row md-center mt-2">
+                    <div class="col-md-6 col-sm-12">
+                        <label for="nome" class="form-label">Nome*</label>
                         <input type="text" class="form-control form-control-lg" id="nome" name="nome"
                             placeholder="Insira seu nome" minlength="4" value="{{ request.cookies.get('nome', '') }}"
                             required>
+                    </div>
+
+                    <div class="col">
+                        <label for="empresa" class="form-label">Nome da Empresa*</label>
+                        <input type="text" class="form-control form-control-lg" name="empresa" id="empresa"
+                            placeholder="Nome da sua empresa" value="{{ request.cookies.get('empresa', '') }}" required>
+
                     </div>
                 </div>
 
                 <div class="row md-center mt-2">
                     <div class="col-md-6 col-sm-12">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label">Email*</label>
                         <input type="email" class="form-control form-control-lg" id="email" name="email"
                             placeholder="Insira seu e-mail" value="{{ request.cookies.get('email', '') }}" required
                             autocomplete="on">
                     </div>
 
                     <div class="col-md-6 col-sm-12">
-                        <label for="celular" class="form-label">Celular</label>
+                        <label for="celular" class="form-label">Celular*</label>
                         <input type="tel" class="form-control form-control-lg" name="celular" id="celular"
                             placeholder="Número de celular" value="{{ request.cookies.get('celular', '') }}" required>
                     </div>
@@ -37,31 +44,33 @@
 
                 <div class="row md-center mt-2">
                     <div class="col">
-                        <label for="empresa" class="form-label">Nome da Empresa</label>
-                        <input type="text" class="form-control form-control-lg" name="empresa" id="empresa"
-                            placeholder="Nome da sua empresa" value="{{ request.cookies.get('empresa', '') }}" required>
+                        <label for="cnpj" class="form-label">CNPJ</label>
+                        <input type="text" class="form-control form-control-lg" name="cnpj" id="cnpj" placeholder="CNPJ"
+                            value="{{ request.cookies.get('cnpj', '') }}">
                     </div>
                 </div>
 
                 <div class="row md-center mt-2">
                     <div class="col">
-                        <label for="endereco" class="form-label ">Endereço da Empresa</label>
-                        <input type="text" class="form-control form-control-lg" name="endereco" id="endereco"
-                            placeholder="Insira o endereço da sua empresa(Opcional)"
-                            value="{{ request.cookies.get('endereco', '') }}">
+                        <label for="CEP" class="form-label">CEP</label>
+                        <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
+                            placeholder="00000-000" value="{{ request.cookies.get('CEP', '') }}">
+
                     </div>
                 </div>
 
                 <div class="row md-center mt-2">
                     <div class="col-md-6 col-sm-12">
-                        <label for="CEP" class="form-label">CEP</label>
-                        <input type="text" class="form-control form-control-lg" name="CEP" id="CEP"
-                            placeholder="00000-000(Opcional)" value="{{ request.cookies.get('CEP', '') }}">
+                        <label for="endereco" class="form-label ">Endereço da Empresa</label>
+                        <input type="text" class="form-control form-control-lg" name="endereco" id="endereco"
+                            placeholder="Insira o endereço da empresa"
+                            value="{{ request.cookies.get('endereco', '') }}">
                     </div>
+
                     <div class="col-md-6 col-sm-12">
                         <label for="cidade" class="form-label">Cidade</label>
                         <input type="text" class="form-control form-control-lg" name="cidade" id="cidade"
-                            placeholder="Cidade(Opcional)" value="{{ request.cookies.get('cidade', '') }}">
+                            placeholder="Cidade" value="{{ request.cookies.get('cidade', '') }}">
                     </div>
                 </div>
 
@@ -69,12 +78,12 @@
                     <div class="col-md-4 col-sm-12">
                         <label for="end-numero" class="form-label ">Numero</label>
                         <input type="text" class="form-control form-control-lg" name="end-numero" id="end-numero"
-                            placeholder="Número(Opcional)" value="{{ request.cookies.get('end-numero', '') }}">
+                            placeholder="Número" value="{{ request.cookies.get('end-numero', '') }}">
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="estado" class="form-label ">Estado</label>
                         <input class="form-control form-control-lg" list="lista-estados" id="estado"
-                            placeholder="Selecionar(Opcional)" value="{{ request.cookies.get('estado', '') }}">
+                            placeholder="Selecionar" value="{{ request.cookies.get('estado', '') }}">
                         <datalist id="lista-estados">
                             <option value="Acre">
                             <option value="Alagoas">
@@ -108,17 +117,10 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="cidade" class="form-label">País</label>
-                        <input type="text" class="form-control form-control-lg" name="pais" id="pais"
-                            placeholder="Pais(Opcional)" value="{{ request.cookies.get('pais', '') }}">
+                        <input type="text" class="form-control form-control-lg" name="pais" id="pais" placeholder="Pais"
+                            value="{{ request.cookies.get('pais', '') }}">
                     </div>
 
-                </div>
-                <div class="row md-center mt-2">
-                    <div class="col">
-                        <label for="cnpj" class="form-label">CNPJ</label>
-                        <input type="text" class="form-control form-control-lg" name="cnpj" id="cnpj"
-                            placeholder="CNPJ(Opcional)" value="{{ request.cookies.get('cnpj', '') }}">
-                    </div>
                 </div>
                 <br>
 
@@ -139,149 +141,56 @@
                                 <h5 class="modal-title" id="termsModalLabel">Termos de privacidade</h5>
                             </div>
                             <div class="modal-body">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna sapien, efficitur
-                                sed nisi vitae, sollicitudin commodo arcu. Maecenas condimentum id magna quis
-                                ullamcorper. Vestibulum lacinia, ante a pharetra porta, eros ipsum porta est, ac
-                                ullamcorper nunc justo sed ex. Cras id ullamcorper dui, in vehicula turpis. Donec lectus
-                                orci, congue congue nibh dignissim, finibus convallis turpis. Interdum et malesuada
-                                fames ac ante ipsum primis in faucibus. In eget scelerisque ante. Vivamus consequat
-                                luctus quam scelerisque malesuada. Mauris laoreet bibendum accumsan. Vivamus varius
-                                lectus in leo aliquet scelerisque. Duis in fringilla erat, sed vehicula est. Aliquam
-                                nisi ex, interdum ac massa nec, vulputate tincidunt velit. Interdum et malesuada fames
-                                ac ante ipsum primis in faucibus. Cras ultrices interdum varius. Maecenas vel iaculis
-                                quam.
+                                Política de Privacidade da Profills
 
-                                Integer scelerisque nisi lectus, at semper tortor tempor sed. Proin accumsan laoreet
-                                viverra. Mauris eros lorem, pellentesque at consectetur in, porta eget magna. In
-                                fringilla rhoncus sem eget suscipit. Pellentesque habitant morbi tristique senectus et
-                                netus et malesuada fames ac turpis egestas. Morbi consequat elit ac nulla laoreet, vitae
-                                semper justo hendrerit. Maecenas in lorem magna. Sed sodales dui augue, a sollicitudin
-                                mauris euismod eget. Proin suscipit convallis augue, tincidunt sagittis ligula porta
-                                nec. Fusce sollicitudin elementum sem eget gravida.
+                                Esta Política de Privacidade descreve como a Profills, localizada em R. Gen. Potiguara,
+                                1428 - Barracão 10 - Novo Mundo, Curitiba - PR, 81050-500, Brasil, coleta, usa e protege
+                                as informações pessoais que você fornece quando utiliza o nosso site.
 
-                                Donec sed eleifend arcu. Nam feugiat faucibus lacus, ac posuere mi molestie at.
-                                Pellentesque tincidunt lectus vitae metus mollis, vel volutpat diam porttitor. Integer
-                                varius vehicula posuere. Donec sem urna, accumsan vel dolor ut, bibendum vestibulum
-                                tellus. Praesent elementum eros sit amet justo scelerisque, elementum hendrerit tortor
-                                dictum. Proin elit odio, egestas non vehicula efficitur, commodo sit amet odio. Cras
-                                viverra lobortis dolor in cursus. Aliquam id arcu in dui pretium ullamcorper.
+                                Informações Coletadas
 
-                                Aliquam ultrices malesuada odio in interdum. Aliquam quis fermentum mauris, ac
-                                ullamcorper libero. Mauris nec ligula blandit, volutpat erat eu, dignissim mauris. Nunc
-                                velit diam, consequat ac maximus eu, pretium nec metus. Vivamus nec nunc pretium,
-                                tincidunt lorem at, malesuada mauris. Donec neque justo, facilisis vel sollicitudin
-                                quis, lobortis ac velit. Praesent dignissim arcu ut velit malesuada, dapibus volutpat
-                                justo lacinia. Sed massa arcu, commodo non arcu a, sagittis sagittis justo. Ut gravida
-                                consectetur tincidunt. Morbi sed odio vel nisl auctor ornare. Donec sodales nibh quis mi
-                                volutpat aliquet. Etiam eget sapien augue. Vivamus vulputate ut ante ornare semper. Sed
-                                maximus at lectus lobortis auctor. In hac habitasse platea dictumst.
+                                Coletamos as informações que você preenche em nosso formulário no site, que inclui o seu
+                                nome, número de celular e endereço de e-mail.
 
-                                Quisque ornare in metus at sodales. Fusce imperdiet neque lorem, sit amet varius lectus
-                                pellentesque non. Aenean tempus blandit ante non laoreet. Nulla non risus ornare,
-                                sodales turpis nec, viverra leo. Maecenas ornare venenatis tempus. Phasellus tempor
-                                velit nisl, id elementum ligula tristique sit amet. Nam metus sem, luctus in mi eget,
-                                viverra varius justo. Sed dui tortor, eleifend eget faucibus quis, laoreet nec arcu.
-                                Maecenas at neque non velit porta posuere. Sed sodales aliquam imperdiet. Suspendisse
-                                ultricies risus id maximus condimentum. Integer pretium sit amet est mollis commodo.
+                                Finalidade da Coleta
 
-                                Aliquam elit sem, bibendum eu accumsan eu, blandit id tortor. Integer auctor diam lacus,
-                                non bibendum tellus vehicula id. Duis et dui ut velit condimentum suscipit ac vitae
-                                ipsum. Vivamus maximus maximus augue eget imperdiet. Integer cursus luctus sem, in
-                                malesuada tellus convallis sed. Morbi pulvinar sem in odio hendrerit, ut facilisis magna
-                                pharetra. Vivamus sit amet dolor semper, fringilla ex non, malesuada purus. Mauris at
-                                nisi porttitor, tempus ante pretium, hendrerit odio. Fusce aliquam tincidunt mauris,
-                                sollicitudin blandit turpis ullamcorper non.
+                                As informações são coletadas para facilitar o contato entre a Profills e você, o
+                                usuário, a fim de atender às suas necessidades e oferecer um serviço personalizado.
 
-                                Morbi ornare tortor nec nisi scelerisque, interdum vulputate felis dapibus. Nulla
-                                tincidunt finibus turpis, sollicitudin eleifend nunc hendrerit at. Maecenas auctor erat
-                                quis porttitor tristique. Nulla aliquam at nulla a dictum. Cras purus velit, feugiat sed
-                                vestibulum vel, molestie non nunc. Phasellus fringilla id lacus a facilisis. Aliquam
-                                cursus tincidunt augue vel scelerisque. Aenean leo tortor, porta vitae odio ut,
-                                facilisis rutrum nunc. Phasellus interdum nulla nisi, in viverra quam venenatis eu.
-                                Aliquam imperdiet dapibus rhoncus. Duis congue vestibulum maximus. Sed quis maximus
-                                tortor. Sed pretium tristique est ac finibus.
+                                Compartilhamento com Terceiros
 
-                                Fusce tincidunt purus at blandit pulvinar. Vestibulum consectetur, quam nec interdum
-                                efficitur, urna ante lacinia nunc, in ultricies felis augue et ex. Nulla eu vestibulum
-                                arcu, lacinia pellentesque magna. Pellentesque lacinia, lacus sollicitudin tempus
-                                tristique, nisl metus sollicitudin eros, ac vestibulum ante nisi non est. In cursus quam
-                                nec hendrerit lobortis. Vivamus et nulla ut ligula efficitur sodales. Integer ac rutrum
-                                risus, ac consequat augue. Quisque vel diam ac turpis aliquam finibus quis quis leo.
-                                Mauris dapibus cursus sodales. Duis quam massa, porta eget velit sit amet, blandit
-                                posuere tellus. Phasellus posuere nunc vel varius egestas.
+                                Não compartilhamos suas informações pessoais com terceiros. As informações fornecidas
+                                são estritamente utilizadas pela Profills para fins internos.
 
-                                Fusce pulvinar ipsum ut magna laoreet, in gravida mauris sollicitudin. Mauris hendrerit
-                                feugiat efficitur. Mauris et viverra dolor, eget venenatis libero. Mauris elementum
-                                pretium lacus id pellentesque. Sed vitae ultrices eros. Nam iaculis vehicula metus vitae
-                                euismod. Phasellus sit amet semper metus, vel sollicitudin leo. Morbi a porta arcu.
-                                Integer non molestie arcu, id molestie ante. Suspendisse egestas ut diam convallis
-                                laoreet. Suspendisse eu volutpat leo.
+                                Cookies
 
-                                Pellentesque sem erat, bibendum id eros vel, porta porta felis. Proin erat libero,
-                                interdum ac eleifend sed, viverra eget arcu. Sed eu cursus orci. Sed blandit venenatis
-                                tortor eget varius. Etiam pretium nec nisi id facilisis. Suspendisse ultrices metus vel
-                                arcu porttitor consequat. Donec eu sapien quam. Aliquam cursus diam id nibh rutrum, eu
-                                laoreet nisl auctor. Mauris hendrerit id dui congue finibus. Etiam sit amet fringilla
-                                nunc. Aliquam cursus rhoncus purus, id aliquam dolor hendrerit nec. In imperdiet
-                                pellentesque lorem, eu ultrices urna feugiat ac.
+                                Utilizamos cookies para otimizar a experiência do usuário em nosso site. Os cookies são
+                                pequenos arquivos de texto que são armazenados no seu dispositivo quando você visita o
+                                nosso site. Eles nos ajudam a entender como você utiliza o nosso site e a melhorar a sua
+                                experiência de navegação. Você pode gerenciar as configurações de cookies em seu
+                                navegador.
 
-                                Etiam maximus dignissim dui, nec auctor turpis suscipit vel. Curabitur dignissim
-                                vestibulum facilisis. Donec est ante, blandit faucibus porta sed, elementum eu justo.
-                                Sed cursus nisi nec nisi sollicitudin, quis rutrum nisi tincidunt. Aenean euismod
-                                imperdiet lectus, id tincidunt nulla aliquam sed. In hac habitasse platea dictumst.
-                                Maecenas porta dignissim lorem et porta. Maecenas et leo nec ante varius lacinia.
-                                Maecenas mollis, urna eget condimentum dapibus, ex ante feugiat diam, quis dapibus
-                                ligula ex eu lacus. Suspendisse ac nibh in nulla dictum scelerisque nec eget diam. Nulla
-                                nec euismod tellus. Aliquam molestie lacus quis turpis laoreet commodo.
+                                Proteção de Dados
 
-                                Sed vitae elit faucibus, imperdiet leo ac, volutpat mi. Maecenas posuere odio in diam
-                                ultrices tincidunt. Vivamus mattis aliquam tellus, vel viverra dolor auctor vehicula.
-                                Aenean ex diam, semper a imperdiet sed, mollis eget purus. Mauris ac libero enim.
-                                Maecenas interdum et tortor at ullamcorper. Nam vel neque tempor, finibus diam non,
-                                gravida eros. Duis pharetra a nibh vitae eleifend. Vestibulum tristique rutrum varius.
-                                Nunc fermentum a enim non efficitur. Etiam elit magna, bibendum at purus sed,
-                                pellentesque fermentum tortor. Mauris vitae pulvinar purus. Etiam condimentum hendrerit
-                                posuere. Cras eget aliquam leo. Integer eu augue et turpis malesuada gravida.
+                                Levamos a segurança dos seus dados pessoais a sério. Todas as informações que você
+                                fornece são tratadas como confidenciais e são protegidas contra o acesso não autorizado.
 
-                                Morbi eu varius mauris. Curabitur vel leo malesuada, faucibus nisi non, interdum metus.
-                                Donec consectetur velit sit amet egestas porttitor. Ut tempor, quam in ultricies
-                                blandit, purus lorem pharetra erat, at viverra dolor dui sed leo. Phasellus rutrum lorem
-                                eu velit pharetra, vitae semper quam ornare. Morbi semper ipsum sed diam lobortis
-                                ultricies. Ut condimentum pulvinar turpis ut lobortis. Etiam at dapibus urna. Praesent
-                                eu cursus ligula, suscipit consectetur nisi. Suspendisse dolor arcu, finibus a velit ut,
-                                sagittis commodo nisi. Sed molestie libero eget augue tempus, sit amet egestas risus
-                                aliquam. Mauris metus arcu, aliquam id lacinia nec, consequat eget nunc. Aenean
-                                fermentum justo quis tortor tincidunt eleifend. Nulla feugiat sapien ipsum, et auctor
-                                quam accumsan et.
+                                Acesso, Correção e Exclusão de Informações
 
-                                Suspendisse aliquam augue ut malesuada efficitur. Etiam sed pulvinar sapien. Phasellus
-                                arcu libero, accumsan dictum tortor id, sodales volutpat felis. Suspendisse tristique
-                                libero eros, vel gravida augue imperdiet nec. Donec ut justo vitae dolor vulputate
-                                rhoncus. Quisque vitae dignissim tellus. Morbi in metus tortor. Lorem ipsum dolor sit
-                                amet, consectetur adipiscing elit. In aliquam vulputate lacinia. Phasellus molestie arcu
-                                vitae arcu commodo, et elementum justo sagittis. Sed rhoncus posuere enim quis euismod.
-                                Sed ac est in est sollicitudin ultricies.
+                                Se você desejar acessar, corrigir ou excluir as informações pessoais que coletamos,
+                                entre em contato conosco pelo e-mail gmdkaio@gmail.com, e teremos o prazer de ajudar.
 
-                                Praesent sollicitudin sit amet arcu eget rutrum. Maecenas nec iaculis ipsum. Ut vel nisl
-                                vitae magna hendrerit lobortis id sit amet libero. Ut volutpat ultricies nunc, quis
-                                sollicitudin ipsum auctor id. Ut sed tortor mi. Duis quis imperdiet sapien. Phasellus
-                                vehicula tortor vitae ultricies ultricies. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
+                                Contato
 
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                himenaeos. Nullam pharetra ornare erat sed tempus. Phasellus pretium neque nisl, vel
-                                auctor nulla rhoncus vel. Mauris eu malesuada felis. Nulla vel metus convallis, gravida
-                                ante eget, pretium nisl. Maecenas ac dictum orci. Phasellus lacus ligula, tempus ac
-                                faucibus viverra, posuere et velit. Ut id pharetra felis. Donec urna erat, euismod eget
-                                dolor sed, aliquet scelerisque arcu. Sed massa augue, euismod in sapien sit amet,
-                                ultricies porta urna. Maecenas pulvinar porttitor nisi, nec cursus erat blandit eget.
-                                Nullam tincidunt urna tellus, non auctor quam tincidunt at. Duis sodales in nibh sit
-                                amet fringilla. Mauris faucibus feugiat cursus. Ut sagittis lacus elit, non laoreet
-                                sapien facilisis vitae. Etiam aliquet vel augue non mollis.
+                                Se você tiver alguma dúvida ou preocupação relacionada à sua privacidade ou a esta
+                                política, sinta-se à vontade para entrar em contato conosco pelo e-mail
+                                gmdkaio@gmail.com.
 
-                                Phasellus pretium quis sapien a posuere. Fusce vitae aliquam tortor, eu luctus nunc.
-                                Curabitur id gravida est, non euismod mauris. Duis fermentum, nulla id ullamcorper
-                                aliquet, turpis est malesuada felis, a lacinia dui justo nec lacus. Integer.
+                                Esta política de privacidade está sujeita a alterações, portanto, recomendamos que você
+                                a revise periodicamente para se manter atualizado sobre como suas informações são
+                                tratadas pela Profills.
+
+                                Última atualização: 02/10/2023
                             </div>
                             <div class="modal-footer">
                             </div>
