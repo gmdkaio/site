@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="/static/css/main.css">
+<link rel="stylesheet" href="/montesuamaquina/static/css/main.css">
 
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid topo" style="background-image: url('/static/images/imagem-topo-site.jpg'); height: auto;">
+<div class="container-fluid topo" style="background-image: url('/montesuamaquina/static/images/imagem-topo-site.jpg'); height: auto;">
     <section class="container-fluid " id="dados">
         <p class="fs-3 fw-bold text-light text-center"> Preencha seus dados para começar ! </p>
         <div class="container-fluid user-form grid gap-3 bg-white ">
@@ -125,7 +125,7 @@
                 <br>
 
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="privacyCheckbox">
+                    <input type="checkbox" class="form-check-input" id="privacyCheckbox" required>
                     <label class="form-check-label" for="privacyCheckbox">
                         Eu concordo com os <a href="#" id="openTermsLink">termos de privacidade</a>
                     </label>
@@ -239,14 +239,14 @@
                     <div class="row py-3   border-bottom border-1 border-secondary">
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn " value="1">
-                                <img src="../static/images/embalagens/gabletop.png" alt="Gable Top">
+                                <img src="/montesuamaquina/static/images/embalagens/gabletop.png" alt="Gable Top">
                                 <p><span>Cartonada</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn " value="2">
-                                <img src="../static/images/embalagens/pouch.png" class=" btn-itens"
+                                <img src="/montesuamaquina/static/images/embalagens/pouch.png" class=" btn-itens"
                                     alt="Stand-Up Pouch">
                                 <p><span>Pouch</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
@@ -254,42 +254,42 @@
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="3">
-                                <img src="../static/images/embalagens/especiais.png" alt="Especiais">
+                                <img src="/montesuamaquina/static/images/embalagens/especiais.png" alt="Especiais">
                                 <p><span>Especiais</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="4">
-                                <img src="../static/images/embalagens/sache.png" alt="Sachê">
+                                <img src="/montesuamaquina/static/images/embalagens/sache.png" alt="Sachê">
                                 <p><span>Sachê</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="5">
-                                <img src="../static/images/embalagens/garrafa.png" alt="Garrafa">
+                                <img src="/montesuamaquina/static/images/embalagens/garrafa.png" alt="Garrafa">
                                 <p><span>Garrafa</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="6">
-                                <img src="../static/images/embalagens/frasco.png" alt="Frasco">
+                                <img src="/montesuamaquina/static/images/embalagens/frasco.png" alt="Frasco">
                                 <p><span>Frasco</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="7">
-                                <img src="../static/images/embalagens/fardo.png" alt="Fardo">
+                                <img src="/montesuamaquina/static/images/embalagens/fardo.png" alt="Fardo">
                                 <p><span>Fardo</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 text-center">
                             <button type="button" class="embalagem-btn" value="8">
-                                <img src="../static/images/embalagens/pote.png" alt="Pote">
+                                <img src="/montesuamaquina/static/images/embalagens/pote.png" alt="Pote">
                                 <p><span>Pote</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
@@ -305,21 +305,21 @@
                     <div class="row py-3  border-bottom border-1 border-secondary">
                         <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="1">
-                                <img src="../static/images/produtos/liquido-fino.png" class="circle" alt="Líquido fino">
+                                <img src="/montesuamaquina/static/images/produtos/liquido-fino.png" class="circle" alt="Líquido fino">
                                 <p><span>Líquidos</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="2">
-                                <img src="../static/images/produtos/liquido-medio.png" alt="Líquido médio">
+                                <img src="/montesuamaquina/static/images/produtos/liquido-medio.png" alt="Líquido médio">
                                 <p><span>Viscoso</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="3">
-                                <img src="../static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso">
+                                <img src="/montesuamaquina/static/images/produtos/liquido-viscoso.png" alt="Líquido viscoso">
                                 <p><span>Pastoso</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
@@ -327,21 +327,21 @@
 
                         <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="4">
-                                <img src="../static/images/produtos/pos.png" alt="Pó">
+                                <img src="/montesuamaquina/static/images/produtos/pos.png" alt="Pó">
                                 <p><span>Pó</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="5">
-                                <img src="../static/images/produtos/granular.png" alt="Granular">
+                                <img src="/montesuamaquina/static/images/produtos/granular.png" alt="Granular">
                                 <p><span>Granular</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
                         </div>
                         <div class="col-6 col-sm-4 text-center">
                             <button type="button" class="produto-btn" value="6">
-                                <img src="../static/images/produtos/solidos.png" alt="Sólido">
+                                <img src="/montesuamaquina/static/images/produtos/solidos.png" alt="Sólido">
                                 <p><span>Sólido</span></p>
                                 <i class="fa-solid fa-circle-check item-incluido" style="display: none"></i>
                             </button>
@@ -563,12 +563,17 @@
             celular: $('#celular').val(),
             email: $('#email').val(),
             empresa: $('#empresa').val(),
+            cep: $('#CEP').val,
+            numero: $('#end-numero').val,
+            cidade: $('#cidade').val,
+            estado: $('#estado').val,
+            pais: $('#pais').val,
             cnpj: cnpj // Use o valor do CNPJ validado
         };
 
         $.ajax({
             type: 'POST',
-            url: '/user-info',
+            url: '/montesuamaquina/user-info',
             data: formData,
             success: function (response) {
                 console.log('User information submitted successfully.');
@@ -606,7 +611,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/product-info',
+            url: '/montesuamaquina/product-info',
             data: formData,
             success: function (response) {
                 console.log('Product information submitted successfully.');
@@ -669,7 +674,7 @@
 					</div>
 					<p class="description">${machine.descricao}</p>
                     <p class="more">
-						<a href='/maquinas/${machine.pagina}'>SELECIONAR</a><i class="fa fa-angle-right" aria-hidden="true"></i>   
+						<a href='/montesuamaquina/maquinas/${machine.pagina}'>SELECIONAR</a><i class="fa fa-angle-right" aria-hidden="true"></i>   
 					</p>
 			    </div>
             </div>
@@ -677,7 +682,7 @@
     }
 
     function redirectToMachinePage(pagina) {
-        window.location.href = `/maquinas/${pagina}`;
+        window.location.href = `/montesuamaquina/maquinas/${pagina}`;
     }
 
 
@@ -707,7 +712,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/filter',
+            url: '/montesuamaquina/filter',
             data: formData,
             success: function (response) {
                 var result = response.result;

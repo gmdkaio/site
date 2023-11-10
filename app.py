@@ -1,5 +1,5 @@
+from email_sender import send_email_with_attachment, send_email_with_feedback, send_email_to_user
 from flask import Flask, render_template, request, jsonify, session, make_response
-from email_sender import send_email_with_attachment, send_email_with_feedback
 from propostas import create_table_proposta, insert_proposta
 import requests, hashlib, secrets, uuid, json, os, io, re
 from user_info import create_table_user, insert_info
@@ -123,9 +123,8 @@ def proposta():
         print('unidade: ', unidade_peso)
         print('descricao: ', descricao)
 
-        user_id = session.get('user_id', None)
 
-        insert_proposta(app, user_id, versao, accessorios,
+        insert_proposta(app, versao, accessorios,
                         produtos, embalagens, data, descricao, peso, unidade_peso)
         
         session['versao'] = versao
@@ -252,7 +251,6 @@ def proposta():
     c.drawString(x=mp(890), y=mp(1830), text='Produto: ' + str(produtos))
     c.drawString(x=mp(890), y=mp(1780), text='Embalagem: ' + str(embalagens))
     c.drawString(x=mp(890), y=mp(1730), text='Data da proposta: ' + str(data))
-    c.drawString(x=mp(890), y=mp(1680), text='Id da proposta: ' + str(user_id))
 
     #acessories info
     axl, ayl = mp(1130), mp(1630) # Upper right
@@ -361,13 +359,14 @@ def user_info():
     email = request.form.get('email')
     empresa = request.form.get('empresa')
     cnpj = request.form.get('cnpj', '')
+    cep = request.form.get('cep', '')
+    numero = request.form.get('numero', '')
+    cidade = request.form.get('cidade', '')
+    estado = request.form.get('estado', '')
+    pais = request.form.get('pais', '')
 
-    uuid_hash = hashlib.sha1(str(uuid.uuid4()).encode()).hexdigest()[:5]
-    user_id = uuid_hash
+    insert_info(app, nome, endereco, celular, email, empresa, cnpj, cep, numero, cidade, estado, pais)
 
-    insert_info(app, user_id, nome, endereco, celular, email, empresa, cnpj)
-
-    session['user_id'] = user_id
     session['nome'] = nome
     session['endereco'] = endereco
     session['celular'] = celular
@@ -394,7 +393,6 @@ def download_pdf():
     email = session.get('email', None)
     empresa = session.get('empresa', None)
     cnpj = session.get('cnpj', None)
-    user_id = session.get('user_id', None)
     versao = session.get('versao', None)
     accessorios = session.get('accessorios', None)
     produtos = session.get('produto_pdf', None)
@@ -502,7 +500,6 @@ def download_pdf():
     c.drawString(x=mp(890), y=mp(1830), text='Produto: ' + str(produtos))
     c.drawString(x=mp(890), y=mp(1780), text='Embalagem: ' + str(embalagens))
     c.drawString(x=mp(890), y=mp(1730), text='Data da proposta: ' + str(data))
-    c.drawString(x=mp(890), y=mp(1680), text='Id da proposta: ' + str(user_id))
 
     #acessories info
     axl, ayl = mp(1130), mp(1630) # Upper right
@@ -608,4 +605,3 @@ if __name__ == '__main__':
     create_table_user(app)
     create_table_proposta(app)
     app.run(debug=True)
-
